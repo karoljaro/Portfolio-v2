@@ -30,35 +30,51 @@
 
         <aside class="rounded-2xl border border-border-strong bg-surface p-7 text-muted">
             <div class="space-y-4.5">
-                <p class="flex items-center text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-                    <span class="relative flex size-3">
-                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
-                    </span>
 
-                    &nbsp;&nbsp;&nbsp;<span>Status</span>
-                </p>
-                <p class="text-sm font-semibold leading-tight text-foreground">Available for new projects</p>
+                <div class="flex items-center gap-3">
+                    <div class="size-6 grid place-items-center">
+                        <span class="relative flex size-3">
+                            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
+                        </span>
+                    </div>
 
-                <div class="h-px bg-muted-foreground"></div>
-
-                <div class="space-y-1">
-                    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-muted">Experience</p>
-                    <p class="text-sm font-semibold leading-tight">Commercial experience</p>
+                    <div class="space-y-1">
+                        <p class="flex items-center text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                            Status
+                        </p>
+                        <p class="text-sm font-semibold leading-tight text-foreground">Available for new projects</p>
+                    </div>
                 </div>
 
                 <div class="h-px bg-muted-foreground"></div>
 
-                <div class="space-y-1">
-                    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-muted">Location</p>
-                    <p class="text-sm font-semibold leading-tight">Poland</p>
+                <div class="flex items-center gap-3">
+                    <LucideBriefcaseBusiness />
+                    <div class="space-y-1">
+                        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-muted">Experience</p>
+                        <p class="text-sm font-semibold leading-tight">Commercial experience</p>
+                    </div>
                 </div>
 
                 <div class="h-px bg-muted-foreground"></div>
 
-                <div class="space-y-1">
-                    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-muted">Main stack</p>
-                    <p class="text-sm font-medium leading-6 text-muted">Typescript / Python / Nuxt.js / Next.js / Nest.js</p>
+                <div class="flex items-center gap-3">
+                    <LucideMapPin />
+                    <div class="space-y-1">
+                        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-muted">Location</p>
+                        <p class="text-sm font-semibold leading-tight">Poland</p>
+                    </div>
+                </div>
+
+                <div class="h-px bg-muted-foreground"></div>
+
+                <div class="flex items-center gap-3">
+                    <LucideCode />
+                    <div class="space-y-1">
+                        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-muted">Main stack</p>
+                        <p class="text-sm font-medium leading-6 text-muted">Typescript / Python / Nuxt.js / Next.js / Nest.js</p>
+                    </div>
                 </div>
             </div>
         </aside>
