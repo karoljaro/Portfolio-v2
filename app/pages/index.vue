@@ -1,5 +1,8 @@
 <script setup lang="ts">
+	import ContactSection from '~/components/contact/ContactSection.vue';
+	import ExpertiseSection from '~/components/expertise/ExpertiseSection.vue';
 	import PseudoTerminal from '~/components/about/PseudoTerminal.vue';
+	import MyProcess from '~/components/process/MyProcess.vue';
 	import SelectedProjects from '~/components/projects/SelectedProjects.vue';
 </script>
 
@@ -23,9 +26,24 @@
 				useful and reliable.
 			</PseudoTerminal>
 		</div>
-		<div class="space-y-4">
+		<div
+			id="projects"
+			class="space-y-4"
+		>
 			<SectionLabel>selected_projects</SectionLabel>
 			<SelectedProjects />
+		</div>
+		<div class="space-y-4">
+			<SectionLabel>expertise</SectionLabel>
+			<ExpertiseSection />
+		</div>
+		<div class="space-y-4">
+			<SectionLabel>my_process</SectionLabel>
+			<MyProcess />
+		</div>
+		<div class="space-y-4">
+			<SectionLabel>contact.sh</SectionLabel>
+			<ContactSection />
 		</div>
 	</SectionBorder>
 </template>
