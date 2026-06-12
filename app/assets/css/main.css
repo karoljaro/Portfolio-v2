@@ -1,24 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #020a14;
-  --color-background-soft: #040e1b;
+  --color-background: #020A14;
+  --color-header: #030D19;
   --color-surface: #061222;
-  --color-surface-elevated: #08172a;
-  --color-border: #1f3149;
-  --color-border-strong: #2e4665;
-
-  --color-foreground: #eff6ff;
-  --color-muted-foreground: #94a3b8;
-  --color-subtle-foreground: #64748b;
-
-  --color-primary: #22d3ee;
-  --color-primary-hover: #67e8f9;
-  --color-primary-soft: #0e7490;
-
-  --color-success: #2dd4bf;
-  --color-warning: #facc15;
-  --color-danger: #fb7185;
+  --color-surface-elevated: #08172A;
+  --color-surface-tag: #071426;
+  --color-border: #1F3149;
+  --color-border-strong: #2E4665;
+  --color-foreground: #EFF6FF;
+  --color-muted-foreground: #94A3B8;
+  --color-subtle-foreground: #64748B;
+  --color-primary: #22D3EE;
+  --color-success: #2DD4BF;
 }
 
 @layer base {
@@ -30,9 +24,9 @@
     @apply bg-background text-foreground antialiased;
   }
 
-  ::selection {
-    @apply bg-primary-soft text-foreground;
-  }
+  /* ::selection {
+    @apply text-foreground;
+  } */
 }
 
 @utility text-muted {
