@@ -1,5 +1,5 @@
 <template>
-    <section class="grid gap-6 pt-9.5 pb-2 lg:grid-cols-[minmax(0,1fr)_460px] lg:items-stretch">
+    <section class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_460px] lg:items-stretch">
         <div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
             <div class="flex min-h-12 items-center justify-between gap-4 border-b border-border bg-background-secondary px-4">
                 <div class="flex items-center gap-2">
