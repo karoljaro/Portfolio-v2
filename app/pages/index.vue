@@ -21,11 +21,17 @@
 			<SectionLabel>selected_projects</SectionLabel>
 			<SelectedProjects />
 		</div>
-		<div class="space-y-4">
+		<div
+			id="expertise"
+			class="space-y-4"
+		>
 			<SectionLabel>expertise</SectionLabel>
 			<ExpertiseSection />
 		</div>
-		<div class="space-y-4">
+		<div
+			id="process"
+			class="space-y-4"
+		>
 			<SectionLabel>my_process</SectionLabel>
 			<MyProcess />
 		</div>
