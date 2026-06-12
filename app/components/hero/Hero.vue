@@ -1,5 +1,10 @@
 <template>
-    <section class="grid gap-10 pt-9.5 pb-2 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:justify-between">
+    <section class="relative isolate grid gap-10 pt-9.5 pb-2 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:justify-between">
+        <div
+            aria-hidden="true"
+            class="pointer-events-none absolute -left-24 top-4 -z-10 h-72 w-72 rounded-full bg-primary/20 blur-[120px] sm:-left-32 sm:h-96 sm:w-96"
+        ></div>
+
         <div class="max-w-3xl">
             <div class="flex flex-col text-5xl font-semibold leading-none tracking-normal sm:text-6xl lg:text-7xl">
                 <span>Karol Jaroń</span>
