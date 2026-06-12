@@ -1,0 +1,100 @@
+<script setup lang="ts">
+const profileFacts = [
+    { label: 'role', value: 'Full-Stack Web Developer' },
+    { label: 'base', value: 'Poland / remote' },
+    { label: 'focus', value: 'practical web software' },
+];
+
+const stackItems = ['TypeScript', 'Nuxt', 'Nest.js', 'PostgreSQL', 'Python', 'Docker'];
+</script>
+
+<template>
+    <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
+            <div class="flex min-h-12 items-center justify-between gap-4 border-b border-border bg-background-secondary px-4">
+                <div class="flex items-center gap-2">
+                    <span class="size-2.5 rounded-full bg-primary"></span>
+                    <span class="size-2.5 rounded-full bg-muted-foreground"></span>
+                    <span class="size-2.5 rounded-full bg-border-strong"></span>
+                    <span class="ml-2 font-mono text-xs text-muted">about.md</span>
+                </div>
+                <span class="hidden font-mono text-xs text-subtle-foreground sm:inline">mode: readable</span>
+            </div>
+
+            <div class="grid lg:grid-cols-[148px_minmax(0,1fr)]">
+                <aside class="border-b border-border bg-background-secondary/60 p-4 lg:border-b-0 lg:border-r">
+                    <div class="space-y-4">
+                        <div class="grid size-12 place-items-center rounded-lg border border-border bg-surface text-primary">
+                            <LucideTerminal class="size-5" />
+                        </div>
+
+                        <div class="space-y-2 font-mono text-xs">
+                            <p class="text-primary">karol.profile</p>
+                            <p class="text-muted">status: active</p>
+                            <p class="text-muted">type: builder</p>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="space-y-5 p-4 sm:p-5">
+                    <div class="space-y-3">
+                        <p class="font-mono text-xs text-primary">$ cat about.md</p>
+                        <div class="space-y-4 text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                            <p>
+                                I'm Karol, a Full-Stack Web Developer from Poland with commercial experience in building web applications, backend APIs and automation tools.
+                            </p>
+                            <p>
+                                I work across frontend implementation, API design, database models, workflow automation and deployment. My focus is software that is maintainable, useful and reliable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-2 sm:grid-cols-3">
+                        <div
+                            v-for="fact in profileFacts"
+                            :key="fact.label"
+                            class="rounded-lg border border-border bg-background-secondary px-3 py-2.5"
+                        >
+                            <p class="font-mono text-xs text-primary">{{ fact.label }}</p>
+                            <p class="mt-1 text-sm font-medium leading-5 text-foreground">{{ fact.value }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="rounded-xl border border-border-strong bg-surface p-4 sm:p-5">
+            <div class="flex h-full flex-col justify-between gap-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary">
+                            <LucideBlocks class="size-5" />
+                        </div>
+                        <span class="rounded-full border border-border bg-surface-tag px-2.5 py-1 font-mono text-xs text-muted">
+                            stack
+                        </span>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-semibold leading-tight text-foreground">
+                            What I usually connect
+                        </h3>
+                        <p class="text-sm leading-6 text-muted">
+                            Interfaces, services, data and deployment paths into one working product flow.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <span
+                        v-for="item in stackItems"
+                        :key="item"
+                        class="rounded-md border border-border bg-surface-tag px-2.5 py-1 text-xs font-medium text-muted"
+                    >
+                        {{ item }}
+                    </span>
+                </div>
+            </div>
+        </aside>
+    </div>
+</template>
