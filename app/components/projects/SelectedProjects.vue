@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ProjectDescription from '~/components/projects/ProjectDescription.vue';
+
 type Project = {
     name: string;
     description: string;
@@ -66,9 +68,7 @@ const projects: Project[] = [
                         <h3 class="text-lg font-semibold leading-tight text-foreground sm:text-xl">
                             {{ project.name }}
                         </h3>
-                        <p class="max-w-3xl overflow-hidden text-sm leading-6 text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:text-base">
-                            {{ project.description }}
-                        </p>
+                        <ProjectDescription :description="project.description" />
                     </div>
 
                     <div class="flex flex-wrap gap-2">
@@ -101,7 +101,7 @@ const projects: Project[] = [
                         rel="noreferrer"
                         class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                     >
-                        <LucideGithub class="size-4" />
+                        <LucideFolderGit2 class="size-4" />
                         GitHub
                     </a>
 
