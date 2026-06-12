@@ -16,5 +16,5 @@ export default defineNuxtConfig({
 	},
 
 	pages: true,
-	modules: ['nuxt-lucide-icons'],
+	modules: ['nuxt-lucide-icons', '@vueuse/nuxt'],
 });
