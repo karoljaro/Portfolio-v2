@@ -14,7 +14,6 @@ const contactLines = computed(() => [
 
 <template>
     <div
-        id="contact"
         class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]"
     >
         <div class="overflow-hidden rounded-xl border border-border-strong bg-surface">

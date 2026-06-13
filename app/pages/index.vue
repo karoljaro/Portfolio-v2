@@ -11,35 +11,60 @@
 <template>
 	<Header />
 	<Hero />
-	<SectionBorder>
-		<div class="space-y-4">
-			<SectionLabel>{{ t('sections.about') }}</SectionLabel>
+	<div class="space-y-12 md:space-y-14.5 lg:space-y-16">
+		<section
+			class="space-y-4 scroll-mt-28"
+			aria-labelledby="about-title"
+		>
+			<SectionLabel
+				id="about-title"
+				index="01"
+			>{{ t('sections.about') }}</SectionLabel>
 			<AboutSection />
-		</div>
-		<div
+		</section>
+		<section
 			id="projects"
-			class="space-y-4"
+			class="space-y-4 scroll-mt-28"
+			aria-labelledby="projects-title"
 		>
-			<SectionLabel>{{ t('sections.projects') }}</SectionLabel>
+			<SectionLabel
+				id="projects-title"
+				index="02"
+			>{{ t('sections.projects') }}</SectionLabel>
 			<SelectedProjects />
-		</div>
-		<div
+		</section>
+		<section
 			id="expertise"
-			class="space-y-4"
+			class="space-y-4 scroll-mt-28"
+			aria-labelledby="expertise-title"
 		>
-			<SectionLabel>{{ t('sections.expertise') }}</SectionLabel>
+			<SectionLabel
+				id="expertise-title"
+				index="03"
+			>{{ t('sections.expertise') }}</SectionLabel>
 			<ExpertiseSection />
-		</div>
-		<div
+		</section>
+		<section
 			id="process"
-			class="space-y-4"
+			class="space-y-4 scroll-mt-28"
+			aria-labelledby="process-title"
 		>
-			<SectionLabel>{{ t('sections.process') }}</SectionLabel>
+			<SectionLabel
+				id="process-title"
+				index="04"
+			>{{ t('sections.process') }}</SectionLabel>
 			<MyProcess />
-		</div>
-		<div class="space-y-4">
-			<SectionLabel>{{ t('sections.contact') }}</SectionLabel>
+		</section>
+		<section
+			id="contact"
+			class="space-y-4 scroll-mt-28"
+			aria-labelledby="contact-title"
+		>
+			<SectionLabel
+				id="contact-title"
+				index="05"
+			>{{ t('sections.contact') }}</SectionLabel>
 			<ContactSection />
-		</div>
-	</SectionBorder>
+		</section>
+	</div>
 </template>
