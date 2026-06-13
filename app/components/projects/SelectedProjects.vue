@@ -151,7 +151,7 @@
 				class="group grid gap-4 overflow-hidden rounded-xl border border-border-strong bg-surface p-4 transition-colors hover:border-primary/70 sm:p-5 lg:grid-cols-[92px_minmax(0,1fr)_190px] lg:items-center"
 			>
 				<div
-					class="relative grid min-h-20 place-items-center overflow-hidden rounded-xl border border-border bg-background-secondary text-primary lg:min-h-[92px] lg:place-items-start lg:p-3"
+					class="relative grid min-h-20 place-items-center overflow-hidden rounded-xl border border-border bg-background-secondary text-primary lg:min-h-23 lg:place-items-start lg:p-3"
 				>
 					<div
 						aria-hidden="true"
@@ -204,7 +204,7 @@
 				</div>
 
 				<div
-					class="flex w-full max-w-[340px] flex-wrap gap-2 lg:ml-auto lg:max-w-none lg:flex-col lg:items-stretch"
+					class="flex w-full max-w-85 flex-wrap gap-2 lg:ml-auto lg:max-w-none lg:flex-col lg:items-stretch"
 				>
 					<p
 						v-if="project.detail"
