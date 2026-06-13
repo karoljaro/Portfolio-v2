@@ -1,0 +1,14 @@
+# Ignore artifacts:
+node_modules
+.nuxt
+.output
+dist
+coverage
+
+# Local/runtime files:
+.env
+.env.*
+!.env.example
+
+# Package manager:
+bun.lockb
