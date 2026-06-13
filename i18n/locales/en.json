@@ -10,7 +10,7 @@
 		"tryAgain": "Try Again"
 	},
 	"seo": {
-		"description": "Full-stack web developer building practical websites, web applications, backend APIs and automation tools.",
+		"description": "Full-Stack Web Developer building websites, web applications, backend APIs and automation tools with TypeScript and Python.",
 		"siteName": "Karol Jaroń Portfolio",
 		"title": "Karol Jaroń - Full-Stack Web Developer"
 	},
@@ -46,32 +46,32 @@
 		"buildCommand": "run build-practical-web",
 		"cards": {
 			"delivery": {
-				"description": "Small decisions that keep products easy to change.",
-				"title": "practical delivery"
+				"description": "From the first implementation decision to deployment and maintainable follow-up work.",
+				"title": "end-to-end delivery"
 			},
 			"systems": {
-				"description": "From visible UI to the service path behind it.",
-				"title": "system thinking"
+				"description": "Clear boundaries, typed data flow and solutions designed to remain practical to maintain.",
+				"title": "engineering approach"
 			}
 		},
 		"command": "$ whoami --public",
 		"contactCta": "Contact Me",
-		"headline": "Clean web interfaces, reliable services and practical automation.",
-		"lead": "I help turn product ideas into working systems with clear structure, sensible defaults and deployment-ready execution.",
+		"headline": "Websites, web applications, APIs and automation — built as one coherent system.",
+		"lead": "I build full-stack software with TypeScript and Python, from interface and backend logic to PostgreSQL, Docker and Linux-based deployment.",
 		"logTitle": "build.log",
 		"name": "Karol Jaroń",
 		"outputLabel": "output:",
 		"outputValue": "useful_software=true",
 		"runtime": "runtime: portfolio",
 		"signals": {
-			"api": "API logic",
-			"product": "Product UI",
-			"release": "Release flow"
+			"api": "Backend APIs",
+			"product": "Web interfaces",
+			"release": "Deployment"
 		},
 		"steps": {
-			"flow": "connect API boundaries with data flow",
-			"interface": "map idea into interface states",
-			"release": "prepare for maintenance and release"
+			"flow": "connect API contracts with reliable data flow",
+			"interface": "turn requirements into clear interface states",
+			"release": "prepare the application for deployment and maintenance"
 		},
 		"terminalUser": "karol{'@'}portfolio:~$ ",
 		"viewProjects": "View Projects",
@@ -82,11 +82,11 @@
 		"facts": {
 			"base": {
 				"label": "base",
-				"value": "Poland / remote"
+				"value": "Poland / remote-friendly"
 			},
 			"focus": {
 				"label": "focus",
-				"value": "practical web software"
+				"value": "full-stack web systems"
 			},
 			"role": {
 				"label": "role",
@@ -95,66 +95,92 @@
 		},
 		"file": "about.md",
 		"mode": "mode: readable",
-		"paragraphOne": "I'm Karol, a Full-Stack Web Developer from Poland with commercial experience in building web applications, backend APIs and automation tools.",
-		"paragraphTwo": "I work across frontend implementation, API design, database models, workflow automation and deployment. My focus is software that is maintainable, useful and reliable.",
+		"paragraphOne": "I'm Karol, a Full-Stack Web Developer from Poland with commercial experience in building websites, web applications, backend APIs and automation tools.",
+		"paragraphTwo": "I work across frontend implementation, API design, relational databases, integrations, workflow automation and deployment. I focus on software that is clear to maintain, useful in practice and reliable after release.",
 		"profileName": "karol.profile",
 		"stack": {
-			"description": "Interfaces, services, data and deployment paths into one working product flow.",
+			"description": "Interfaces, backend services, relational data, automation and deployment combined into one working product flow.",
 			"label": "stack",
-			"title": "What I usually connect"
+			"title": "What I bring together"
 		},
 		"statusLine": "status: active",
 		"typeLine": "type: builder"
 	},
 	"projects": {
-		"command": "$ query --featured --limit=3",
-		"description": "A compact set of work types I like building: product interfaces, APIs, automation and deployment-focused tools.",
+		"command": "$ query --featured --limit=4",
+		"description": "A selection of commercial, team-based and open-source work across full-stack systems, automation, AI tooling and deployment.",
 		"file": "selected_projects.json",
 		"items": {
-			"apiToolkit": {
-				"description": "Backend utilities for integrating APIs, automating workflows and processing structured data. Built around predictable jobs, practical logging and small composable service modules.",
-				"detail": "private client work",
-				"label": "backend / integration",
-				"name": "API Automation Toolkit"
+			"b2bDocumentPlatform": {
+				"name": "B2B Document Automation Platform",
+				"label": "full-stack / document workflow",
+				"detail": "commercial project / private repository",
+				"description": "A full-stack platform for generating, distributing and electronically signing legal documents. The system integrates Google Workspace API, uses Row-Level Security in PostgreSQL and is deployed on Linux with Docker and Caddy.",
+				"area": "full-stack",
+				"icon": "file-text",
+				"stack": ["TypeScript", "PostgreSQL", "Docker", "Caddy", "Google API"],
+				"demoUrl": "",
+				"githubUrl": ""
 			},
-			"deploymentDashboard": {
-				"description": "Operational interface for monitoring application services, environments and deployment status. Focused on clear service state, deployment confidence and repeatable maintenance work.",
-				"detail": "internal tooling",
-				"label": "ops / monitoring",
-				"name": "Deployment Dashboard"
+			"autoLektor": {
+				"name": "AI Voiceover & Subtitle Generator",
+				"label": "python / AI automation",
+				"detail": "public repository",
+				"description": "A Python automation tool that generates voiceover audio and subtitles from text. It combines Edge TTS with OpenAI Whisper to map timestamps and prepare reusable audio and subtitle packages for video post-production workflows.",
+				"area": "automation",
+				"icon": "audio",
+				"stack": ["Python", "Edge TTS", "Whisper", "OpenAI"],
+				"demoUrl": "",
+				"githubUrl": "https://github.com/karoljaron/auto-lektor"
 			},
-			"portfolio": {
-				"description": "Personal portfolio built with Nuxt, Tailwind CSS and reusable content sections. Designed as a focused technical profile with terminal-inspired sections and fast iteration paths.",
-				"detail": "public preview",
-				"label": "interface / content system",
-				"name": "Portfolio v2"
+			"restaurantManagement": {
+				"name": "Restaurant Management Application",
+				"label": "full-stack / team project",
+				"detail": "public team repository",
+				"description": "A restaurant management application developed in a five-person team. The project uses tRPC and Prisma for end-to-end type safety, Vue 3 and Tailwind CSS for the interface, and JWT-based authentication.",
+				"area": "full-stack",
+				"icon": "utensils",
+				"stack": ["Vue 3", "tRPC", "Prisma", "Tailwind CSS", "JWT"],
+				"demoUrl": "",
+				"githubUrl": "https://github.com/karoljaron/restaurant-management"
+			},
+			"localAgenticCli": {
+				"name": "Local Agentic CLI",
+				"label": "open source / local AI tooling",
+				"detail": "public open-source project / work in progress",
+				"description": "An experimental TypeScript CLI for working with local AI models through Ollama. It includes an Ink-based terminal interface, streamed responses, persistent JSONL sessions, session recovery and an initial model-executed read_file tool.",
+				"area": "AI tooling",
+				"icon": "bot",
+				"stack": ["TypeScript", "Ink", "Ollama", "JSONL"],
+				"demoUrl": "",
+				"githubUrl": "https://github.com/karoljaron/local-agentic-cli"
 			}
 		},
 		"moreGithub": "View more projects on GitHub",
-		"repoDescription": "Public links where possible. Private work is marked directly.",
+		"repoDescription": "Public repositories are linked where available. Commercial work is clearly marked as private.",
 		"repoIndex": "repo.index",
 		"stats": {
 			"areas": "areas",
 			"demo": "demo",
 			"items": "items"
 		},
-		"title": "Selected builds with practical constraints"
+		"title": "Selected full-stack, automation and AI projects"
 	},
 	"expertise": {
 		"items": {
 			"automation": {
 				"command": "ops.ship",
-				"description": "Workflow automation, scripts, background jobs and deployment paths for Linux and Docker environments.",
+				"description": "Python tools, CLI utilities, background workflows and deployment paths for Docker- and Linux-based environments.",
 				"title": "Automation & Deployment"
 			},
 			"backend": {
 				"command": "api.design",
-				"description": "Service architecture, API contracts, authentication flows and database models for production web applications.",
+				"description": "Backend APIs, relational data models, authentication and external integrations built with TypeScript, Node.js, NestJS and PostgreSQL.",
 				"title": "Backend & APIs"
 			},
 			"frontend": {
 				"command": "ui.build",
-				"description": "Responsive interfaces, component systems and data-heavy screens built with practical state and API boundaries.",
+				"description": "Responsive websites and application interfaces built with reusable components, accessible structure, practical state management and clear API boundaries.",
 				"title": "Frontend Engineering"
 			}
 		}
@@ -163,22 +189,22 @@
 		"steps": {
 			"build": {
 				"command": "feature --ship",
-				"description": "Implement the interface, API and persistence with small, reviewable pieces.",
+				"description": "Implement the interface, backend logic and persistence in small, reviewable and testable pieces.",
 				"name": "Build"
 			},
 			"deploy": {
 				"command": "release --prod",
-				"description": "Package, deploy and leave the system observable enough to maintain.",
+				"description": "Containerize, deploy and leave the application in a state that can be observed, maintained and improved.",
 				"name": "Deploy"
 			},
 			"plan": {
 				"command": "scope --map",
-				"description": "Define goals, data shape, integrations and the smallest useful release.",
+				"description": "Define the goal, constraints, data model, integrations and the smallest useful release.",
 				"name": "Plan"
 			},
 			"test": {
 				"command": "verify --flow",
-				"description": "Check core paths, edge cases and deployment assumptions before release.",
+				"description": "Verify core paths, edge cases, integrations and deployment assumptions before release.",
 				"name": "Test"
 			}
 		},
@@ -187,7 +213,7 @@
 	},
 	"contact": {
 		"command": "./contact.sh --open",
-		"description": "Send project context, links, constraints or a short brief. I will answer with next steps.",
+		"description": "Share a role, project idea, technical challenge or short brief. I will respond with clear next steps.",
 		"file": "contact.sh",
 		"lines": {
 			"location": {
@@ -196,21 +222,21 @@
 			},
 			"reply": {
 				"key": "reply",
-				"value": "async, practical and direct"
+				"value": "asynchronous, practical and direct"
 			},
 			"status": {
 				"key": "status",
-				"value": "available for scoped web projects"
+				"value": "open to software development opportunities and selected projects"
 			},
 			"work": {
 				"key": "work",
-				"value": "frontend / backend / automation"
+				"value": "websites / full-stack / automation"
 			}
 		},
 		"output": "ready_to_talk=true",
 		"outputLabel": "output:",
 		"terminalUser": "karol{'@'}portfolio:~$ ",
-		"title": "Start a conversation"
+		"title": "Let's talk"
 	},
 	"error": {
 		"description": {

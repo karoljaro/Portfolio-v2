@@ -1,53 +1,73 @@
 <script setup lang="ts">
 	import ProjectDescription from '~/components/projects/ProjectDescription.vue';
 
-	const { t } = useI18n();
+	const { rt, t, tm } = useI18n();
 
 	type Project = {
+		id: string;
 		name: string;
 		label: string;
 		description: string;
 		stack: string[];
 		detail: string;
+		area: string;
 		demoUrl?: string;
 		githubUrl?: string;
-		icon: 'code' | 'server' | 'workflow';
+		icon: string;
 	};
 
-	const githubProfileUrl = 'https://github.com/karoljaron';
+	type ProjectMessageMap = Record<
+		string,
+		{
+			stack: unknown[];
+		}
+	>;
 
-	const projects = computed<Project[]>(() => [
-		{
-			name: t('projects.items.portfolio.name'),
-			label: t('projects.items.portfolio.label'),
-			description: t('projects.items.portfolio.description'),
-			stack: ['Nuxt', 'Vue', 'Tailwind CSS'],
-			detail: t('projects.items.portfolio.detail'),
-			demoUrl: '/',
-			githubUrl: '',
-			icon: 'code',
-		},
-		{
-			name: t('projects.items.apiToolkit.name'),
-			label: t('projects.items.apiToolkit.label'),
-			description: t('projects.items.apiToolkit.description'),
-			stack: ['Nest.js', 'PostgreSQL', 'Bun'],
-			detail: t('projects.items.apiToolkit.detail'),
-			demoUrl: '',
-			githubUrl: '',
-			icon: 'workflow',
-		},
-		{
-			name: t('projects.items.deploymentDashboard.name'),
-			label: t('projects.items.deploymentDashboard.label'),
-			description: t('projects.items.deploymentDashboard.description'),
-			stack: ['TypeScript', 'Docker', 'Linux'],
-			detail: t('projects.items.deploymentDashboard.detail'),
-			demoUrl: '',
-			githubUrl: '',
-			icon: 'server',
-		},
-	]);
+	const githubProfileUrl = 'https://github.com/karoljaron';
+	const projectItemsPath = 'projects.items';
+
+	const projectIds = computed(() => Object.keys(tm(projectItemsPath) as ProjectMessageMap));
+
+	const projectHrefAttrs = (url: string) => {
+		const isExternal = /^https?:\/\//.test(url);
+
+		return {
+			target: isExternal ? '_blank' : undefined,
+			rel: isExternal ? 'noreferrer' : undefined,
+		};
+	};
+
+	const projects = computed<Project[]>(() => {
+		return projectIds.value.map((id) => {
+			const path = `${projectItemsPath}.${id}`;
+			const label = t(`${path}.label`);
+			const area = t(`${path}.area`) || label.split('/')[0]?.trim() || '';
+			const stack = tm(`${path}.stack`) as unknown[];
+
+			return {
+				id,
+				name: t(`${path}.name`),
+				label,
+				description: t(`${path}.description`),
+				stack: stack.map((item) => rt(item as string)),
+				detail: t(`${path}.detail`),
+				area,
+				demoUrl: t(`${path}.demoUrl`),
+				githubUrl: t(`${path}.githubUrl`),
+				icon: t(`${path}.icon`) || 'code',
+			} satisfies Project;
+		});
+	});
+
+	const areasCount = computed(() => {
+		const areas = projects.value.map((project) => project.area).filter(Boolean);
+
+		return new Set(areas).size;
+	});
+
+	const demoCount = computed(
+		() => projects.value.filter((project) => Boolean(project.demoUrl)).length,
+	);
 </script>
 
 <template>
@@ -106,7 +126,7 @@
 						<div
 							class="rounded-lg border border-border bg-background-secondary px-2 py-2"
 						>
-							<p class="text-lg font-semibold text-foreground">3</p>
+							<p class="text-lg font-semibold text-foreground">{{ areasCount }}</p>
 							<p class="font-mono text-[11px] text-muted">
 								{{ t('projects.stats.areas') }}
 							</p>
@@ -114,7 +134,7 @@
 						<div
 							class="rounded-lg border border-border bg-background-secondary px-2 py-2"
 						>
-							<p class="text-lg font-semibold text-foreground">1</p>
+							<p class="text-lg font-semibold text-foreground">{{ demoCount }}</p>
 							<p class="font-mono text-[11px] text-muted">
 								{{ t('projects.stats.demo') }}
 							</p>
@@ -127,7 +147,7 @@
 		<div class="space-y-3">
 			<article
 				v-for="(project, index) in projects"
-				:key="project.name"
+				:key="project.id"
 				class="group grid gap-4 overflow-hidden rounded-xl border border-border-strong bg-surface p-4 transition-colors hover:border-primary/70 sm:p-5 lg:grid-cols-[92px_minmax(0,1fr)_minmax(170px,auto)] lg:items-center"
 			>
 				<div
@@ -140,16 +160,8 @@
 					<div
 						class="relative grid size-12 place-items-center rounded-lg border border-border bg-surface"
 					>
-						<LucideCode2
-							v-if="project.icon === 'code'"
-							class="size-6"
-						/>
-						<LucideWorkflow
-							v-else-if="project.icon === 'workflow'"
-							class="size-6"
-						/>
-						<LucideServer
-							v-else
+						<DynamicIcon
+							:name="project.icon"
 							class="size-6"
 						/>
 					</div>
@@ -177,7 +189,10 @@
 						<ProjectDescription :description="project.description" />
 					</div>
 
-					<div class="flex flex-wrap gap-2">
+					<div
+						v-if="project.stack.length"
+						class="flex flex-wrap gap-2"
+					>
 						<span
 							v-for="item in project.stack"
 							:key="item"
@@ -189,15 +204,17 @@
 				</div>
 
 				<div class="flex flex-wrap gap-2 lg:flex-col lg:items-stretch">
-					<p class="w-full font-mono text-xs text-subtle-foreground lg:text-right">
+					<p
+						v-if="project.detail"
+						class="w-full font-mono text-xs text-subtle-foreground lg:text-right"
+					>
 						{{ project.detail }}
 					</p>
 
 					<a
 						v-if="project.demoUrl"
 						:href="project.demoUrl"
-						target="_blank"
-						rel="noreferrer"
+						v-bind="projectHrefAttrs(project.demoUrl)"
 						class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 					>
 						<LucideExternalLink class="size-4" />

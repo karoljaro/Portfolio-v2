@@ -10,7 +10,7 @@
 		"tryAgain": "Spróbuj ponownie"
 	},
 	"seo": {
-		"description": "Full-stack web developer tworzący praktyczne strony, aplikacje webowe, backend API i narzędzia automatyzujące pracę.",
+		"description": "Full-Stack Web Developer tworzący strony internetowe, aplikacje webowe, backend API i narzędzia automatyzujące z użyciem TypeScriptu i Pythona.",
 		"siteName": "Portfolio Karola Jaronia",
 		"title": "Karol Jaroń - Full-Stack Web Developer"
 	},
@@ -46,32 +46,32 @@
 		"buildCommand": "run build-practical-web",
 		"cards": {
 			"delivery": {
-				"description": "Małe decyzje, które zostawiają produkt łatwy do rozwoju.",
-				"title": "praktyczne dostarczanie"
+				"description": "Od pierwszych decyzji implementacyjnych po wdrożenie i późniejsze utrzymanie.",
+				"title": "realizacja end-to-end"
 			},
 			"systems": {
-				"description": "Od widocznego UI do ścieżki usług działającej pod spodem.",
-				"title": "myślenie systemowe"
+				"description": "Czytelne granice, typowany przepływ danych i rozwiązania praktyczne w dalszym utrzymaniu.",
+				"title": "podejście inżynierskie"
 			}
 		},
 		"command": "$ whoami --public",
 		"contactCta": "Kontakt",
-		"headline": "Przejrzyste interfejsy, stabilne usługi i praktyczna automatyzacja.",
-		"lead": "Pomagam zamieniać pomysły produktowe w działające systemy z czytelną strukturą, rozsądnymi domyślnymi decyzjami i gotowością do wdrożenia.",
+		"headline": "Strony, aplikacje webowe, API i automatyzacje — budowane jako jeden spójny system.",
+		"lead": "Tworzę oprogramowanie full-stack w TypeScript i Pythonie — od interfejsu i logiki backendowej po PostgreSQL, Docker oraz wdrożenia w środowisku Linux.",
 		"logTitle": "build.log",
 		"name": "Karol Jaroń",
 		"outputLabel": "output:",
 		"outputValue": "useful_software=true",
 		"runtime": "runtime: portfolio",
 		"signals": {
-			"api": "Logika API",
-			"product": "UI produktu",
-			"release": "Proces wdrożenia"
+			"api": "Backend API",
+			"product": "Interfejsy webowe",
+			"release": "Wdrożenie"
 		},
 		"steps": {
-			"flow": "połącz granice API z przepływem danych",
-			"interface": "zamień pomysł w stany interfejsu",
-			"release": "przygotuj utrzymanie i wdrożenie"
+			"flow": "połącz kontrakty API z niezawodnym przepływem danych",
+			"interface": "zamień wymagania w czytelne stany interfejsu",
+			"release": "przygotuj aplikację do wdrożenia i utrzymania"
 		},
 		"terminalUser": "karol{'@'}portfolio:~$ ",
 		"viewProjects": "Zobacz projekty",
@@ -82,11 +82,11 @@
 		"facts": {
 			"base": {
 				"label": "base",
-				"value": "Polska / remote"
+				"value": "Polska / praca zdalna"
 			},
 			"focus": {
 				"label": "focus",
-				"value": "praktyczne aplikacje webowe"
+				"value": "systemy webowe full-stack"
 			},
 			"role": {
 				"label": "role",
@@ -95,66 +95,92 @@
 		},
 		"file": "about.md",
 		"mode": "mode: readable",
-		"paragraphOne": "Mam na imię Karol i pracuję jako Full-Stack Web Developer z doświadczeniem komercyjnym w budowie aplikacji webowych, backend API i narzędzi automatyzujących pracę.",
-		"paragraphTwo": "Pracuję przy implementacji frontendu, projektowaniu API, modelach baz danych, automatyzacji workflow i wdrożeniach. Skupiam się na oprogramowaniu, które jest użyteczne, stabilne i łatwe do utrzymania.",
+		"paragraphOne": "Mam na imię Karol i pracuję jako Full-Stack Web Developer. Mam doświadczenie komercyjne w tworzeniu stron internetowych, aplikacji webowych, backend API i narzędzi automatyzujących.",
+		"paragraphTwo": "Pracuję przy implementacji frontendu, projektowaniu API, relacyjnych bazach danych, integracjach, automatyzacji workflow i wdrożeniach. Skupiam się na oprogramowaniu, które jest czytelne w utrzymaniu, użyteczne w praktyce i niezawodne po wdrożeniu.",
 		"profileName": "karol.profile",
 		"stack": {
-			"description": "Interfejsy, usługi, dane i ścieżki wdrożenia spięte w jeden działający przepływ produktu.",
+			"description": "Interfejsy, usługi backendowe, dane relacyjne, automatyzacje i wdrożenia połączone w jeden działający przepływ produktu.",
 			"label": "stack",
-			"title": "Co najczęściej łączę"
+			"title": "Co łączę w całość"
 		},
 		"statusLine": "status: active",
 		"typeLine": "type: builder"
 	},
 	"projects": {
-		"command": "$ query --featured --limit=3",
-		"description": "Kompaktowy zestaw typów pracy, które lubię budować: interfejsy produktowe, API, automatyzacje i narzędzia wspierające wdrożenia.",
+		"command": "$ query --featured --limit=4",
+		"description": "Wybrane projekty komercyjne, zespołowe i open-source z obszaru systemów full-stack, automatyzacji, narzędzi AI i wdrożeń.",
 		"file": "selected_projects.json",
 		"items": {
-			"apiToolkit": {
-				"description": "Narzędzia backendowe do integracji API, automatyzacji workflow i przetwarzania danych strukturalnych. Oparte o przewidywalne zadania, praktyczne logowanie i małe moduły usług.",
-				"detail": "prywatny projekt klienta",
-				"label": "backend / integracje",
-				"name": "API Automation Toolkit"
+			"b2bDocumentPlatform": {
+				"name": "Platforma B2B do automatyzacji dokumentów",
+				"label": "full-stack / obieg dokumentów",
+				"detail": "projekt komercyjny / prywatne repozytorium",
+				"description": "Platforma full-stack do generowania, dystrybucji i elektronicznego podpisywania dokumentów prawnych. System integruje Google Workspace API, wykorzystuje Row-Level Security w PostgreSQL i jest wdrażany na serwerze Linux z użyciem Dockera oraz Caddy.",
+				"area": "full-stack",
+				"icon": "file-text",
+				"stack": ["TypeScript", "PostgreSQL", "Docker", "Caddy", "Google API"],
+				"demoUrl": "",
+				"githubUrl": ""
 			},
-			"deploymentDashboard": {
-				"description": "Interfejs operacyjny do monitorowania usług aplikacji, środowisk i statusu wdrożeń. Skupiony na czytelnym stanie usług, pewności wdrożenia i powtarzalnym utrzymaniu.",
-				"detail": "narzędzie wewnętrzne",
-				"label": "ops / monitoring",
-				"name": "Deployment Dashboard"
+			"autoLektor": {
+				"name": "Generator lektora i napisów AI",
+				"label": "Python / automatyzacja AI",
+				"detail": "publiczne repozytorium",
+				"description": "Narzędzie automatyzujące w Pythonie, które generuje ścieżkę lektorską i napisy na podstawie tekstu. Łączy Edge TTS z OpenAI Whisper w celu mapowania czasu i przygotowywania pakietów audio oraz napisów do procesu postprodukcji wideo.",
+				"area": "automation",
+				"icon": "audio",
+				"stack": ["Python", "Edge TTS", "Whisper", "OpenAI"],
+				"demoUrl": "",
+				"githubUrl": "https://github.com/karoljaron/auto-lektor"
 			},
-			"portfolio": {
-				"description": "Portfolio osobiste zbudowane na Nuxt, Tailwind CSS i reużywalnych sekcjach contentowych. Zaprojektowane jako techniczny profil z terminalowym stylem i szybką ścieżką iteracji.",
-				"detail": "publiczny preview",
-				"label": "interfejs / content system",
-				"name": "Portfolio v2"
+			"restaurantManagement": {
+				"name": "Aplikacja do zarządzania restauracją",
+				"label": "full-stack / projekt zespołowy",
+				"detail": "publiczne repozytorium zespołowe",
+				"description": "Aplikacja do zarządzania restauracją tworzona w pięcioosobowym zespole. Projekt wykorzystuje tRPC i Prisma do typowania end-to-end, Vue 3 i Tailwind CSS w interfejsie oraz autoryzację opartą na JWT.",
+				"area": "full-stack",
+				"icon": "utensils",
+				"stack": ["Vue 3", "tRPC", "Prisma", "Tailwind CSS", "JWT"],
+				"demoUrl": "",
+				"githubUrl": "https://github.com/karoljaron/restaurant-management"
+			},
+			"localAgenticCli": {
+				"name": "Local Agentic CLI",
+				"label": "open source / lokalne narzędzia AI",
+				"detail": "publiczny projekt open-source / w trakcie rozwoju",
+				"description": "Eksperymentalne narzędzie CLI w TypeScript do pracy z lokalnymi modelami AI przez Ollama. Obejmuje interfejs terminalowy oparty na Ink, strumieniowanie odpowiedzi, trwałe sesje JSONL, wznawianie rozmów oraz pierwsze narzędzie read_file wykonywane na żądanie modelu.",
+				"area": "AI tooling",
+				"icon": "bot",
+				"stack": ["TypeScript", "Ink", "Ollama", "JSONL"],
+				"demoUrl": "",
+				"githubUrl": "https://github.com/karoljaron/local-agentic-cli"
 			}
 		},
 		"moreGithub": "Zobacz więcej projektów na GitHub",
-		"repoDescription": "Publiczne linki tam, gdzie to możliwe. Prywatna praca jest oznaczona bezpośrednio.",
+		"repoDescription": "Publiczne repozytoria są podlinkowane tam, gdzie to możliwe. Projekty komercyjne są wyraźnie oznaczone jako prywatne.",
 		"repoIndex": "repo.index",
 		"stats": {
 			"areas": "obszary",
 			"demo": "demo",
 			"items": "pozycje"
 		},
-		"title": "Wybrane realizacje z praktycznymi ograniczeniami"
+		"title": "Wybrane projekty full-stack, automatyzacyjne i AI"
 	},
 	"expertise": {
 		"items": {
 			"automation": {
 				"command": "ops.ship",
-				"description": "Automatyzacje workflow, skrypty, joby w tle i ścieżki wdrożeniowe dla środowisk Linux oraz Docker.",
+				"description": "Narzędzia w Pythonie, aplikacje CLI, procesy działające w tle oraz ścieżki wdrożeniowe dla środowisk opartych na Dockerze i Linuxie.",
 				"title": "Automation & Deployment"
 			},
 			"backend": {
 				"command": "api.design",
-				"description": "Architektura usług, kontrakty API, przepływy autoryzacji i modele baz danych dla produkcyjnych aplikacji webowych.",
+				"description": "Backend API, relacyjne modele danych, uwierzytelnianie i integracje zewnętrzne tworzone w TypeScript, Node.js, NestJS i PostgreSQL.",
 				"title": "Backend & APIs"
 			},
 			"frontend": {
 				"command": "ui.build",
-				"description": "Responsywne interfejsy, systemy komponentów i ekrany z dużą ilością danych budowane z praktycznym stanem oraz granicami API.",
+				"description": "Responsywne strony i interfejsy aplikacji budowane z reużywalnych komponentów, dostępną strukturą, praktycznym zarządzaniem stanem i czytelnymi granicami API.",
 				"title": "Frontend Engineering"
 			}
 		}
@@ -163,22 +189,22 @@
 		"steps": {
 			"build": {
 				"command": "feature --ship",
-				"description": "Implementacja interfejsu, API i persystencji w małych, łatwych do sprawdzenia częściach.",
+				"description": "Implementacja interfejsu, logiki backendowej i persystencji w małych, łatwych do sprawdzenia i testowania częściach.",
 				"name": "Build"
 			},
 			"deploy": {
 				"command": "release --prod",
-				"description": "Pakowanie, wdrożenie i zostawienie systemu w stanie, który da się obserwować i utrzymać.",
+				"description": "Konteneryzacja, wdrożenie i pozostawienie aplikacji w stanie umożliwiającym obserwację, utrzymanie i dalszy rozwój.",
 				"name": "Deploy"
 			},
 			"plan": {
 				"command": "scope --map",
-				"description": "Ustalenie celów, kształtu danych, integracji i najmniejszego użytecznego wydania.",
+				"description": "Ustalenie celu, ograniczeń, modelu danych, integracji i najmniejszego użytecznego wydania.",
 				"name": "Plan"
 			},
 			"test": {
 				"command": "verify --flow",
-				"description": "Sprawdzenie głównych ścieżek, przypadków brzegowych i założeń wdrożeniowych przed releasem.",
+				"description": "Weryfikacja głównych ścieżek, przypadków brzegowych, integracji i założeń wdrożeniowych przed wydaniem.",
 				"name": "Test"
 			}
 		},
@@ -187,7 +213,7 @@
 	},
 	"contact": {
 		"command": "./contact.sh --open",
-		"description": "Wyślij kontekst projektu, linki, ograniczenia albo krótki brief. Odpowiem z kolejnymi krokami.",
+		"description": "Prześlij ofertę, pomysł na projekt, problem techniczny albo krótki brief. Odpowiem z konkretnymi kolejnymi krokami.",
 		"file": "contact.sh",
 		"lines": {
 			"location": {
@@ -200,17 +226,17 @@
 			},
 			"status": {
 				"key": "status",
-				"value": "dostępny dla określonych projektów web"
+				"value": "otwarty na oferty programistyczne i wybrane projekty"
 			},
 			"work": {
 				"key": "work",
-				"value": "frontend / backend / automatyzacja"
+				"value": "strony / full-stack / automatyzacja"
 			}
 		},
 		"output": "ready_to_talk=true",
 		"outputLabel": "output:",
 		"terminalUser": "karol{'@'}portfolio:~$ ",
-		"title": "Zacznij rozmowę"
+		"title": "Porozmawiajmy"
 	},
 	"error": {
 		"description": {
