@@ -1,14 +1,14 @@
 <script setup lang="ts">
-withDefaults(
-	defineProps<{
-		id?: string;
-		index?: string;
-	}>(),
-	{
-		id: undefined,
-		index: undefined,
-	},
-);
+	withDefaults(
+		defineProps<{
+			id?: string;
+			index?: string;
+		}>(),
+		{
+			id: undefined,
+			index: undefined,
+		},
+	);
 </script>
 
 <template>
@@ -27,7 +27,8 @@ withDefaults(
 			<span
 				aria-hidden="true"
 				class="text-subtle-foreground"
-			>&gt;</span>
+				>&gt;</span
+			>
 			<span class="ml-2"><slot /></span>
 		</h2>
 		<div

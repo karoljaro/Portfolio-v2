@@ -18,8 +18,8 @@ export default defineNuxtConfig({
 		public: {
 			i18n: {
 				baseUrl: 'https://karoljaron.dev',
-			}
-		}
+			},
+		},
 	},
 
 	pages: true,

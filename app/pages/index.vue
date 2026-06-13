@@ -19,7 +19,8 @@
 			<SectionLabel
 				id="about-title"
 				index="01"
-			>{{ t('sections.about') }}</SectionLabel>
+				>{{ t('sections.about') }}</SectionLabel
+			>
 			<AboutSection />
 		</section>
 		<section
@@ -30,7 +31,8 @@
 			<SectionLabel
 				id="projects-title"
 				index="02"
-			>{{ t('sections.projects') }}</SectionLabel>
+				>{{ t('sections.projects') }}</SectionLabel
+			>
 			<SelectedProjects />
 		</section>
 		<section
@@ -41,7 +43,8 @@
 			<SectionLabel
 				id="expertise-title"
 				index="03"
-			>{{ t('sections.expertise') }}</SectionLabel>
+				>{{ t('sections.expertise') }}</SectionLabel
+			>
 			<ExpertiseSection />
 		</section>
 		<section
@@ -52,7 +55,8 @@
 			<SectionLabel
 				id="process-title"
 				index="04"
-			>{{ t('sections.process') }}</SectionLabel>
+				>{{ t('sections.process') }}</SectionLabel
+			>
 			<MyProcess />
 		</section>
 		<section
@@ -63,7 +67,8 @@
 			<SectionLabel
 				id="contact-title"
 				index="05"
-			>{{ t('sections.contact') }}</SectionLabel>
+				>{{ t('sections.contact') }}</SectionLabel
+			>
 			<ContactSection />
 		</section>
 	</div>

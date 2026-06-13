@@ -1,36 +1,42 @@
 <script setup lang="ts">
-import type { NuxtError } from '#app';
+	import type { NuxtError } from '#app';
 
-const props = defineProps<{
-	error: NuxtError;
-}>();
+	const props = defineProps<{
+		error: NuxtError;
+	}>();
 
-const { t } = useI18n();
-const localePath = useLocalePath();
+	const { t } = useI18n();
+	const localePath = useLocalePath();
 
-const statusCode = computed(() => props.error.statusCode || 500);
-const isNotFound = computed(() => statusCode.value === 404);
+	const statusCode = computed(() => props.error.statusCode || 500);
+	const isNotFound = computed(() => statusCode.value === 404);
 
-const title = computed(() => (isNotFound.value ? t('error.title.notFound') : t('error.title.fallback')));
-const description = computed(() =>
-	isNotFound.value
-		? t('error.description.notFound')
-		: t('error.description.fallback'),
-);
+	const title = computed(() =>
+		isNotFound.value ? t('error.title.notFound') : t('error.title.fallback'),
+	);
+	const description = computed(() =>
+		isNotFound.value ? t('error.description.notFound') : t('error.description.fallback'),
+	);
 
-const errorLines = computed(() => [
-	{ key: 'status', value: String(statusCode.value) },
-	{ key: 'type', value: isNotFound.value ? t('error.type.notFound') : t('error.type.fallback') },
-	{ key: 'recover', value: isNotFound.value ? t('error.recover.notFound') : t('error.recover.fallback') },
-]);
+	const errorLines = computed(() => [
+		{ key: 'status', value: String(statusCode.value) },
+		{
+			key: 'type',
+			value: isNotFound.value ? t('error.type.notFound') : t('error.type.fallback'),
+		},
+		{
+			key: 'recover',
+			value: isNotFound.value ? t('error.recover.notFound') : t('error.recover.fallback'),
+		},
+	]);
 
-const goHome = () => clearError({ redirect: localePath('/') });
+	const goHome = () => clearError({ redirect: localePath('/') });
 
-const retry = () => {
-	if (import.meta.client) {
-		window.location.reload();
-	}
-};
+	const retry = () => {
+		if (import.meta.client) {
+			window.location.reload();
+		}
+	};
 </script>
 
 <template>
@@ -38,14 +44,20 @@ const retry = () => {
 		<div class="mx-auto flex min-h-[calc(100vh-3rem)] max-w-5xl items-center">
 			<section class="grid w-full gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
 				<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
-					<div class="flex min-h-12 items-center justify-between gap-4 border-b border-border bg-background-secondary px-4">
+					<div
+						class="flex min-h-12 items-center justify-between gap-4 border-b border-border bg-background-secondary px-4"
+					>
 						<div class="flex items-center gap-2">
 							<span class="size-2.5 rounded-full bg-primary"></span>
 							<span class="size-2.5 rounded-full bg-muted-foreground"></span>
 							<span class="size-2.5 rounded-full bg-border-strong"></span>
-							<span class="ml-2 font-mono text-xs text-muted">{{ t('error.errorFile') }}</span>
+							<span class="ml-2 font-mono text-xs text-muted">{{
+								t('error.errorFile')
+							}}</span>
 						</div>
-						<span class="hidden font-mono text-xs text-subtle-foreground sm:inline">{{ t('error.runtime') }}</span>
+						<span class="hidden font-mono text-xs text-subtle-foreground sm:inline">{{
+							t('error.runtime')
+						}}</span>
 					</div>
 
 					<div class="space-y-8 p-4 sm:p-6 lg:p-7">
@@ -54,7 +66,9 @@ const retry = () => {
 
 							<div class="space-y-4">
 								<p class="font-mono text-sm text-muted">HTTP {{ statusCode }}</p>
-								<h1 class="max-w-3xl text-5xl font-semibold leading-none tracking-normal text-foreground sm:text-6xl lg:text-7xl">
+								<h1
+									class="max-w-3xl text-5xl font-semibold leading-none tracking-normal text-foreground sm:text-6xl lg:text-7xl"
+								>
 									{{ title }}
 								</h1>
 								<p class="max-w-2xl text-sm leading-7 text-muted sm:text-base">
@@ -86,11 +100,15 @@ const retry = () => {
 
 				<aside class="grid gap-4">
 					<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
-						<div class="flex min-h-12 items-center gap-2 border-b border-border bg-background-secondary px-4">
+						<div
+							class="flex min-h-12 items-center gap-2 border-b border-border bg-background-secondary px-4"
+						>
 							<span class="size-2.5 rounded-full bg-primary"></span>
 							<span class="size-2.5 rounded-full bg-muted-foreground"></span>
 							<span class="size-2.5 rounded-full bg-border-strong"></span>
-							<span class="ml-2 font-mono text-xs text-muted">{{ t('error.diagnosticsFile') }}</span>
+							<span class="ml-2 font-mono text-xs text-muted">{{
+								t('error.diagnosticsFile')
+							}}</span>
 						</div>
 
 						<div class="space-y-4 p-4 font-mono text-sm leading-7 sm:p-5">
@@ -110,7 +128,9 @@ const retry = () => {
 								</p>
 							</div>
 
-							<div class="rounded-lg border border-border bg-background-secondary px-3 py-2.5">
+							<div
+								class="rounded-lg border border-border bg-background-secondary px-3 py-2.5"
+							>
 								<p>
 									<span class="text-primary">{{ t('error.nextLabel') }}</span>
 									<span class="text-foreground"> {{ t('error.next') }}</span>
@@ -121,12 +141,18 @@ const retry = () => {
 
 					<div class="rounded-xl border border-border-strong bg-surface p-4">
 						<div class="flex items-center gap-3">
-							<div class="grid size-10 place-items-center rounded-lg border border-border bg-background-secondary text-primary">
+							<div
+								class="grid size-10 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
+							>
 								<LucideTerminal class="size-4" />
 							</div>
 							<div>
-								<p class="font-mono text-xs text-primary">{{ t('error.fallback.title') }}</p>
-								<p class="mt-1 text-sm leading-6 text-muted">{{ t('error.fallback.description') }}</p>
+								<p class="font-mono text-xs text-primary">
+									{{ t('error.fallback.title') }}
+								</p>
+								<p class="mt-1 text-sm leading-6 text-muted">
+									{{ t('error.fallback.description') }}
+								</p>
 							</div>
 						</div>
 					</div>
