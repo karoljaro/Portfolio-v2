@@ -148,17 +148,17 @@
 			<article
 				v-for="(project, index) in projects"
 				:key="project.id"
-				class="group grid gap-4 overflow-hidden rounded-xl border border-border-strong bg-surface p-4 transition-colors hover:border-primary/70 sm:p-5 lg:grid-cols-[92px_minmax(0,1fr)_minmax(170px,auto)] lg:items-center"
+				class="group grid gap-4 overflow-hidden rounded-xl border border-border-strong bg-surface p-4 transition-colors hover:border-primary/70 sm:p-5 lg:grid-cols-[92px_minmax(0,1fr)_190px] lg:items-center"
 			>
 				<div
-					class="relative grid min-h-20 place-items-center overflow-hidden rounded-xl border border-border bg-background-secondary text-primary"
+					class="relative grid min-h-20 place-items-center overflow-hidden rounded-xl border border-border bg-background-secondary text-primary lg:min-h-[92px] lg:place-items-start lg:p-3"
 				>
 					<div
 						aria-hidden="true"
 						class="absolute inset-0 bg-primary/5 opacity-0 transition-opacity group-hover:opacity-100"
 					></div>
 					<div
-						class="relative grid size-12 place-items-center rounded-lg border border-border bg-surface"
+						class="relative grid size-12 shrink-0 place-items-center rounded-lg border border-border bg-surface lg:size-11"
 					>
 						<DynamicIcon
 							:name="project.icon"
@@ -203,7 +203,9 @@
 					</div>
 				</div>
 
-				<div class="flex flex-wrap gap-2 lg:flex-col lg:items-stretch">
+				<div
+					class="flex w-full max-w-[340px] flex-wrap gap-2 lg:ml-auto lg:max-w-none lg:flex-col lg:items-stretch"
+				>
 					<p
 						v-if="project.detail"
 						class="w-full font-mono text-xs text-subtle-foreground lg:text-right"
@@ -215,7 +217,7 @@
 						v-if="project.demoUrl"
 						:href="project.demoUrl"
 						v-bind="projectHrefAttrs(project.demoUrl)"
-						class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+						class="inline-flex min-h-10 min-w-36 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:w-full lg:flex-none"
 					>
 						<LucideExternalLink class="size-4" />
 						{{ t('common.demo') }}
@@ -226,7 +228,7 @@
 						:href="project.githubUrl"
 						target="_blank"
 						rel="noreferrer"
-						class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+						class="inline-flex min-h-10 min-w-36 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:w-full lg:flex-none"
 					>
 						<LucideFolderGit2 class="size-4" />
 						{{ t('common.github') }}
@@ -234,7 +236,7 @@
 
 					<span
 						v-else
-						class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-muted"
+						class="inline-flex min-h-10 min-w-36 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-muted lg:w-full lg:flex-none"
 					>
 						<LucideLockKeyhole class="size-4" />
 						{{ t('common.privateCode') }}

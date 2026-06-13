@@ -135,7 +135,7 @@
 				<div class="rounded-xl border border-border-strong bg-surface p-4">
 					<div class="flex items-center gap-3">
 						<div
-							class="grid size-10 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
+							class="grid size-10 shrink-0 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 						>
 							<LucideLayers class="size-4" />
 						</div>
@@ -153,7 +153,7 @@
 				<div class="rounded-xl border border-border-strong bg-surface p-4">
 					<div class="flex items-center gap-3">
 						<div
-							class="grid size-10 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
+							class="grid size-10 shrink-0 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 						>
 							<LucideWrench class="size-4" />
 						</div>
