@@ -1,0 +1,235 @@
+{
+	"common": {
+		"demo": "Demo",
+		"email": "Email",
+		"github": "GitHub",
+		"goHome": "Wróć na start",
+		"privateCode": "Kod prywatny",
+		"showLess": "Pokaż mniej",
+		"showMore": "Pokaż więcej",
+		"tryAgain": "Spróbuj ponownie"
+	},
+	"header": {
+		"brand": "karol.jarón",
+		"contact": "kontakt",
+		"goToTop": "Przejdź na początek",
+		"language": "Język",
+		"mobilePrimaryNav": "Główna nawigacja mobilna",
+		"nav": {
+			"contact": "kontakt",
+			"expertise": "specjalizacje",
+			"process": "proces",
+			"projects": "projekty"
+		},
+		"primaryNav": "Główna nawigacja",
+		"runtime": "portfolio.runtime",
+		"status": "dostępny"
+	},
+	"sections": {
+		"about": "about.md",
+		"contact": "contact.sh",
+		"expertise": "expertise",
+		"process": "my_process",
+		"projects": "selected_projects"
+	},
+	"hero": {
+		"buildCommand": "run build-practical-web",
+		"cards": {
+			"delivery": {
+				"description": "Małe decyzje, które zostawiają produkt łatwy do rozwoju.",
+				"title": "praktyczne dostarczanie"
+			},
+			"systems": {
+				"description": "Od widocznego UI do ścieżki usług działającej pod spodem.",
+				"title": "myślenie systemowe"
+			}
+		},
+		"command": "$ whoami --public",
+		"contactCta": "Kontakt",
+		"headline": "Przejrzyste interfejsy, stabilne usługi i praktyczna automatyzacja.",
+		"lead": "Pomagam zamieniać pomysły produktowe w działające systemy z czytelną strukturą, rozsądnymi domyślnymi decyzjami i gotowością do wdrożenia.",
+		"logTitle": "build.log",
+		"name": "Karol Jaroń",
+		"outputLabel": "output:",
+		"outputValue": "useful_software=true",
+		"runtime": "runtime: portfolio",
+		"signals": {
+			"api": "Logika API",
+			"product": "UI produktu",
+			"release": "Proces wdrożenia"
+		},
+		"steps": {
+			"flow": "połącz granice API z przepływem danych",
+			"interface": "zamień pomysł w stany interfejsu",
+			"release": "przygotuj utrzymanie i wdrożenie"
+		},
+		"terminalUser": "karol{'@'}portfolio:~$ ",
+		"viewProjects": "Zobacz projekty",
+		"windowTitle": "hero.start"
+	},
+	"about": {
+		"command": "$ cat about.md",
+		"facts": {
+			"base": {
+				"label": "base",
+				"value": "Polska / remote"
+			},
+			"focus": {
+				"label": "focus",
+				"value": "praktyczne aplikacje webowe"
+			},
+			"role": {
+				"label": "role",
+				"value": "Full-Stack Web Developer"
+			}
+		},
+		"file": "about.md",
+		"mode": "mode: readable",
+		"paragraphOne": "Mam na imię Karol i pracuję jako Full-Stack Web Developer z doświadczeniem komercyjnym w budowie aplikacji webowych, backend API i narzędzi automatyzujących pracę.",
+		"paragraphTwo": "Pracuję przy implementacji frontendu, projektowaniu API, modelach baz danych, automatyzacji workflow i wdrożeniach. Skupiam się na oprogramowaniu, które jest użyteczne, stabilne i łatwe do utrzymania.",
+		"profileName": "karol.profile",
+		"stack": {
+			"description": "Interfejsy, usługi, dane i ścieżki wdrożenia spięte w jeden działający przepływ produktu.",
+			"label": "stack",
+			"title": "Co najczęściej łączę"
+		},
+		"statusLine": "status: active",
+		"typeLine": "type: builder"
+	},
+	"projects": {
+		"command": "$ query --featured --limit=3",
+		"description": "Kompaktowy zestaw typów pracy, które lubię budować: interfejsy produktowe, API, automatyzacje i narzędzia wspierające wdrożenia.",
+		"file": "selected_projects.json",
+		"items": {
+			"apiToolkit": {
+				"description": "Narzędzia backendowe do integracji API, automatyzacji workflow i przetwarzania danych strukturalnych. Oparte o przewidywalne zadania, praktyczne logowanie i małe moduły usług.",
+				"detail": "prywatny projekt klienta",
+				"label": "backend / integracje",
+				"name": "API Automation Toolkit"
+			},
+			"deploymentDashboard": {
+				"description": "Interfejs operacyjny do monitorowania usług aplikacji, środowisk i statusu wdrożeń. Skupiony na czytelnym stanie usług, pewności wdrożenia i powtarzalnym utrzymaniu.",
+				"detail": "narzędzie wewnętrzne",
+				"label": "ops / monitoring",
+				"name": "Deployment Dashboard"
+			},
+			"portfolio": {
+				"description": "Portfolio osobiste zbudowane na Nuxt, Tailwind CSS i reużywalnych sekcjach contentowych. Zaprojektowane jako techniczny profil z terminalowym stylem i szybką ścieżką iteracji.",
+				"detail": "publiczny preview",
+				"label": "interfejs / content system",
+				"name": "Portfolio v2"
+			}
+		},
+		"moreGithub": "Zobacz więcej projektów na GitHub",
+		"repoDescription": "Publiczne linki tam, gdzie to możliwe. Prywatna praca jest oznaczona bezpośrednio.",
+		"repoIndex": "repo.index",
+		"stats": {
+			"areas": "obszary",
+			"demo": "demo",
+			"items": "pozycje"
+		},
+		"title": "Wybrane realizacje z praktycznymi ograniczeniami"
+	},
+	"expertise": {
+		"items": {
+			"automation": {
+				"command": "ops.ship",
+				"description": "Automatyzacje workflow, skrypty, joby w tle i ścieżki wdrożeniowe dla środowisk Linux oraz Docker.",
+				"title": "Automation & Deployment"
+			},
+			"backend": {
+				"command": "api.design",
+				"description": "Architektura usług, kontrakty API, przepływy autoryzacji i modele baz danych dla produkcyjnych aplikacji webowych.",
+				"title": "Backend & APIs"
+			},
+			"frontend": {
+				"command": "ui.build",
+				"description": "Responsywne interfejsy, systemy komponentów i ekrany z dużą ilością danych budowane z praktycznym stanem oraz granicami API.",
+				"title": "Frontend Engineering"
+			}
+		}
+	},
+	"process": {
+		"steps": {
+			"build": {
+				"command": "feature --ship",
+				"description": "Implementacja interfejsu, API i persystencji w małych, łatwych do sprawdzenia częściach.",
+				"name": "Build"
+			},
+			"deploy": {
+				"command": "release --prod",
+				"description": "Pakowanie, wdrożenie i zostawienie systemu w stanie, który da się obserwować i utrzymać.",
+				"name": "Deploy"
+			},
+			"plan": {
+				"command": "scope --map",
+				"description": "Ustalenie celów, kształtu danych, integracji i najmniejszego użytecznego wydania.",
+				"name": "Plan"
+			},
+			"test": {
+				"command": "verify --flow",
+				"description": "Sprawdzenie głównych ścieżek, przypadków brzegowych i założeń wdrożeniowych przed releasem.",
+				"name": "Test"
+			}
+		},
+		"terminal": "plan -> build -> test -> deploy",
+		"terminalUser": "karol{'@'}portfolio:~$ "
+	},
+	"contact": {
+		"command": "./contact.sh --open",
+		"description": "Wyślij kontekst projektu, linki, ograniczenia albo krótki brief. Odpowiem z kolejnymi krokami.",
+		"file": "contact.sh",
+		"lines": {
+			"location": {
+				"key": "location",
+				"value": "Polska, praca zdalna"
+			},
+			"reply": {
+				"key": "reply",
+				"value": "asynchronicznie, praktycznie i konkretnie"
+			},
+			"status": {
+				"key": "status",
+				"value": "dostępny dla określonych projektów web"
+			},
+			"work": {
+				"key": "work",
+				"value": "frontend / backend / automatyzacja"
+			}
+		},
+		"output": "ready_to_talk=true",
+		"outputLabel": "output:",
+		"terminalUser": "karol{'@'}portfolio:~$ ",
+		"title": "Zacznij rozmowę"
+	},
+	"error": {
+		"description": {
+			"fallback": "Coś poszło nie tak podczas renderowania strony. Możesz spróbować ponownie albo wrócić na stronę główną.",
+			"notFound": "Strona, którą próbujesz otworzyć, nie istnieje albo została przeniesiona."
+		},
+		"diagnosticsFile": "diagnostics.log",
+		"errorFile": "error.trace",
+		"fallback": {
+			"description": "Główna trasa portfolio nadal jest dostępna.",
+			"title": "fallback ready"
+		},
+		"next": "choose_recovery_action",
+		"nextLabel": "next:",
+		"recover": {
+			"fallback": "retry_or_go_home",
+			"notFound": "go_home_or_use_nav"
+		},
+		"runtime": "runtime: interrupted",
+		"title": {
+			"fallback": "Nieoczekiwany błąd runtime",
+			"notFound": "Nie znaleziono strony"
+		},
+		"type": {
+			"fallback": "server_error",
+			"notFound": "missing_route"
+		}
+	},
+	"footer": {
+		"rights": "© 2026 Karol Jaroń. Wszelkie prawa zastrzeżone."
+	}
+}

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ProjectDescription from '~/components/projects/ProjectDescription.vue';
 
+const { t } = useI18n();
+
 type Project = {
     name: string;
     label: string;
@@ -14,38 +16,38 @@ type Project = {
 
 const githubProfileUrl = 'https://github.com/karoljaron';
 
-const projects: Project[] = [
+const projects = computed<Project[]>(() => [
     {
-        name: 'Portfolio v2',
-        label: 'interface / content system',
-        description: 'Personal portfolio built with Nuxt, Tailwind CSS and reusable content sections. Designed as a focused technical profile with terminal-inspired sections and fast iteration paths.',
+        name: t('projects.items.portfolio.name'),
+        label: t('projects.items.portfolio.label'),
+        description: t('projects.items.portfolio.description'),
         stack: ['Nuxt', 'Vue', 'Tailwind CSS'],
-        detail: 'public preview',
+        detail: t('projects.items.portfolio.detail'),
         demoUrl: '/',
         githubUrl: '',
         icon: 'code',
     },
     {
-        name: 'API Automation Toolkit',
-        label: 'backend / integration',
-        description: 'Backend utilities for integrating APIs, automating workflows and processing structured data. Built around predictable jobs, practical logging and small composable service modules.',
+        name: t('projects.items.apiToolkit.name'),
+        label: t('projects.items.apiToolkit.label'),
+        description: t('projects.items.apiToolkit.description'),
         stack: ['Nest.js', 'PostgreSQL', 'Bun'],
-        detail: 'private client work',
+        detail: t('projects.items.apiToolkit.detail'),
         demoUrl: '',
         githubUrl: '',
         icon: 'workflow',
     },
     {
-        name: 'Deployment Dashboard',
-        label: 'ops / monitoring',
-        description: 'Operational interface for monitoring application services, environments and deployment status. Focused on clear service state, deployment confidence and repeatable maintenance work.',
+        name: t('projects.items.deploymentDashboard.name'),
+        label: t('projects.items.deploymentDashboard.label'),
+        description: t('projects.items.deploymentDashboard.description'),
         stack: ['TypeScript', 'Docker', 'Linux'],
-        detail: 'internal tooling',
+        detail: t('projects.items.deploymentDashboard.detail'),
         demoUrl: '',
         githubUrl: '',
         icon: 'server',
     },
-];
+]);
 </script>
 
 <template>
@@ -56,16 +58,16 @@ const projects: Project[] = [
                     <span class="size-2.5 rounded-full bg-primary"></span>
                     <span class="size-2.5 rounded-full bg-muted-foreground"></span>
                     <span class="size-2.5 rounded-full bg-border-strong"></span>
-                    <span class="ml-2 font-mono text-xs text-muted">selected_projects.json</span>
+                    <span class="ml-2 font-mono text-xs text-muted">{{ t('projects.file') }}</span>
                 </div>
 
                 <div class="space-y-2 p-4 sm:p-5">
-                    <p class="font-mono text-xs text-primary">$ query --featured --limit=3</p>
+                    <p class="font-mono text-xs text-primary">{{ t('projects.command') }}</p>
                     <h3 class="text-xl font-semibold leading-tight text-foreground sm:text-2xl">
-                        Selected builds with practical constraints
+                        {{ t('projects.title') }}
                     </h3>
                     <p class="max-w-3xl text-sm leading-6 text-muted sm:text-base">
-                        A compact set of work types I like building: product interfaces, APIs, automation and deployment-focused tools.
+                        {{ t('projects.description') }}
                     </p>
                 </div>
             </div>
@@ -77,23 +79,23 @@ const projects: Project[] = [
                             <LucideFolderGit2 class="size-5" />
                         </div>
                         <div>
-                            <p class="font-mono text-xs text-primary">repo.index</p>
-                            <p class="mt-1 text-sm leading-6 text-muted">Public links where possible. Private work is marked directly.</p>
+                            <p class="font-mono text-xs text-primary">{{ t('projects.repoIndex') }}</p>
+                            <p class="mt-1 text-sm leading-6 text-muted">{{ t('projects.repoDescription') }}</p>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-3 gap-2 text-center">
                         <div class="rounded-lg border border-border bg-background-secondary px-2 py-2">
                             <p class="text-lg font-semibold text-foreground">{{ projects.length }}</p>
-                            <p class="font-mono text-[11px] text-muted">items</p>
+                            <p class="font-mono text-[11px] text-muted">{{ t('projects.stats.items') }}</p>
                         </div>
                         <div class="rounded-lg border border-border bg-background-secondary px-2 py-2">
                             <p class="text-lg font-semibold text-foreground">3</p>
-                            <p class="font-mono text-[11px] text-muted">areas</p>
+                            <p class="font-mono text-[11px] text-muted">{{ t('projects.stats.areas') }}</p>
                         </div>
                         <div class="rounded-lg border border-border bg-background-secondary px-2 py-2">
                             <p class="text-lg font-semibold text-foreground">1</p>
-                            <p class="font-mono text-[11px] text-muted">demo</p>
+                            <p class="font-mono text-[11px] text-muted">{{ t('projects.stats.demo') }}</p>
                         </div>
                     </div>
                 </div>
@@ -167,7 +169,7 @@ const projects: Project[] = [
                         class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                     >
                         <LucideExternalLink class="size-4" />
-                        Demo
+                        {{ t('common.demo') }}
                     </a>
 
                     <a
@@ -178,7 +180,7 @@ const projects: Project[] = [
                         class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                     >
                         <LucideFolderGit2 class="size-4" />
-                        GitHub
+                        {{ t('common.github') }}
                     </a>
 
                     <span
@@ -186,7 +188,7 @@ const projects: Project[] = [
                         class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-muted"
                     >
                         <LucideLockKeyhole class="size-4" />
-                        Private code
+                        {{ t('common.privateCode') }}
                     </span>
                 </div>
             </article>
@@ -198,7 +200,7 @@ const projects: Project[] = [
             rel="noreferrer"
             class="inline-flex min-h-11 items-center gap-2 rounded-full px-1 text-sm font-semibold text-muted transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:text-base"
         >
-            View more projects on GitHub
+            {{ t('projects.moreGithub') }}
             <span aria-hidden="true">-&gt;</span>
         </a>
     </div>

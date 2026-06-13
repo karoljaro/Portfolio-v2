@@ -1,0 +1,235 @@
+{
+	"common": {
+		"demo": "Demo",
+		"email": "Email",
+		"github": "GitHub",
+		"goHome": "Go Home",
+		"privateCode": "Private code",
+		"showLess": "Show less",
+		"showMore": "Show more",
+		"tryAgain": "Try Again"
+	},
+	"header": {
+		"brand": "karol.jarón",
+		"contact": "contact",
+		"goToTop": "Go to top",
+		"language": "Language",
+		"mobilePrimaryNav": "Mobile primary",
+		"nav": {
+			"contact": "contact",
+			"expertise": "expertise",
+			"process": "process",
+			"projects": "projects"
+		},
+		"primaryNav": "Primary",
+		"runtime": "portfolio.runtime",
+		"status": "available"
+	},
+	"sections": {
+		"about": "about.md",
+		"contact": "contact.sh",
+		"expertise": "expertise",
+		"process": "my_process",
+		"projects": "selected_projects"
+	},
+	"hero": {
+		"buildCommand": "run build-practical-web",
+		"cards": {
+			"delivery": {
+				"description": "Small decisions that keep products easy to change.",
+				"title": "practical delivery"
+			},
+			"systems": {
+				"description": "From visible UI to the service path behind it.",
+				"title": "system thinking"
+			}
+		},
+		"command": "$ whoami --public",
+		"contactCta": "Contact Me",
+		"headline": "Clean web interfaces, reliable services and practical automation.",
+		"lead": "I help turn product ideas into working systems with clear structure, sensible defaults and deployment-ready execution.",
+		"logTitle": "build.log",
+		"name": "Karol Jaroń",
+		"outputLabel": "output:",
+		"outputValue": "useful_software=true",
+		"runtime": "runtime: portfolio",
+		"signals": {
+			"api": "API logic",
+			"product": "Product UI",
+			"release": "Release flow"
+		},
+		"steps": {
+			"flow": "connect API boundaries with data flow",
+			"interface": "map idea into interface states",
+			"release": "prepare for maintenance and release"
+		},
+		"terminalUser": "karol{'@'}portfolio:~$ ",
+		"viewProjects": "View Projects",
+		"windowTitle": "hero.start"
+	},
+	"about": {
+		"command": "$ cat about.md",
+		"facts": {
+			"base": {
+				"label": "base",
+				"value": "Poland / remote"
+			},
+			"focus": {
+				"label": "focus",
+				"value": "practical web software"
+			},
+			"role": {
+				"label": "role",
+				"value": "Full-Stack Web Developer"
+			}
+		},
+		"file": "about.md",
+		"mode": "mode: readable",
+		"paragraphOne": "I'm Karol, a Full-Stack Web Developer from Poland with commercial experience in building web applications, backend APIs and automation tools.",
+		"paragraphTwo": "I work across frontend implementation, API design, database models, workflow automation and deployment. My focus is software that is maintainable, useful and reliable.",
+		"profileName": "karol.profile",
+		"stack": {
+			"description": "Interfaces, services, data and deployment paths into one working product flow.",
+			"label": "stack",
+			"title": "What I usually connect"
+		},
+		"statusLine": "status: active",
+		"typeLine": "type: builder"
+	},
+	"projects": {
+		"command": "$ query --featured --limit=3",
+		"description": "A compact set of work types I like building: product interfaces, APIs, automation and deployment-focused tools.",
+		"file": "selected_projects.json",
+		"items": {
+			"apiToolkit": {
+				"description": "Backend utilities for integrating APIs, automating workflows and processing structured data. Built around predictable jobs, practical logging and small composable service modules.",
+				"detail": "private client work",
+				"label": "backend / integration",
+				"name": "API Automation Toolkit"
+			},
+			"deploymentDashboard": {
+				"description": "Operational interface for monitoring application services, environments and deployment status. Focused on clear service state, deployment confidence and repeatable maintenance work.",
+				"detail": "internal tooling",
+				"label": "ops / monitoring",
+				"name": "Deployment Dashboard"
+			},
+			"portfolio": {
+				"description": "Personal portfolio built with Nuxt, Tailwind CSS and reusable content sections. Designed as a focused technical profile with terminal-inspired sections and fast iteration paths.",
+				"detail": "public preview",
+				"label": "interface / content system",
+				"name": "Portfolio v2"
+			}
+		},
+		"moreGithub": "View more projects on GitHub",
+		"repoDescription": "Public links where possible. Private work is marked directly.",
+		"repoIndex": "repo.index",
+		"stats": {
+			"areas": "areas",
+			"demo": "demo",
+			"items": "items"
+		},
+		"title": "Selected builds with practical constraints"
+	},
+	"expertise": {
+		"items": {
+			"automation": {
+				"command": "ops.ship",
+				"description": "Workflow automation, scripts, background jobs and deployment paths for Linux and Docker environments.",
+				"title": "Automation & Deployment"
+			},
+			"backend": {
+				"command": "api.design",
+				"description": "Service architecture, API contracts, authentication flows and database models for production web applications.",
+				"title": "Backend & APIs"
+			},
+			"frontend": {
+				"command": "ui.build",
+				"description": "Responsive interfaces, component systems and data-heavy screens built with practical state and API boundaries.",
+				"title": "Frontend Engineering"
+			}
+		}
+	},
+	"process": {
+		"steps": {
+			"build": {
+				"command": "feature --ship",
+				"description": "Implement the interface, API and persistence with small, reviewable pieces.",
+				"name": "Build"
+			},
+			"deploy": {
+				"command": "release --prod",
+				"description": "Package, deploy and leave the system observable enough to maintain.",
+				"name": "Deploy"
+			},
+			"plan": {
+				"command": "scope --map",
+				"description": "Define goals, data shape, integrations and the smallest useful release.",
+				"name": "Plan"
+			},
+			"test": {
+				"command": "verify --flow",
+				"description": "Check core paths, edge cases and deployment assumptions before release.",
+				"name": "Test"
+			}
+		},
+		"terminal": "plan -> build -> test -> deploy",
+		"terminalUser": "karol{'@'}portfolio:~$ "
+	},
+	"contact": {
+		"command": "./contact.sh --open",
+		"description": "Send project context, links, constraints or a short brief. I will answer with next steps.",
+		"file": "contact.sh",
+		"lines": {
+			"location": {
+				"key": "location",
+				"value": "Poland, remote-friendly"
+			},
+			"reply": {
+				"key": "reply",
+				"value": "async, practical and direct"
+			},
+			"status": {
+				"key": "status",
+				"value": "available for scoped web projects"
+			},
+			"work": {
+				"key": "work",
+				"value": "frontend / backend / automation"
+			}
+		},
+		"output": "ready_to_talk=true",
+		"outputLabel": "output:",
+		"terminalUser": "karol{'@'}portfolio:~$ ",
+		"title": "Start a conversation"
+	},
+	"error": {
+		"description": {
+			"fallback": "Something failed while rendering this page. You can retry or return to the homepage.",
+			"notFound": "The page you tried to open does not exist or was moved."
+		},
+		"diagnosticsFile": "diagnostics.log",
+		"errorFile": "error.trace",
+		"fallback": {
+			"description": "The main portfolio route is still available.",
+			"title": "fallback ready"
+		},
+		"next": "choose_recovery_action",
+		"nextLabel": "next:",
+		"recover": {
+			"fallback": "retry_or_go_home",
+			"notFound": "go_home_or_use_nav"
+		},
+		"runtime": "runtime: interrupted",
+		"title": {
+			"fallback": "Unexpected runtime error",
+			"notFound": "Route not found"
+		},
+		"type": {
+			"fallback": "server_error",
+			"notFound": "missing_route"
+		}
+	},
+	"footer": {
+		"rights": "© 2026 Karol Jaroń. All rights reserved."
+	}
+}

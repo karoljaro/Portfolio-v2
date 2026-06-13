@@ -1,13 +1,15 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 const contactEmail = 'hello@karoljaron.dev';
 const githubProfileUrl = 'https://github.com/karoljaron';
 
-const contactLines = [
-    { key: 'status', value: 'available for scoped web projects' },
-    { key: 'work', value: 'frontend / backend / automation' },
-    { key: 'location', value: 'Poland, remote-friendly' },
-    { key: 'reply', value: 'async, practical and direct' },
-];
+const contactLines = computed(() => [
+    { key: t('contact.lines.status.key'), value: t('contact.lines.status.value') },
+    { key: t('contact.lines.work.key'), value: t('contact.lines.work.value') },
+    { key: t('contact.lines.location.key'), value: t('contact.lines.location.value') },
+    { key: t('contact.lines.reply.key'), value: t('contact.lines.reply.value') },
+]);
 </script>
 
 <template>
@@ -20,13 +22,13 @@ const contactLines = [
                 <span class="size-2.5 rounded-full bg-primary"></span>
                 <span class="size-2.5 rounded-full bg-muted-foreground"></span>
                 <span class="size-2.5 rounded-full bg-border-strong"></span>
-                <span class="ml-2 font-mono text-xs text-muted">contact.sh</span>
+                <span class="ml-2 font-mono text-xs text-muted">{{ t('contact.file') }}</span>
             </div>
 
             <div class="space-y-4 p-4 font-mono text-sm leading-7 sm:p-5">
                 <p>
-                    <span class="text-muted">karol@portfolio:~$ </span>
-                    <span class="text-foreground">./contact.sh --open</span>
+                    <span class="text-muted">{{ t('contact.terminalUser') }}</span>
+                    <span class="text-foreground">{{ t('contact.command') }}</span>
                 </p>
 
                 <div class="space-y-1">
@@ -41,7 +43,7 @@ const contactLines = [
                 </div>
 
                 <p class="text-foreground">
-                    output: <span class="text-primary">ready_to_talk=true</span>
+                    {{ t('contact.outputLabel') }} <span class="text-primary">{{ t('contact.output') }}</span>
                 </p>
             </div>
         </div>
@@ -54,10 +56,10 @@ const contactLines = [
                     </div>
                     <div class="space-y-2">
                         <h3 class="text-xl font-semibold leading-tight text-foreground">
-                            Start a conversation
+                            {{ t('contact.title') }}
                         </h3>
                         <p class="text-sm leading-6 text-muted">
-                            Send project context, links, constraints or a short brief. I will answer with next steps.
+                            {{ t('contact.description') }}
                         </p>
                     </div>
                 </div>
@@ -68,7 +70,7 @@ const contactLines = [
                         class="inline-flex min-h-10 items-center gap-2 rounded-md border border-primary bg-primary px-3.5 text-sm font-semibold text-background transition-colors hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                     >
                         <LucideMail class="size-4" />
-                        Email
+                        {{ t('common.email') }}
                     </a>
                     <a
                         :href="githubProfileUrl"
@@ -77,7 +79,7 @@ const contactLines = [
                         class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
                     >
                         <LucideFolderGit2 class="size-4" />
-                        GitHub
+                        {{ t('common.github') }}
                     </a>
                 </div>
             </div>

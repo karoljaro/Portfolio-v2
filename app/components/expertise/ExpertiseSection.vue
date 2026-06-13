@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 type ExpertiseItem = {
     title: string;
     command: string;
@@ -7,29 +9,29 @@ type ExpertiseItem = {
     icon: 'frontend' | 'backend' | 'automation';
 };
 
-const expertiseItems: ExpertiseItem[] = [
+const expertiseItems = computed<ExpertiseItem[]>(() => [
     {
-        title: 'Frontend Engineering',
-        command: 'ui.build',
-        description: 'Responsive interfaces, component systems and data-heavy screens built with practical state and API boundaries.',
+        title: t('expertise.items.frontend.title'),
+        command: t('expertise.items.frontend.command'),
+        description: t('expertise.items.frontend.description'),
         tools: ['Nuxt', 'Vue', 'Next.js', 'Tailwind CSS'],
         icon: 'frontend',
     },
     {
-        title: 'Backend & APIs',
-        command: 'api.design',
-        description: 'Service architecture, API contracts, authentication flows and database models for production web applications.',
+        title: t('expertise.items.backend.title'),
+        command: t('expertise.items.backend.command'),
+        description: t('expertise.items.backend.description'),
         tools: ['Nest.js', 'PostgreSQL', 'REST', 'Auth'],
         icon: 'backend',
     },
     {
-        title: 'Automation & Deployment',
-        command: 'ops.ship',
-        description: 'Workflow automation, scripts, background jobs and deployment paths for Linux and Docker environments.',
+        title: t('expertise.items.automation.title'),
+        command: t('expertise.items.automation.command'),
+        description: t('expertise.items.automation.description'),
         tools: ['Docker', 'Linux', 'Bun', 'Python'],
         icon: 'automation',
     },
-];
+]);
 </script>
 
 <template>

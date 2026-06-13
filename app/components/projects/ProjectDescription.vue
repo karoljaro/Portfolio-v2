@@ -1,7 +1,9 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
     description: string;
 }>();
+
+const { t } = useI18n();
 
 const lineLimit = 3;
 const descriptionRef = ref<HTMLElement | null>(null);
@@ -42,6 +44,14 @@ onMounted(async () => {
     updateExpandableState();
 });
 
+watch(
+    () => props.description,
+    async () => {
+        await nextTick();
+        updateExpandableState();
+    },
+);
+
 useResizeObserver(descriptionRef, updateExpandableState);
 </script>
 
@@ -52,7 +62,7 @@ useResizeObserver(descriptionRef, updateExpandableState);
             class="max-w-3xl overflow-hidden text-sm leading-6 text-muted sm:text-base"
             :class="isExpanded ? '' : '[display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]'"
         >
-            {{ description }}
+            {{ props.description }}
         </p>
 
         <button
@@ -61,7 +71,7 @@ useResizeObserver(descriptionRef, updateExpandableState);
             class="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
             @click="isExpanded = !isExpanded"
         >
-            {{ isExpanded ? 'Show less' : 'Show more' }}
+            {{ isExpanded ? t('common.showLess') : t('common.showMore') }}
             <LucideChevronUp
                 v-if="isExpanded"
                 class="size-4"

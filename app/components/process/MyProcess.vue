@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 type ProcessStep = {
     name: string;
     command: string;
@@ -6,39 +8,39 @@ type ProcessStep = {
     icon: 'plan' | 'build' | 'test' | 'deploy';
 };
 
-const steps: ProcessStep[] = [
+const steps = computed<ProcessStep[]>(() => [
     {
-        name: 'Plan',
-        command: 'scope --map',
-        description: 'Define goals, data shape, integrations and the smallest useful release.',
+        name: t('process.steps.plan.name'),
+        command: t('process.steps.plan.command'),
+        description: t('process.steps.plan.description'),
         icon: 'plan',
     },
     {
-        name: 'Build',
-        command: 'feature --ship',
-        description: 'Implement the interface, API and persistence with small, reviewable pieces.',
+        name: t('process.steps.build.name'),
+        command: t('process.steps.build.command'),
+        description: t('process.steps.build.description'),
         icon: 'build',
     },
     {
-        name: 'Test',
-        command: 'verify --flow',
-        description: 'Check core paths, edge cases and deployment assumptions before release.',
+        name: t('process.steps.test.name'),
+        command: t('process.steps.test.command'),
+        description: t('process.steps.test.description'),
         icon: 'test',
     },
     {
-        name: 'Deploy',
-        command: 'release --prod',
-        description: 'Package, deploy and leave the system observable enough to maintain.',
+        name: t('process.steps.deploy.name'),
+        command: t('process.steps.deploy.command'),
+        description: t('process.steps.deploy.description'),
         icon: 'deploy',
     },
-];
+]);
 </script>
 
 <template>
     <div class="space-y-4">
         <div class="rounded-xl border border-border bg-background-secondary px-4 py-3 font-mono text-xs leading-6 sm:px-5 sm:text-sm">
-            <span class="text-muted">karol@portfolio:~$ </span>
-            <span class="text-foreground">plan -&gt; build -&gt; test -&gt; deploy</span>
+            <span class="text-muted">{{ t('process.terminalUser') }}</span>
+            <span class="text-foreground">{{ t('process.terminal') }}</span>
         </div>
 
         <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">

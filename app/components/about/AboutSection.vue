@@ -1,9 +1,11 @@
 <script setup lang="ts">
-const profileFacts = [
-    { label: 'role', value: 'Full-Stack Web Developer' },
-    { label: 'base', value: 'Poland / remote' },
-    { label: 'focus', value: 'practical web software' },
-];
+const { t } = useI18n();
+
+const profileFacts = computed(() => [
+    { label: t('about.facts.role.label'), value: t('about.facts.role.value') },
+    { label: t('about.facts.base.label'), value: t('about.facts.base.value') },
+    { label: t('about.facts.focus.label'), value: t('about.facts.focus.value') },
+]);
 
 const stackItems = ['TypeScript', 'Nuxt', 'Nest.js', 'PostgreSQL', 'Python', 'Docker'];
 </script>
@@ -16,9 +18,9 @@ const stackItems = ['TypeScript', 'Nuxt', 'Nest.js', 'PostgreSQL', 'Python', 'Do
                     <span class="size-2.5 rounded-full bg-primary"></span>
                     <span class="size-2.5 rounded-full bg-muted-foreground"></span>
                     <span class="size-2.5 rounded-full bg-border-strong"></span>
-                    <span class="ml-2 font-mono text-xs text-muted">about.md</span>
+                    <span class="ml-2 font-mono text-xs text-muted">{{ t('about.file') }}</span>
                 </div>
-                <span class="hidden font-mono text-xs text-subtle-foreground sm:inline">mode: readable</span>
+                <span class="hidden font-mono text-xs text-subtle-foreground sm:inline">{{ t('about.mode') }}</span>
             </div>
 
             <div class="grid lg:grid-cols-[148px_minmax(0,1fr)]">
@@ -29,22 +31,22 @@ const stackItems = ['TypeScript', 'Nuxt', 'Nest.js', 'PostgreSQL', 'Python', 'Do
                         </div>
 
                         <div class="space-y-2 font-mono text-xs">
-                            <p class="text-primary">karol.profile</p>
-                            <p class="text-muted">status: active</p>
-                            <p class="text-muted">type: builder</p>
+                            <p class="text-primary">{{ t('about.profileName') }}</p>
+                            <p class="text-muted">{{ t('about.statusLine') }}</p>
+                            <p class="text-muted">{{ t('about.typeLine') }}</p>
                         </div>
                     </div>
                 </aside>
 
                 <div class="space-y-5 p-4 sm:p-5">
                     <div class="space-y-3">
-                        <p class="font-mono text-xs text-primary">$ cat about.md</p>
+                        <p class="font-mono text-xs text-primary">{{ t('about.command') }}</p>
                         <div class="space-y-4 text-sm leading-7 text-muted sm:text-base sm:leading-8">
                             <p>
-                                I'm Karol, a Full-Stack Web Developer from Poland with commercial experience in building web applications, backend APIs and automation tools.
+                                {{ t('about.paragraphOne') }}
                             </p>
                             <p>
-                                I work across frontend implementation, API design, database models, workflow automation and deployment. My focus is software that is maintainable, useful and reliable.
+                                {{ t('about.paragraphTwo') }}
                             </p>
                         </div>
                     </div>
@@ -71,16 +73,16 @@ const stackItems = ['TypeScript', 'Nuxt', 'Nest.js', 'PostgreSQL', 'Python', 'Do
                             <LucideBlocks class="size-5" />
                         </div>
                         <span class="rounded-full border border-border bg-surface-tag px-2.5 py-1 font-mono text-xs text-muted">
-                            stack
+                            {{ t('about.stack.label') }}
                         </span>
                     </div>
 
                     <div class="space-y-2">
                         <h3 class="text-xl font-semibold leading-tight text-foreground">
-                            What I usually connect
+                            {{ t('about.stack.title') }}
                         </h3>
                         <p class="text-sm leading-6 text-muted">
-                            Interfaces, services, data and deployment paths into one working product flow.
+                            {{ t('about.stack.description') }}
                         </p>
                     </div>
                 </div>

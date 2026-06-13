@@ -17,4 +17,21 @@ export default defineNuxtConfig({
 
 	pages: true,
 	modules: ['nuxt-lucide-icons', '@vueuse/nuxt', '@nuxtjs/i18n'],
+	i18n: {
+		defaultLocale: 'en',
+		strategy: 'prefix_except_default',
+		detectBrowserLanguage: false,
+		locales: [
+			{
+				code: 'en',
+				name: 'English',
+				file: 'en.json',
+			},
+			{
+				code: 'pl',
+				name: 'Polski',
+				file: 'pl.json',
+			},
+		],
+	},
 });

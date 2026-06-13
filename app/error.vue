@@ -5,23 +5,26 @@ const props = defineProps<{
 	error: NuxtError;
 }>();
 
+const { t } = useI18n();
+const localePath = useLocalePath();
+
 const statusCode = computed(() => props.error.statusCode || 500);
 const isNotFound = computed(() => statusCode.value === 404);
 
-const title = computed(() => (isNotFound.value ? 'Route not found' : 'Unexpected runtime error'));
+const title = computed(() => (isNotFound.value ? t('error.title.notFound') : t('error.title.fallback')));
 const description = computed(() =>
 	isNotFound.value
-		? 'The page you tried to open does not exist or was moved.'
-		: 'Something failed while rendering this page. You can retry or return to the homepage.',
+		? t('error.description.notFound')
+		: t('error.description.fallback'),
 );
 
 const errorLines = computed(() => [
 	{ key: 'status', value: String(statusCode.value) },
-	{ key: 'type', value: isNotFound.value ? 'missing_route' : 'server_error' },
-	{ key: 'recover', value: isNotFound.value ? 'go_home_or_use_nav' : 'retry_or_go_home' },
+	{ key: 'type', value: isNotFound.value ? t('error.type.notFound') : t('error.type.fallback') },
+	{ key: 'recover', value: isNotFound.value ? t('error.recover.notFound') : t('error.recover.fallback') },
 ]);
 
-const goHome = () => clearError({ redirect: '/' });
+const goHome = () => clearError({ redirect: localePath('/') });
 
 const retry = () => {
 	if (import.meta.client) {
@@ -40,9 +43,9 @@ const retry = () => {
 							<span class="size-2.5 rounded-full bg-primary"></span>
 							<span class="size-2.5 rounded-full bg-muted-foreground"></span>
 							<span class="size-2.5 rounded-full bg-border-strong"></span>
-							<span class="ml-2 font-mono text-xs text-muted">error.trace</span>
+							<span class="ml-2 font-mono text-xs text-muted">{{ t('error.errorFile') }}</span>
 						</div>
-						<span class="hidden font-mono text-xs text-subtle-foreground sm:inline">runtime: interrupted</span>
+						<span class="hidden font-mono text-xs text-subtle-foreground sm:inline">{{ t('error.runtime') }}</span>
 					</div>
 
 					<div class="space-y-8 p-4 sm:p-6 lg:p-7">
@@ -66,7 +69,7 @@ const retry = () => {
 								class="inline-flex min-h-12 items-center gap-2 rounded-full border border-primary bg-primary px-5 text-sm font-semibold text-background transition-colors hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-6"
 								@click="goHome"
 							>
-								Go Home
+								{{ t('common.goHome') }}
 								<LucideArrowRight class="size-4" />
 							</button>
 							<button
@@ -75,7 +78,7 @@ const retry = () => {
 								@click="retry"
 							>
 								<LucideRefreshCw class="size-4" />
-								Try Again
+								{{ t('common.tryAgain') }}
 							</button>
 						</div>
 					</div>
@@ -87,7 +90,7 @@ const retry = () => {
 							<span class="size-2.5 rounded-full bg-primary"></span>
 							<span class="size-2.5 rounded-full bg-muted-foreground"></span>
 							<span class="size-2.5 rounded-full bg-border-strong"></span>
-							<span class="ml-2 font-mono text-xs text-muted">diagnostics.log</span>
+							<span class="ml-2 font-mono text-xs text-muted">{{ t('error.diagnosticsFile') }}</span>
 						</div>
 
 						<div class="space-y-4 p-4 font-mono text-sm leading-7 sm:p-5">
@@ -109,8 +112,8 @@ const retry = () => {
 
 							<div class="rounded-lg border border-border bg-background-secondary px-3 py-2.5">
 								<p>
-									<span class="text-primary">next:</span>
-									<span class="text-foreground"> choose_recovery_action</span>
+									<span class="text-primary">{{ t('error.nextLabel') }}</span>
+									<span class="text-foreground"> {{ t('error.next') }}</span>
 								</p>
 							</div>
 						</div>
@@ -122,8 +125,8 @@ const retry = () => {
 								<LucideTerminal class="size-4" />
 							</div>
 							<div>
-								<p class="font-mono text-xs text-primary">fallback ready</p>
-								<p class="mt-1 text-sm leading-6 text-muted">The main portfolio route is still available.</p>
+								<p class="font-mono text-xs text-primary">{{ t('error.fallback.title') }}</p>
+								<p class="mt-1 text-sm leading-6 text-muted">{{ t('error.fallback.description') }}</p>
 							</div>
 						</div>
 					</div>
