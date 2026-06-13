@@ -10,9 +10,16 @@ export default defineNuxtConfig({
 	},
 
 	css: ['./app/assets/css/main.css'],
-
 	vite: {
 		plugins: [tailwindcss()],
+	},
+
+	runtimeConfig: {
+		public: {
+			i18n: {
+				baseUrl: 'https://karoljaron.dev',
+			}
+		}
 	},
 
 	pages: true,
@@ -25,11 +32,13 @@ export default defineNuxtConfig({
 			{
 				code: 'en',
 				name: 'English',
+				language: 'en',
 				file: 'en.json',
 			},
 			{
 				code: 'pl',
 				name: 'Polski',
+				language: 'pl-PL',
 				file: 'pl.json',
 			},
 		],

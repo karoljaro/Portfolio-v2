@@ -9,6 +9,11 @@
 		"showMore": "Show more",
 		"tryAgain": "Try Again"
 	},
+	"seo": {
+		"description": "Full-stack web developer building practical websites, web applications, backend APIs and automation tools.",
+		"siteName": "Karol Jaroń Portfolio",
+		"title": "Karol Jaroń - Full-Stack Web Developer"
+	},
 	"header": {
 		"brand": "karol.jarón",
 		"contact": "contact",
