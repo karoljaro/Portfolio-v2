@@ -2,14 +2,21 @@
 const { locale, setLocale, t } = useI18n();
 
 type LocaleCode = 'pl' | 'en';
+type LocaleOption = {
+    code: LocaleCode;
+    shortLabel: string;
+    name: string;
+};
 
-const languageButtonClass = (code: LocaleCode) => [
-    'cursor-pointer transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary',
-    locale.value === code ? 'text-foreground' : 'text-muted',
-];
+const languages = computed<LocaleOption[]>(() => [
+    { code: 'pl', shortLabel: 'PL', name: t('header.languageNames.pl') },
+    { code: 'en', shortLabel: 'EN', name: t('header.languageNames.en') },
+]);
+
+const isActiveLanguage = (code: LocaleCode) => locale.value === code;
 
 const switchLanguage = (code: LocaleCode) => {
-    if (locale.value !== code) {
+    if (!isActiveLanguage(code)) {
         setLocale(code);
     }
 };
@@ -84,25 +91,24 @@ const switchLanguage = (code: LocaleCode) => {
 
                 <nav
                     :aria-label="t('header.language')"
-                    class="flex items-center gap-1 rounded-full border border-border bg-background-secondary px-2.5 py-2 font-mono text-xs text-muted"
+                    class="relative grid h-10 grid-cols-2 items-center rounded-full border border-border bg-background-secondary p-1 font-mono text-[11px] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
                 >
-                    <button
-                        type="button"
-                        :class="languageButtonClass('pl')"
-                        @click="switchLanguage('pl')"
-                    >
-                        PL
-                    </button>
                     <span
                         aria-hidden="true"
-                        class="select-none text-subtle-foreground"
-                    >/</span>
+                        class="absolute bottom-1 left-1 top-1 w-[calc(50%-0.25rem)] rounded-full border border-primary bg-primary transition-transform duration-200 ease-out"
+                        :class="isActiveLanguage('en') ? 'translate-x-full' : 'translate-x-0'"
+                    ></span>
                     <button
+                        v-for="language in languages"
+                        :key="language.code"
                         type="button"
-                        :class="languageButtonClass('en')"
-                        @click="switchLanguage('en')"
+                        class="relative z-10 grid h-8 min-w-10 cursor-pointer place-items-center rounded-full px-3 font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:min-w-11"
+                        :class="isActiveLanguage(language.code) ? 'text-background' : 'text-muted hover:text-foreground'"
+                        :aria-pressed="isActiveLanguage(language.code)"
+                        :aria-label="t('header.languageOption', { language: language.name })"
+                        @click="switchLanguage(language.code)"
                     >
-                        EN
+                        {{ language.shortLabel }}
                     </button>
                 </nav>
 

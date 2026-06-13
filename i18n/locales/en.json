@@ -14,6 +14,11 @@
 		"contact": "contact",
 		"goToTop": "Go to top",
 		"language": "Language",
+		"languageNames": {
+			"en": "English",
+			"pl": "Polish"
+		},
+		"languageOption": "Switch language to {language}",
 		"mobilePrimaryNav": "Mobile primary",
 		"nav": {
 			"contact": "contact",

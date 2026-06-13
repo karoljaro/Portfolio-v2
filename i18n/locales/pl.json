@@ -14,6 +14,11 @@
 		"contact": "kontakt",
 		"goToTop": "Przejdź na początek",
 		"language": "Język",
+		"languageNames": {
+			"en": "angielski",
+			"pl": "polski"
+		},
+		"languageOption": "Zmień język na {language}",
 		"mobilePrimaryNav": "Główna nawigacja mobilna",
 		"nav": {
 			"contact": "kontakt",
