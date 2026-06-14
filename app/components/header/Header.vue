@@ -7,11 +7,29 @@
 		shortLabel: string;
 		name: string;
 	};
+	type NavItem = {
+		href: string;
+		label: string;
+	};
 
 	const languages = computed<LocaleOption[]>(() => [
 		{ code: 'pl', shortLabel: 'PL', name: t('header.languageNames.pl') },
 		{ code: 'en', shortLabel: 'EN', name: t('header.languageNames.en') },
 	]);
+
+	const navItems = computed<NavItem[]>(() => [
+		{ href: '#projects', label: t('header.nav.projects') },
+		{ href: '#expertise', label: t('header.nav.expertise') },
+		{ href: '#process', label: t('header.nav.process') },
+		{ href: '#contact', label: t('header.nav.contact') },
+	]);
+
+	const activeLanguageIndex = computed(() =>
+		Math.max(
+			0,
+			languages.value.findIndex((language) => language.code === locale.value),
+		),
+	);
 
 	const isActiveLanguage = (code: LocaleCode) => locale.value === code;
 
@@ -59,28 +77,12 @@
 				class="hidden items-center gap-1 md:flex"
 			>
 				<a
-					href="#projects"
+					v-for="item in navItems"
+					:key="item.href"
+					:href="item.href"
 					class="rounded-full px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-background-secondary hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 				>
-					{{ t('header.nav.projects') }}
-				</a>
-				<a
-					href="#expertise"
-					class="rounded-full px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-background-secondary hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-				>
-					{{ t('header.nav.expertise') }}
-				</a>
-				<a
-					href="#process"
-					class="rounded-full px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-background-secondary hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-				>
-					{{ t('header.nav.process') }}
-				</a>
-				<a
-					href="#contact"
-					class="rounded-full px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-background-secondary hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-				>
-					{{ t('header.nav.contact') }}
+					{{ item.label }}
 				</a>
 			</nav>
 
@@ -104,7 +106,7 @@
 					<span
 						aria-hidden="true"
 						class="absolute bottom-1 left-1 top-1 w-[calc(50%-0.25rem)] rounded-full border border-primary bg-primary transition-transform duration-200 ease-out"
-						:class="isActiveLanguage('en') ? 'translate-x-full' : 'translate-x-0'"
+						:style="{ transform: `translateX(${activeLanguageIndex * 100}%)` }"
 					></span>
 					<button
 						v-for="language in languages"
@@ -139,28 +141,12 @@
 			class="grid grid-cols-4 border-t border-border bg-background-secondary/70 text-center md:hidden"
 		>
 			<a
-				href="#projects"
+				v-for="item in navItems"
+				:key="item.href"
+				:href="item.href"
 				class="px-2 py-2.5 font-mono text-[11px] text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary"
 			>
-				{{ t('header.nav.projects') }}
-			</a>
-			<a
-				href="#expertise"
-				class="px-2 py-2.5 font-mono text-[11px] text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary"
-			>
-				{{ t('header.nav.expertise') }}
-			</a>
-			<a
-				href="#process"
-				class="px-2 py-2.5 font-mono text-[11px] text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary"
-			>
-				{{ t('header.nav.process') }}
-			</a>
-			<a
-				href="#contact"
-				class="px-2 py-2.5 font-mono text-[11px] text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary"
-			>
-				{{ t('header.nav.contact') }}
+				{{ item.label }}
 			</a>
 		</nav>
 	</header>

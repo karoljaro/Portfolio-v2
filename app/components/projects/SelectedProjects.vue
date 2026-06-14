@@ -22,9 +22,32 @@
 			stack: unknown[];
 		}
 	>;
+	type ProjectStat = {
+		key: string;
+		value: number;
+		label: string;
+	};
+	type ProjectAction =
+		| {
+				type: 'link';
+				key: 'demo' | 'github';
+				href: string;
+				label: string;
+				icon: string;
+		  }
+		| {
+				type: 'status';
+				key: 'private';
+				label: string;
+				icon: string;
+		  };
 
 	const githubProfileUrl = 'https://github.com/karoljaron';
 	const projectItemsPath = 'projects.items';
+	const projectActionBaseClass =
+		'inline-flex min-h-10 min-w-36 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium lg:w-full lg:flex-none';
+	const projectLinkActionClass = `${projectActionBaseClass} text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary`;
+	const projectStatusActionClass = `${projectActionBaseClass} text-muted`;
 
 	const projectIds = computed(() => Object.keys(tm(projectItemsPath) as ProjectMessageMap));
 
@@ -68,6 +91,57 @@
 	const demoCount = computed(
 		() => projects.value.filter((project) => Boolean(project.demoUrl)).length,
 	);
+
+	const projectStats = computed<ProjectStat[]>(() => [
+		{
+			key: 'items',
+			value: projects.value.length,
+			label: t('projects.stats.items'),
+		},
+		{
+			key: 'areas',
+			value: areasCount.value,
+			label: t('projects.stats.areas'),
+		},
+		{
+			key: 'demo',
+			value: demoCount.value,
+			label: t('projects.stats.demo'),
+		},
+	]);
+
+	const projectActions = (project: Project): ProjectAction[] => {
+		const actions: ProjectAction[] = [];
+
+		if (project.demoUrl) {
+			actions.push({
+				type: 'link',
+				key: 'demo',
+				href: project.demoUrl,
+				label: t('common.demo'),
+				icon: 'external-link',
+			});
+		}
+
+		if (project.githubUrl) {
+			actions.push({
+				type: 'link',
+				key: 'github',
+				href: project.githubUrl,
+				label: t('common.github'),
+				icon: 'folder-git',
+			});
+		} else {
+			actions.push({
+				type: 'status',
+				key: 'private',
+				label: t('common.privateCode'),
+				icon: 'lock-keyhole',
+			});
+		}
+
+		return actions;
+	};
 </script>
 
 <template>
@@ -114,29 +188,15 @@
 
 					<div class="grid grid-cols-3 gap-2 text-center">
 						<div
+							v-for="stat in projectStats"
+							:key="stat.key"
 							class="rounded-lg border border-border bg-background-secondary px-2 py-2"
 						>
 							<p class="text-lg font-semibold text-foreground">
-								{{ projects.length }}
+								{{ stat.value }}
 							</p>
 							<p class="font-mono text-[11px] text-muted">
-								{{ t('projects.stats.items') }}
-							</p>
-						</div>
-						<div
-							class="rounded-lg border border-border bg-background-secondary px-2 py-2"
-						>
-							<p class="text-lg font-semibold text-foreground">{{ areasCount }}</p>
-							<p class="font-mono text-[11px] text-muted">
-								{{ t('projects.stats.areas') }}
-							</p>
-						</div>
-						<div
-							class="rounded-lg border border-border bg-background-secondary px-2 py-2"
-						>
-							<p class="text-lg font-semibold text-foreground">{{ demoCount }}</p>
-							<p class="font-mono text-[11px] text-muted">
-								{{ t('projects.stats.demo') }}
+								{{ stat.label }}
 							</p>
 						</div>
 					</div>
@@ -213,34 +273,34 @@
 						{{ project.detail }}
 					</p>
 
-					<a
-						v-if="project.demoUrl"
-						:href="project.demoUrl"
-						v-bind="projectHrefAttrs(project.demoUrl)"
-						class="inline-flex min-h-10 min-w-36 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:w-full lg:flex-none"
+					<template
+						v-for="action in projectActions(project)"
+						:key="action.key"
 					>
-						<LucideExternalLink class="size-4" />
-						{{ t('common.demo') }}
-					</a>
+						<a
+							v-if="action.type === 'link'"
+							:href="action.href"
+							v-bind="projectHrefAttrs(action.href)"
+							:class="projectLinkActionClass"
+						>
+							<DynamicIcon
+								:name="action.icon"
+								class="size-4"
+							/>
+							{{ action.label }}
+						</a>
 
-					<a
-						v-if="project.githubUrl"
-						:href="project.githubUrl"
-						target="_blank"
-						rel="noreferrer"
-						class="inline-flex min-h-10 min-w-36 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:w-full lg:flex-none"
-					>
-						<LucideFolderGit2 class="size-4" />
-						{{ t('common.github') }}
-					</a>
-
-					<span
-						v-else
-						class="inline-flex min-h-10 min-w-36 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-muted lg:w-full lg:flex-none"
-					>
-						<LucideLockKeyhole class="size-4" />
-						{{ t('common.privateCode') }}
-					</span>
+						<span
+							v-else
+							:class="projectStatusActionClass"
+						>
+							<DynamicIcon
+								:name="action.icon"
+								class="size-4"
+							/>
+							{{ action.label }}
+						</span>
+					</template>
 				</div>
 			</article>
 		</div>

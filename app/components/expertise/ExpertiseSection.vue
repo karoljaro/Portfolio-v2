@@ -2,43 +2,53 @@
 	const { t } = useI18n();
 
 	type ExpertiseItem = {
+		key: string;
 		title: string;
 		command: string;
 		description: string;
 		tools: string[];
-		icon: 'frontend' | 'backend' | 'automation';
+		icon: string;
 	};
 
-	const expertiseItems = computed<ExpertiseItem[]>(() => [
+	const expertiseConfig = [
 		{
-			title: t('expertise.items.frontend.title'),
-			command: t('expertise.items.frontend.command'),
-			description: t('expertise.items.frontend.description'),
+			key: 'frontend',
 			tools: ['Nuxt', 'Vue', 'Next.js', 'Tailwind CSS'],
-			icon: 'frontend',
+			icon: 'code',
 		},
 		{
-			title: t('expertise.items.backend.title'),
-			command: t('expertise.items.backend.command'),
-			description: t('expertise.items.backend.description'),
+			key: 'backend',
 			tools: ['Nest.js', 'PostgreSQL', 'REST', 'Auth'],
-			icon: 'backend',
+			icon: 'database',
 		},
 		{
-			title: t('expertise.items.automation.title'),
-			command: t('expertise.items.automation.command'),
-			description: t('expertise.items.automation.description'),
+			key: 'automation',
 			tools: ['Docker', 'Linux', 'Bun', 'Python'],
-			icon: 'automation',
+			icon: 'workflow',
 		},
-	]);
+	] as const;
+
+	const expertiseItems = computed<ExpertiseItem[]>(() =>
+		expertiseConfig.map((item) => {
+			const path = `expertise.items.${item.key}`;
+
+			return {
+				key: item.key,
+				title: t(`${path}.title`),
+				command: t(`${path}.command`),
+				description: t(`${path}.description`),
+				tools: [...item.tools],
+				icon: item.icon,
+			};
+		}),
+	);
 </script>
 
 <template>
 	<div class="grid gap-3 lg:grid-cols-3">
 		<article
 			v-for="(item, index) in expertiseItems"
-			:key="item.title"
+			:key="item.key"
 			class="group relative overflow-hidden rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
 		>
 			<div
@@ -51,16 +61,8 @@
 					<div
 						class="grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 					>
-						<LucideCode2
-							v-if="item.icon === 'frontend'"
-							class="size-5"
-						/>
-						<LucideDatabase
-							v-else-if="item.icon === 'backend'"
-							class="size-5"
-						/>
-						<LucideWorkflow
-							v-else
+						<DynamicIcon
+							:name="item.icon"
 							class="size-5"
 						/>
 					</div>

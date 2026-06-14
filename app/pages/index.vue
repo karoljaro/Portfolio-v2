@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import type { Component } from 'vue';
+
 	import AboutSection from '~/components/about/AboutSection.vue';
 	import ContactSection from '~/components/contact/ContactSection.vue';
 	import ExpertiseSection from '~/components/expertise/ExpertiseSection.vue';
@@ -6,6 +8,51 @@
 	import SelectedProjects from '~/components/projects/SelectedProjects.vue';
 
 	const { t } = useI18n();
+
+	type HomeSection = {
+		id?: string;
+		index: string;
+		labelKey: string;
+		titleId: string;
+		component: Component;
+	};
+
+	const sections = [
+		{
+			index: '01',
+			labelKey: 'sections.about',
+			titleId: 'about-title',
+			component: AboutSection,
+		},
+		{
+			id: 'projects',
+			index: '02',
+			labelKey: 'sections.projects',
+			titleId: 'projects-title',
+			component: SelectedProjects,
+		},
+		{
+			id: 'expertise',
+			index: '03',
+			labelKey: 'sections.expertise',
+			titleId: 'expertise-title',
+			component: ExpertiseSection,
+		},
+		{
+			id: 'process',
+			index: '04',
+			labelKey: 'sections.process',
+			titleId: 'process-title',
+			component: MyProcess,
+		},
+		{
+			id: 'contact',
+			index: '05',
+			labelKey: 'sections.contact',
+			titleId: 'contact-title',
+			component: ContactSection,
+		},
+	] satisfies HomeSection[];
 </script>
 
 <template>
@@ -13,63 +60,18 @@
 	<Hero />
 	<div class="space-y-12 md:space-y-14.5 lg:space-y-16">
 		<section
+			v-for="section in sections"
+			:id="section.id"
+			:key="section.titleId"
 			class="space-y-4 scroll-mt-28"
-			aria-labelledby="about-title"
+			:aria-labelledby="section.titleId"
 		>
 			<SectionLabel
-				id="about-title"
-				index="01"
-				>{{ t('sections.about') }}</SectionLabel
+				:id="section.titleId"
+				:index="section.index"
+				>{{ t(section.labelKey) }}</SectionLabel
 			>
-			<AboutSection />
-		</section>
-		<section
-			id="projects"
-			class="space-y-4 scroll-mt-28"
-			aria-labelledby="projects-title"
-		>
-			<SectionLabel
-				id="projects-title"
-				index="02"
-				>{{ t('sections.projects') }}</SectionLabel
-			>
-			<SelectedProjects />
-		</section>
-		<section
-			id="expertise"
-			class="space-y-4 scroll-mt-28"
-			aria-labelledby="expertise-title"
-		>
-			<SectionLabel
-				id="expertise-title"
-				index="03"
-				>{{ t('sections.expertise') }}</SectionLabel
-			>
-			<ExpertiseSection />
-		</section>
-		<section
-			id="process"
-			class="space-y-4 scroll-mt-28"
-			aria-labelledby="process-title"
-		>
-			<SectionLabel
-				id="process-title"
-				index="04"
-				>{{ t('sections.process') }}</SectionLabel
-			>
-			<MyProcess />
-		</section>
-		<section
-			id="contact"
-			class="space-y-4 scroll-mt-28"
-			aria-labelledby="contact-title"
-		>
-			<SectionLabel
-				id="contact-title"
-				index="05"
-				>{{ t('sections.contact') }}</SectionLabel
-			>
-			<ContactSection />
+			<component :is="section.component" />
 		</section>
 	</div>
 </template>

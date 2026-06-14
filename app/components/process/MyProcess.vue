@@ -2,38 +2,33 @@
 	const { t } = useI18n();
 
 	type ProcessStep = {
+		key: string;
 		name: string;
 		command: string;
 		description: string;
-		icon: 'plan' | 'build' | 'test' | 'deploy';
+		icon: string;
 	};
 
-	const steps = computed<ProcessStep[]>(() => [
-		{
-			name: t('process.steps.plan.name'),
-			command: t('process.steps.plan.command'),
-			description: t('process.steps.plan.description'),
-			icon: 'plan',
-		},
-		{
-			name: t('process.steps.build.name'),
-			command: t('process.steps.build.command'),
-			description: t('process.steps.build.description'),
-			icon: 'build',
-		},
-		{
-			name: t('process.steps.test.name'),
-			command: t('process.steps.test.command'),
-			description: t('process.steps.test.description'),
-			icon: 'test',
-		},
-		{
-			name: t('process.steps.deploy.name'),
-			command: t('process.steps.deploy.command'),
-			description: t('process.steps.deploy.description'),
-			icon: 'deploy',
-		},
-	]);
+	const stepConfig = [
+		{ key: 'plan', icon: 'clipboard-list' },
+		{ key: 'build', icon: 'hammer' },
+		{ key: 'test', icon: 'test-tube' },
+		{ key: 'deploy', icon: 'rocket' },
+	] as const;
+
+	const steps = computed<ProcessStep[]>(() =>
+		stepConfig.map((step) => {
+			const path = `process.steps.${step.key}`;
+
+			return {
+				key: step.key,
+				name: t(`${path}.name`),
+				command: t(`${path}.command`),
+				description: t(`${path}.description`),
+				icon: step.icon,
+			};
+		}),
+	);
 </script>
 
 <template>
@@ -48,7 +43,7 @@
 		<div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
 			<article
 				v-for="(step, index) in steps"
-				:key="step.name"
+				:key="step.key"
 				class="rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
 			>
 				<div class="space-y-5">
@@ -56,20 +51,8 @@
 						<div
 							class="grid size-11 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 						>
-							<LucideClipboardList
-								v-if="step.icon === 'plan'"
-								class="size-5"
-							/>
-							<LucideHammer
-								v-else-if="step.icon === 'build'"
-								class="size-5"
-							/>
-							<LucideTestTube
-								v-else-if="step.icon === 'test'"
-								class="size-5"
-							/>
-							<LucideRocket
-								v-else
+							<DynamicIcon
+								:name="step.icon"
 								class="size-5"
 							/>
 						</div>
