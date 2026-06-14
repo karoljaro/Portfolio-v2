@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import { getElementLineHeight } from '~/utils/getElementLineHeight';
+
 	const props = defineProps<{
 		description: string;
 	}>();
@@ -10,18 +12,6 @@
 	const isExpanded = shallowRef(false);
 	const canExpand = shallowRef(false);
 
-	const getLineHeight = (element: HTMLElement) => {
-		const styles = window.getComputedStyle(element);
-		const parsed = Number.parseFloat(styles.lineHeight);
-
-		if (Number.isFinite(parsed)) {
-			return parsed;
-		}
-
-		const fontSize = Number.parseFloat(styles.fontSize);
-		return Number.isFinite(fontSize) ? fontSize * 1.2 : 16;
-	};
-
 	const updateExpandableState = () => {
 		const element = descriptionRef.value;
 
@@ -29,7 +19,7 @@
 			return;
 		}
 
-		const lineHeight = getLineHeight(element);
+		const lineHeight = getElementLineHeight(element);
 		const renderedLines = Math.ceil(element.scrollHeight / lineHeight);
 
 		canExpand.value = renderedLines > lineLimit;

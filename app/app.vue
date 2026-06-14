@@ -5,23 +5,26 @@
 		dir: true,
 		seo: true,
 	});
+	const seoTitle = computed(() => t('seo.title'));
+	const seoDescription = computed(() => t('seo.description'));
+	const seoSiteName = computed(() => t('seo.siteName'));
 
 	useHead(
 		() => ({
 			htmlAttrs: {
 				...i18nHead.value.htmlAttrs,
 			},
-			title: t('seo.title'),
+			title: seoTitle.value,
 			titleTemplate: '%s',
 			meta: [
-				{ name: 'description', content: t('seo.description') },
+				{ name: 'description', content: seoDescription.value },
 				{ property: 'og:type', content: 'website' },
-				{ property: 'og:title', content: t('seo.title') },
-				{ property: 'og:description', content: t('seo.description') },
-				{ property: 'og:site_name', content: t('seo.siteName') },
+				{ property: 'og:title', content: seoTitle.value },
+				{ property: 'og:description', content: seoDescription.value },
+				{ property: 'og:site_name', content: seoSiteName.value },
 				{ name: 'twitter:card', content: 'summary' },
-				{ name: 'twitter:title', content: t('seo.title') },
-				{ name: 'twitter:description', content: t('seo.description') },
+				{ name: 'twitter:title', content: seoTitle.value },
+				{ name: 'twitter:description', content: seoDescription.value },
 				...(i18nHead.value.meta || []),
 			],
 			link: [...(i18nHead.value.link || [])],

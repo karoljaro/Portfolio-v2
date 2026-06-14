@@ -148,14 +148,7 @@
 	<div class="space-y-5">
 		<div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
 			<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
-				<div
-					class="flex min-h-12 items-center gap-2 border-b border-border bg-background-secondary px-4"
-				>
-					<span class="size-2.5 rounded-full bg-primary"></span>
-					<span class="size-2.5 rounded-full bg-muted-foreground"></span>
-					<span class="size-2.5 rounded-full bg-border-strong"></span>
-					<span class="ml-2 font-mono text-xs text-muted">{{ t('projects.file') }}</span>
-				</div>
+				<PanelHeader :title="t('projects.file')" />
 
 				<div class="space-y-2 p-4 sm:p-5">
 					<p class="font-mono text-xs text-primary">{{ t('projects.command') }}</p>

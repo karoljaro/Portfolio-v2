@@ -1,18 +1,8 @@
 <script setup lang="ts">
+	import { getElementLineHeight } from '~/utils/getElementLineHeight';
+
 	const contentRef = ref<HTMLElement | null>(null);
 	const lineCount = shallowRef(1);
-
-	const getLineHeight = (element: HTMLElement) => {
-		const styles = window.getComputedStyle(element);
-		const parsed = Number.parseFloat(styles.lineHeight);
-
-		if (Number.isFinite(parsed)) {
-			return parsed;
-		}
-
-		const fontSize = Number.parseFloat(styles.fontSize);
-		return Number.isFinite(fontSize) ? fontSize * 1.2 : 16;
-	};
 
 	const updateLineCount = useThrottleFn(
 		(entries: ResizeObserverEntry[]) => {
@@ -23,7 +13,7 @@
 				return;
 			}
 
-			const lineHeight = getLineHeight(element);
+			const lineHeight = getElementLineHeight(element);
 			const contentHeight = entry.contentRect.height;
 
 			lineCount.value = Math.max(1, Math.ceil(contentHeight / lineHeight));

@@ -44,21 +44,10 @@
 		<div class="mx-auto flex min-h-[calc(100vh-3rem)] max-w-5xl items-center">
 			<section class="grid w-full gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
 				<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
-					<div
-						class="flex min-h-12 items-center justify-between gap-4 border-b border-border bg-background-secondary px-4"
-					>
-						<div class="flex items-center gap-2">
-							<span class="size-2.5 rounded-full bg-primary"></span>
-							<span class="size-2.5 rounded-full bg-muted-foreground"></span>
-							<span class="size-2.5 rounded-full bg-border-strong"></span>
-							<span class="ml-2 font-mono text-xs text-muted">{{
-								t('error.errorFile')
-							}}</span>
-						</div>
-						<span class="hidden font-mono text-xs text-subtle-foreground sm:inline">{{
-							t('error.runtime')
-						}}</span>
-					</div>
+					<PanelHeader
+						:title="t('error.errorFile')"
+						:meta="t('error.runtime')"
+					/>
 
 					<div class="space-y-8 p-4 sm:p-6 lg:p-7">
 						<div class="space-y-5">
@@ -100,16 +89,7 @@
 
 				<aside class="grid gap-4">
 					<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
-						<div
-							class="flex min-h-12 items-center gap-2 border-b border-border bg-background-secondary px-4"
-						>
-							<span class="size-2.5 rounded-full bg-primary"></span>
-							<span class="size-2.5 rounded-full bg-muted-foreground"></span>
-							<span class="size-2.5 rounded-full bg-border-strong"></span>
-							<span class="ml-2 font-mono text-xs text-muted">{{
-								t('error.diagnosticsFile')
-							}}</span>
-						</div>
+						<PanelHeader :title="t('error.diagnosticsFile')" />
 
 						<div class="space-y-4 p-4 font-mono text-sm leading-7 sm:p-5">
 							<p>

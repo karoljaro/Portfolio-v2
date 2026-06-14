@@ -6,6 +6,12 @@
 		{ label: t('about.facts.base.label'), value: t('about.facts.base.value') },
 		{ label: t('about.facts.focus.label'), value: t('about.facts.focus.value') },
 	]);
+	const profileLines = computed(() => [
+		{ key: 'name', value: t('about.profileName'), class: 'text-primary' },
+		{ key: 'status', value: t('about.statusLine'), class: 'text-muted' },
+		{ key: 'type', value: t('about.typeLine'), class: 'text-muted' },
+	]);
+	const aboutParagraphs = computed(() => [t('about.paragraphOne'), t('about.paragraphTwo')]);
 
 	const stackItems = ['TypeScript', 'Nuxt', 'Nest.js', 'PostgreSQL', 'Python', 'Docker'];
 </script>
@@ -13,19 +19,10 @@
 <template>
 	<div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
 		<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
-			<div
-				class="flex min-h-12 items-center justify-between gap-4 border-b border-border bg-background-secondary px-4"
-			>
-				<div class="flex items-center gap-2">
-					<span class="size-2.5 rounded-full bg-primary"></span>
-					<span class="size-2.5 rounded-full bg-muted-foreground"></span>
-					<span class="size-2.5 rounded-full bg-border-strong"></span>
-					<span class="ml-2 font-mono text-xs text-muted">{{ t('about.file') }}</span>
-				</div>
-				<span class="hidden font-mono text-xs text-subtle-foreground sm:inline">{{
-					t('about.mode')
-				}}</span>
-			</div>
+			<PanelHeader
+				:title="t('about.file')"
+				:meta="t('about.mode')"
+			/>
 
 			<div class="grid lg:grid-cols-[148px_minmax(0,1fr)]">
 				<aside
@@ -39,9 +36,13 @@
 						</div>
 
 						<div class="space-y-2 font-mono text-xs">
-							<p class="text-primary">{{ t('about.profileName') }}</p>
-							<p class="text-muted">{{ t('about.statusLine') }}</p>
-							<p class="text-muted">{{ t('about.typeLine') }}</p>
+							<p
+								v-for="line in profileLines"
+								:key="line.key"
+								:class="line.class"
+							>
+								{{ line.value }}
+							</p>
 						</div>
 					</div>
 				</aside>
@@ -52,11 +53,11 @@
 						<div
 							class="space-y-4 text-sm leading-7 text-muted sm:text-base sm:leading-8"
 						>
-							<p>
-								{{ t('about.paragraphOne') }}
-							</p>
-							<p>
-								{{ t('about.paragraphTwo') }}
+							<p
+								v-for="paragraph in aboutParagraphs"
+								:key="paragraph"
+							>
+								{{ paragraph }}
 							</p>
 						</div>
 					</div>
