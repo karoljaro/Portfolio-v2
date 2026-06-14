@@ -6,25 +6,28 @@
 		seo: true,
 	});
 
-	useHead(() => ({
-		htmlAttrs: {
-			...i18nHead.value.htmlAttrs,
-		},
-		title: t('seo.title'),
-		meta: [
-			{ name: 'description', content: t('seo.description') },
-			{ name: 'robots', content: 'index, follow' },
-			{ property: 'og:type', content: 'website' },
-			{ property: 'og:title', content: t('seo.title') },
-			{ property: 'og:description', content: t('seo.description') },
-			{ property: 'og:site_name', content: t('seo.siteName') },
-			{ name: 'twitter:card', content: 'summary' },
-			{ name: 'twitter:title', content: t('seo.title') },
-			{ name: 'twitter:description', content: t('seo.description') },
-			...(i18nHead.value.meta || []),
-		],
-		link: [...(i18nHead.value.link || [])],
-	}));
+	useHead(
+		() => ({
+			htmlAttrs: {
+				...i18nHead.value.htmlAttrs,
+			},
+			title: t('seo.title'),
+			titleTemplate: '%s',
+			meta: [
+				{ name: 'description', content: t('seo.description') },
+				{ property: 'og:type', content: 'website' },
+				{ property: 'og:title', content: t('seo.title') },
+				{ property: 'og:description', content: t('seo.description') },
+				{ property: 'og:site_name', content: t('seo.siteName') },
+				{ name: 'twitter:card', content: 'summary' },
+				{ name: 'twitter:title', content: t('seo.title') },
+				{ name: 'twitter:description', content: t('seo.description') },
+				...(i18nHead.value.meta || []),
+			],
+			link: [...(i18nHead.value.link || [])],
+		}),
+		{ tagPriority: 'high' },
+	);
 </script>
 
 <template>

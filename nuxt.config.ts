@@ -1,33 +1,49 @@
 import tailwindcss from '@tailwindcss/vite';
+import { definePerson } from 'nuxt-schema-org/schema';
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
+const site = {
+	url: 'https://karoljaron.dev',
+	name: 'Karol Jaroń Portfolio',
+	description:
+		'Full-Stack Web Developer building websites, web applications, backend APIs and automation tools with TypeScript and Python.',
+	defaultLocale: 'en',
+};
+
 export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
-	devtools: { enabled: true },
+
+	devtools: {
+		enabled: true,
+	},
 
 	future: {
 		compatibilityVersion: 5,
 	},
 
+	modules: ['nuxt-lucide-icons', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxtjs/seo'],
+
 	css: ['./app/assets/css/main.css'],
+
 	vite: {
 		plugins: [tailwindcss()],
 	},
 
+	site,
+
 	runtimeConfig: {
 		public: {
 			i18n: {
-				baseUrl: 'https://karoljaron.dev',
+				baseUrl: site.url,
 			},
 		},
 	},
 
-	pages: true,
-	modules: ['nuxt-lucide-icons', '@vueuse/nuxt', '@nuxtjs/i18n'],
 	i18n: {
-		defaultLocale: 'en',
+		baseUrl: site.url,
+		defaultLocale: site.defaultLocale,
 		strategy: 'prefix_except_default',
 		detectBrowserLanguage: false,
+
 		locales: [
 			{
 				code: 'en',
@@ -43,4 +59,23 @@ export default defineNuxtConfig({
 			},
 		],
 	},
+
+	schemaOrg: {
+		identity: definePerson({
+			name: 'Karol Jaroń',
+			jobTitle: 'Full-Stack Web Developer',
+			url: site.url,
+			sameAs: ['https://github.com/karoljaron'],
+		}),
+	},
+
+	ogImage: {
+		enabled: false,
+	},
+
+	seo: {
+		fallbackTitle: false,
+	},
+
+	pages: true,
 });

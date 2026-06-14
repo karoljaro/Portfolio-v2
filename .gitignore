@@ -24,3 +24,6 @@ logs
 !.env.example
 
 /i18n/locales/.old
+
+# Skilld references (recreated by `skilld install`)
+.skilld
