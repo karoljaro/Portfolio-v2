@@ -2,7 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { definePerson } from 'nuxt-schema-org/schema';
 
 const site = {
-	url: 'https://karoljaron.dev',
+	url: process.env.NUXT_PUBLIC_I18N_BASE_URL,
 	name: 'Karol Jaroń Portfolio',
 	description:
 		'Full-Stack Web Developer building websites, web applications, backend APIs and automation tools with TypeScript and Python.',
