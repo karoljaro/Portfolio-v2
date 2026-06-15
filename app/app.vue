@@ -34,7 +34,10 @@
 </script>
 
 <template>
-	<main class="bg-background px-4 sm:px-6 lg:px-8 py-6">
+	<main
+		id="top"
+		class="bg-background px-4 py-6 sm:px-6 lg:px-8"
+	>
 		<NuxtRouteAnnouncer />
 		<NuxtLayout>
 			<NuxtPage />
