@@ -42,7 +42,7 @@
 				icon: string;
 		  };
 
-	const githubProfileUrl = 'https://github.com/karoljaron';
+	const githubProfileUrl = 'https://github.com/karoljaro';
 	const projectItemsPath = 'projects.items';
 	const projectActionBaseClass =
 		'inline-flex min-h-10 min-w-36 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium lg:w-full lg:flex-none';

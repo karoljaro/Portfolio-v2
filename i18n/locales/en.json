@@ -15,7 +15,7 @@
 		"title": "Karol Jaroń - Full-Stack Web Developer"
 	},
 	"header": {
-		"brand": "karol.jarón",
+		"brand": "karol.jaroń",
 		"contact": "contact",
 		"goToTop": "Go to top",
 		"language": "Language",
@@ -131,7 +131,7 @@
 				"icon": "audio",
 				"stack": ["Python", "Edge TTS", "Whisper", "OpenAI"],
 				"demoUrl": "",
-				"githubUrl": "https://github.com/karoljaron/auto-lektor"
+				"githubUrl": "https://github.com/karoljaro/AutoLektor"
 			},
 			"restaurantManagement": {
 				"name": "Restaurant Management Application",
@@ -142,7 +142,7 @@
 				"icon": "utensils",
 				"stack": ["Vue 3", "tRPC", "Prisma", "Tailwind CSS", "JWT"],
 				"demoUrl": "",
-				"githubUrl": "https://github.com/karoljaron/restaurant-management"
+				"githubUrl": "https://github.com/kamil-kubiczek/restaturant-backend"
 			},
 			"localAgenticCli": {
 				"name": "Local Agentic CLI",
@@ -153,7 +153,7 @@
 				"icon": "bot",
 				"stack": ["TypeScript", "Ink", "Ollama", "JSONL"],
 				"demoUrl": "",
-				"githubUrl": "https://github.com/karoljaron/local-agentic-cli"
+				"githubUrl": "https://github.com/karoljaro/Local_Agentic_CLI"
 			}
 		},
 		"moreGithub": "View more projects on GitHub",
@@ -218,7 +218,7 @@
 		"lines": {
 			"location": {
 				"key": "location",
-				"value": "Poland, remote-friendly"
+				"value": "Poland, remote-friendly, on-site work, hybrid work"
 			},
 			"reply": {
 				"key": "reply",

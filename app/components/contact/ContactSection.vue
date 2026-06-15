@@ -1,8 +1,8 @@
 <script setup lang="ts">
 	const { t } = useI18n();
 
-	const contactEmail = 'hello@karoljaron.dev';
-	const githubProfileUrl = 'https://github.com/karoljaron';
+	const contactEmail = 'karol_jaron@vp.pl';
+	const githubProfileUrl = 'https://github.com/karoljaro';
 
 	const contactLines = computed(() => [
 		{ key: t('contact.lines.status.key'), value: t('contact.lines.status.value') },

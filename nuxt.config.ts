@@ -12,6 +12,8 @@ const site = {
 export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
 
+	sourcemap: false,
+
 	devtools: {
 		enabled: true,
 	},
@@ -67,6 +69,10 @@ export default defineNuxtConfig({
 			url: site.url,
 			sameAs: ['https://github.com/karoljaron'],
 		}),
+	},
+
+	sitemap: {
+		zeroRuntime: true,
 	},
 
 	ogImage: {
