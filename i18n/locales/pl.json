@@ -4,6 +4,7 @@
 		"email": "Email",
 		"github": "GitHub",
 		"goHome": "Wróć na start",
+		"externalLinkLabel": "{label}, otwiera się w nowej karcie",
 		"privateCode": "Kod prywatny",
 		"showLess": "Pokaż mniej",
 		"showMore": "Pokaż więcej",
