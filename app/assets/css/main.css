@@ -10,7 +10,7 @@
 	--color-border-strong: #2e4665;
 	--color-foreground: #eff6ff;
 	--color-muted-foreground: #94a3b8;
-	--color-subtle-foreground: #899EBF;
+	--color-subtle-foreground: #899ebf;
 	--color-primary: #22d3ee;
 	--color-success: #2dd4bf;
 }
@@ -29,6 +29,22 @@
 	/* ::selection {
     @apply text-foreground;
   } */
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			scroll-behavior: auto !important;
+			transition-delay: 0s !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
 }
 
 @utility text-muted {
