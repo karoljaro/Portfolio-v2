@@ -46,13 +46,21 @@
 						class="inline-flex min-h-12 items-center gap-2 rounded-full border border-primary bg-primary px-5 text-sm font-semibold text-background transition-colors hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-6"
 					>
 						{{ t('hero.viewProjects') }}
-						<LucideArrowRight class="size-4" />
+						<LucideArrowRight
+							aria-hidden="true"
+							focusable="false"
+							class="size-4"
+						/>
 					</a>
 					<a
 						href="#contact"
 						class="inline-flex min-h-12 items-center gap-2 rounded-full border border-border-strong bg-background-secondary px-5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-6"
 					>
-						<LucideSend class="size-4" />
+						<LucideSend
+							aria-hidden="true"
+							focusable="false"
+							class="size-4"
+						/>
 						{{ t('hero.contactCta') }}
 					</a>
 				</div>
@@ -90,7 +98,11 @@
 							:key="step"
 							class="grid grid-cols-[22px_minmax(0,1fr)] gap-2"
 						>
-							<LucideCheck class="mt-1 size-4 text-primary" />
+							<LucideCheck
+								aria-hidden="true"
+								focusable="false"
+								class="mt-1 size-4 text-primary"
+							/>
 							<span class="text-muted">{{ t(`hero.steps.${step}`) }}</span>
 						</p>
 					</div>
