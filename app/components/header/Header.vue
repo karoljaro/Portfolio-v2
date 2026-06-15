@@ -46,11 +46,14 @@
 	>
 		<div class="flex min-h-14 items-center justify-between gap-3 px-3 sm:px-4 lg:px-5">
 			<a
-				href="#"
+				href="#top"
 				class="flex min-w-0 items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 				:aria-label="t('header.goToTop')"
 			>
-				<div class="hidden items-center gap-1.5 sm:flex">
+				<div
+					aria-hidden="true"
+					class="hidden items-center gap-1.5 sm:flex"
+				>
 					<span class="size-2.5 rounded-full bg-primary"></span>
 					<span class="size-2.5 rounded-full bg-muted-foreground"></span>
 					<span class="size-2.5 rounded-full bg-border-strong"></span>
@@ -59,7 +62,11 @@
 				<div
 					class="grid size-9 shrink-0 place-items-center rounded-lg border border-border bg-background-secondary text-primary sm:hidden"
 				>
-					<LucideTerminal class="size-4" />
+					<LucideTerminal
+						aria-hidden="true"
+						focusable="false"
+						class="size-4"
+					/>
 				</div>
 
 				<div class="min-w-0">
@@ -90,18 +97,22 @@
 				<div
 					class="hidden items-center gap-2 rounded-full border border-border bg-background-secondary px-3 py-2 sm:flex"
 				>
-					<span class="relative flex size-2">
+					<span
+						aria-hidden="true"
+						class="relative flex size-2"
+					>
 						<span
-							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60"
+							class="absolute inline-flex h-full w-full rounded-full bg-primary opacity-60 motion-safe:animate-ping"
 						></span>
 						<span class="relative inline-flex size-2 rounded-full bg-primary"></span>
 					</span>
 					<span class="font-mono text-xs text-muted">{{ t('header.status') }}</span>
 				</div>
 
-				<nav
+				<div
+					role="group"
 					:aria-label="t('header.language')"
-					class="relative grid h-10 grid-cols-2 items-center rounded-full border border-border bg-background-secondary p-1 font-mono text-[11px] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+					class="relative grid h-11 grid-cols-2 items-center rounded-full border border-border bg-background-secondary p-1 font-mono text-[11px] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
 				>
 					<span
 						aria-hidden="true"
@@ -112,7 +123,7 @@
 						v-for="language in languages"
 						:key="language.code"
 						type="button"
-						class="relative z-10 grid h-8 min-w-10 cursor-pointer place-items-center rounded-full px-3 font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:min-w-11"
+						class="relative z-10 grid h-9 min-w-11 cursor-pointer place-items-center rounded-full px-3 font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 						:class="
 							isActiveLanguage(language.code)
 								? 'text-background'
@@ -124,14 +135,18 @@
 					>
 						{{ language.shortLabel }}
 					</button>
-				</nav>
+				</div>
 
 				<a
 					href="#contact"
 					class="hidden min-h-10 items-center gap-2 rounded-full border border-primary bg-primary px-4 text-sm font-semibold text-background transition-colors hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:inline-flex"
 				>
 					{{ t('header.contact') }}
-					<LucideArrowUpRight class="size-4" />
+					<LucideArrowUpRight
+						aria-hidden="true"
+						focusable="false"
+						class="size-4"
+					/>
 				</a>
 			</div>
 		</div>
@@ -144,7 +159,7 @@
 				v-for="item in navItems"
 				:key="item.href"
 				:href="item.href"
-				class="px-2 py-2.5 font-mono text-[11px] text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary"
+				class="min-h-11 px-2 py-3 font-mono text-[11px] text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary"
 			>
 				{{ item.label }}
 			</a>
