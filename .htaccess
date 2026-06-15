@@ -7,6 +7,20 @@ ErrorDocument 404 /404.html
 
 
 # ------------------------------------------------------------
+# Routing plików technicznych
+# ------------------------------------------------------------
+
+<IfModule mod_alias.c>
+
+  # Nuxt sitemap route generuje katalog/HTML redirect.
+  # Te reguły kierują request od razu do prawdziwych plików XML.
+  RedirectMatch 301 ^/sitemap\.xml/?$ /sitemap_index.xml
+  RedirectMatch 301 ^/pl/sitemap\.xml/?$ /__sitemap__/pl-PL.xml
+
+</IfModule>
+
+
+# ------------------------------------------------------------
 # Nagłówki bezpieczeństwa
 # ------------------------------------------------------------
 
@@ -39,17 +53,22 @@ ErrorDocument 404 /404.html
 
 # ------------------------------------------------------------
 # Cache
-# Assety Nuxta i inne statyczne pliki: 30 dni
+# Hashowane assety Nuxta: 1 rok immutable
+# Inne statyczne pliki: 30 dni
 # HTML, JSON i XML: bez długiego cache
 # ------------------------------------------------------------
 
 <IfModule mod_headers.c>
 
-  <FilesMatch "\.(js|mjs|css|woff2?|svg|webp|avif|png|jpe?g|gif|ico)$">
+  <FilesMatch "\.(js|mjs|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(woff2?|svg|webp|avif|png|jpe?g|gif|ico)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 
-  <FilesMatch "\.(html|json|xml)$">
+  <FilesMatch "\.(html|json|xml|txt)$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 
@@ -102,10 +121,25 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 
+<IfModule mod_brotli.c>
+
+  AddOutputFilterByType BROTLI_COMPRESS text/html
+  AddOutputFilterByType BROTLI_COMPRESS text/plain
+  AddOutputFilterByType BROTLI_COMPRESS text/css
+  AddOutputFilterByType BROTLI_COMPRESS text/javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/json
+  AddOutputFilterByType BROTLI_COMPRESS application/xml
+  AddOutputFilterByType BROTLI_COMPRESS text/xml
+  AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+
+</IfModule>
+
+
 # ------------------------------------------------------------
 # Poprawne warianty cache dla skompresowanych plików
 # ------------------------------------------------------------
 
 <IfModule mod_headers.c>
-  Header append Vary Accept-Encoding
+  Header merge Vary Accept-Encoding
 </IfModule>
