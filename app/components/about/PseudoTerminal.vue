@@ -35,7 +35,8 @@
 		class="flex items-start gap-2 rounded-xl border border-border-strong bg-surface font-mono text-xs leading-6 sm:gap-4 sm:text-sm sm:leading-7"
 	>
 		<div
-			class="select-none text-right text-muted bg-background-secondary rounded-l-xl px-3 py-3 sm:px-4 sm:py-4 md:px-6"
+			aria-hidden="true"
+			class="select-none rounded-l-xl bg-background-secondary px-3 py-3 text-right text-muted sm:px-4 sm:py-4 md:px-6"
 		>
 			<span
 				v-for="lineNumber in lineNumbers"
