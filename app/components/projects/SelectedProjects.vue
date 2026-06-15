@@ -56,9 +56,13 @@
 
 		return {
 			target: isExternal ? '_blank' : undefined,
-			rel: isExternal ? 'noreferrer' : undefined,
+			rel: isExternal ? 'noopener noreferrer' : undefined,
 		};
 	};
+	const projectLinkAriaLabel = (action: Extract<ProjectAction, { type: 'link' }>) =>
+		/^https?:\/\//.test(action.href)
+			? t('common.externalLinkLabel', { label: action.label })
+			: action.label;
 
 	const projects = computed<Project[]>(() => {
 		return projectIds.value.map((id) => {
@@ -167,7 +171,11 @@
 						<div
 							class="grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 						>
-							<LucideFolderGit2 class="size-5" />
+							<LucideFolderGit2
+								aria-hidden="true"
+								focusable="false"
+								class="size-5"
+							/>
 						</div>
 						<div>
 							<p class="font-mono text-xs text-primary">
@@ -274,6 +282,7 @@
 							v-if="action.type === 'link'"
 							:href="action.href"
 							v-bind="projectHrefAttrs(action.href)"
+							:aria-label="projectLinkAriaLabel(action)"
 							:class="projectLinkActionClass"
 						>
 							<DynamicIcon
@@ -301,7 +310,8 @@
 		<a
 			:href="githubProfileUrl"
 			target="_blank"
-			rel="noreferrer"
+			rel="noopener noreferrer"
+			:aria-label="t('common.externalLinkLabel', { label: t('projects.moreGithub') })"
 			class="inline-flex min-h-11 items-center gap-2 rounded-full px-1 text-sm font-semibold text-muted transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:text-base"
 		>
 			{{ t('projects.moreGithub') }}
