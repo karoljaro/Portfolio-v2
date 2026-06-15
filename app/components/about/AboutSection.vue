@@ -32,7 +32,11 @@
 						<div
 							class="grid size-12 place-items-center rounded-lg border border-border bg-surface text-primary"
 						>
-							<LucideTerminal class="size-5" />
+							<LucideTerminal
+								aria-hidden="true"
+								focusable="false"
+								class="size-5"
+							/>
 						</div>
 
 						<div class="space-y-2 font-mono text-xs">
@@ -85,7 +89,11 @@
 						<div
 							class="grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 						>
-							<LucideBlocks class="size-5" />
+							<LucideBlocks
+								aria-hidden="true"
+								focusable="false"
+								class="size-5"
+							/>
 						</div>
 						<span
 							class="rounded-full border border-border bg-surface-tag px-2.5 py-1 font-mono text-xs text-muted"
