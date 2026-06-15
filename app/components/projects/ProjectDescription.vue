@@ -8,6 +8,7 @@
 	const { t } = useI18n();
 
 	const lineLimit = 3;
+	const descriptionId = useId();
 	const descriptionRef = ref<HTMLElement | null>(null);
 	const isExpanded = shallowRef(false);
 	const canExpand = shallowRef(false);
@@ -28,6 +29,7 @@
 			isExpanded.value = false;
 		}
 	};
+	const updateExpandableStateThrottled = useThrottleFn(updateExpandableState, 50, true, true);
 
 	onMounted(async () => {
 		await nextTick();
@@ -42,12 +44,13 @@
 		},
 	);
 
-	useResizeObserver(descriptionRef, updateExpandableState);
+	useResizeObserver(descriptionRef, updateExpandableStateThrottled);
 </script>
 
 <template>
 	<div class="space-y-1.5">
 		<p
+			:id="descriptionId"
 			ref="descriptionRef"
 			class="max-w-3xl overflow-hidden text-sm leading-6 text-muted sm:text-base"
 			:class="
@@ -62,16 +65,22 @@
 		<button
 			v-if="canExpand"
 			type="button"
+			:aria-controls="descriptionId"
+			:aria-expanded="isExpanded"
 			class="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 			@click="isExpanded = !isExpanded"
 		>
 			{{ isExpanded ? t('common.showLess') : t('common.showMore') }}
 			<LucideChevronUp
 				v-if="isExpanded"
+				aria-hidden="true"
+				focusable="false"
 				class="size-4"
 			/>
 			<LucideChevronDown
 				v-else
+				aria-hidden="true"
+				focusable="false"
 				class="size-4"
 			/>
 		</button>
