@@ -47,7 +47,11 @@
 					<div
 						class="grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 					>
-						<LucideTerminal class="size-5" />
+						<LucideTerminal
+							aria-hidden="true"
+							focusable="false"
+							class="size-5"
+						/>
 					</div>
 					<div class="space-y-2">
 						<h3 class="text-xl font-semibold leading-tight text-foreground">
@@ -64,16 +68,25 @@
 						:href="`mailto:${contactEmail}`"
 						class="inline-flex min-h-10 items-center gap-2 rounded-md border border-primary bg-primary px-3.5 text-sm font-semibold text-background transition-colors hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 					>
-						<LucideMail class="size-4" />
+						<LucideMail
+							aria-hidden="true"
+							focusable="false"
+							class="size-4"
+						/>
 						{{ t('common.email') }}
 					</a>
 					<a
 						:href="githubProfileUrl"
 						target="_blank"
-						rel="noreferrer"
+						rel="noopener noreferrer"
+						:aria-label="t('common.externalLinkLabel', { label: t('common.github') })"
 						class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 					>
-						<LucideFolderGit2 class="size-4" />
+						<LucideFolderGit2
+							aria-hidden="true"
+							focusable="false"
+							class="size-4"
+						/>
 						{{ t('common.github') }}
 					</a>
 				</div>
