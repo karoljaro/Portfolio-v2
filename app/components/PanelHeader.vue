@@ -11,9 +11,14 @@
 		:class="meta ? 'justify-between gap-4' : 'gap-2'"
 	>
 		<div class="flex min-w-0 items-center gap-2">
-			<span class="size-2.5 shrink-0 rounded-full bg-primary"></span>
-			<span class="size-2.5 shrink-0 rounded-full bg-muted-foreground"></span>
-			<span class="size-2.5 shrink-0 rounded-full bg-border-strong"></span>
+			<span
+				aria-hidden="true"
+				class="flex shrink-0 items-center gap-2"
+			>
+				<span class="size-2.5 rounded-full bg-primary"></span>
+				<span class="size-2.5 rounded-full bg-muted-foreground"></span>
+				<span class="size-2.5 rounded-full bg-border-strong"></span>
+			</span>
 			<span class="ml-2 truncate font-mono text-xs text-muted">{{ title }}</span>
 		</div>
 
