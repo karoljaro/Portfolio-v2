@@ -73,14 +73,22 @@
 								@click="goHome"
 							>
 								{{ t('common.goHome') }}
-								<LucideArrowRight class="size-4" />
+								<LucideArrowRight
+									aria-hidden="true"
+									focusable="false"
+									class="size-4"
+								/>
 							</button>
 							<button
 								type="button"
 								class="inline-flex min-h-12 items-center gap-2 rounded-full border border-border-strong bg-background-secondary px-5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-6"
 								@click="retry"
 							>
-								<LucideRefreshCw class="size-4" />
+								<LucideRefreshCw
+									aria-hidden="true"
+									focusable="false"
+									class="size-4"
+								/>
 								{{ t('common.tryAgain') }}
 							</button>
 						</div>
@@ -124,7 +132,11 @@
 							<div
 								class="grid size-10 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 							>
-								<LucideTerminal class="size-4" />
+								<LucideTerminal
+									aria-hidden="true"
+									focusable="false"
+									class="size-4"
+								/>
 							</div>
 							<div>
 								<p class="font-mono text-xs text-primary">
