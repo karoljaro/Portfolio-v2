@@ -1,75 +1,40 @@
-# Nuxt Minimal Starter
+![Podgląd strony internetowej](website_screen.png)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Portfolio ver.2
 
-## Setup
+Personal portfolio website presenting my experience, selected projects, technical expertise, and software development process.
 
-Make sure to install dependencies:
+The website features a responsive, terminal-inspired interface and is available in both English and Polish.
 
-```bash
-# npm
-npm install
+## Features
 
-# pnpm
-pnpm install
+* Responsive user interface
+* English and Polish language support
+* Selected projects showcase
+* Experience and technical expertise sections
+* Software development process overview
+* Contact section
+* SEO metadata and sitemap
+* Schema.org structured data
 
-# yarn
-yarn install
+## Technologies
 
-# bun
-bun install
-```
+* Nuxt 4
+* Vue 3
+* TypeScript
+* Tailwind CSS
+* Nuxt i18n
+* Nuxt SEO
+* VueUse
+* Lucide Icons
 
-## Development Server
+## Live version
 
-Start the development server on `http://localhost:3000`:
+[karoljaron.dev](https://karoljaron.dev.hkcode.pl/)
 
-```bash
-# npm
-npm run dev
+## Author
 
-# pnpm
-pnpm dev
+**Karol Jaroń**
+Full-Stack Web Developer
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[GitHub](https://github.com/karoljaro)
