@@ -1,0 +1,95 @@
+# -----------------------------------------------------------------------------
+# Nuxt SSG / Apache 2.4+
+# Plik jest kopiowany przez `nuxt generate` do `.output/public/.htaccess`.
+# Strona jest wdrazana w katalogu glownym domeny.
+# -----------------------------------------------------------------------------
+
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+
+# -----------------------------------------------------------------------------
+# Typy MIME potrzebne przez nowoczesne assety
+# -----------------------------------------------------------------------------
+
+<IfModule mod_mime.c>
+  AddType text/javascript .mjs
+  AddType application/manifest+json .webmanifest
+  AddType application/wasm .wasm
+  AddType font/woff .woff
+  AddType font/woff2 .woff2
+  AddType font/ttf .ttf
+  AddType image/avif .avif
+  AddType image/webp .webp
+</IfModule>
+
+
+# -----------------------------------------------------------------------------
+# Sitemap
+# Nuxt SEO generuje `/sitemap.xml/index.html` jako redirect HTML oraz docelowy
+# `/sitemap_index.xml`. Redirect HTTP pozwala crawlerom od razu pobrac XML.
+# -----------------------------------------------------------------------------
+
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/sitemap\.xml/?$ /sitemap_index.xml
+</IfModule>
+
+
+# -----------------------------------------------------------------------------
+# Naglowki bezpieczenstwa
+# HSTS zaczyna dzialac dopiero po poprawnym polaczeniu HTTPS. Przekierowanie
+# HTTP -> HTTPS powinno byc ustawione na hostingu lub reverse proxy.
+# -----------------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "DENY"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+  # Nuxt umieszcza bootstrap i dane aplikacji inline, dlatego script-src oraz
+  # style-src wymagaja `unsafe-inline`. Atrybuty zdarzen JS pozostaja wylaczone.
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; media-src 'self'; manifest-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests"
+</IfModule>
+
+
+# -----------------------------------------------------------------------------
+# Cache
+# - bundle JS/CSS i fonty aplikacji maja hashowane nazwy,
+# - obrazy sa cache'owane konserwatywnie, bo np. favicon ma stala nazwe,
+# - HTML, payload Nuxta, pliki i18n, robots i sitemap zawsze sie rewaliduja.
+# Jedna warstwa Cache-Control zapobiega konfliktom z mod_expires.
+# -----------------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:css|js|mjs|woff2)$">
+    Header always set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:avif|gif|ico|jpe?g|png|svg|ttf|webp|woff)$">
+    Header always set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:html?|json|webmanifest|xml|txt)$">
+    Header always set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+
+# -----------------------------------------------------------------------------
+# Kompresja dynamiczna
+# Brotli jest dodany przed gzip, a DEFLATE pozostaje fallbackiem. Oba moduly
+# samodzielnie negocjuja Accept-Encoding i dodaja `Vary: Accept-Encoding`.
+# -----------------------------------------------------------------------------
+
+<IfModule mod_filter.c>
+  <IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/manifest+json application/wasm image/svg+xml text/css text/html text/javascript text/plain text/xml
+  </IfModule>
+
+  <IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/javascript application/json application/manifest+json application/wasm image/svg+xml text/css text/html text/javascript text/plain text/xml
+  </IfModule>
+</IfModule>
