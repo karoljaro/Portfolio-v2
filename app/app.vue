@@ -1,5 +1,8 @@
 <script setup lang="ts">
 	const { t } = useI18n();
+	const splashSessionKey = 'portfolio:splash-seen:v1';
+	const splashSessionStateScript = `(()=>{const root=document.documentElement;try{const reduce=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce){sessionStorage.setItem('${splashSessionKey}','1');root.dataset.splashState='seen';return}root.dataset.splashState=sessionStorage.getItem('${splashSessionKey}')==='1'?'seen':'pending'}catch{root.dataset.splashState='pending'}})();`;
+	const showSplash = ref(true);
 	const i18nHead = useLocaleHead({
 		lang: true,
 		dir: true,
@@ -8,6 +11,9 @@
 	const seoTitle = computed(() => t('seo.title'));
 	const seoDescription = computed(() => t('seo.description'));
 	const seoSiteName = computed(() => t('seo.siteName'));
+	const handleSplashComplete = () => {
+		showSplash.value = false;
+	};
 
 	defineOgImage(
 		'Portfolio.takumi',
@@ -46,6 +52,12 @@
 				...(i18nHead.value.meta || []),
 			],
 			link: [...(i18nHead.value.link || [])],
+			script: [
+				{
+					id: 'portfolio-splash-session',
+					innerHTML: splashSessionStateScript,
+				},
+			],
 		}),
 		{ tagPriority: 'high' },
 	);
@@ -57,6 +69,11 @@
 		class="site-shell px-4 py-6 sm:px-6 lg:px-8"
 	>
 		<NuxtRouteAnnouncer />
+		<SplashScreen
+			v-if="showSplash"
+			:session-key="splashSessionKey"
+			@complete="handleSplashComplete"
+		/>
 		<div class="site-content">
 			<NuxtLayout>
 				<NuxtPage />

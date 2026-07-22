@@ -36,6 +36,25 @@
 		"runtime": "portfolio.runtime",
 		"status": "available"
 	},
+	"splash": {
+		"ariaLabel": "Portfolio introduction",
+		"command": "$ init portfolio --public",
+		"description": "Connecting interface, services and delivery into one coherent experience.",
+		"eyebrow": "system boot / portfolio runtime",
+		"output": "output: portfolio_ready=true",
+		"progress": "boot sequence",
+		"ready": "ready",
+		"session": "session: new",
+		"skip": "Skip intro",
+		"stages": {
+			"delivery": "deployment path",
+			"interface": "interface layer",
+			"services": "API and data flow"
+		},
+		"status": "Preparing the portfolio introduction.",
+		"title": "Assembling the system",
+		"windowTitle": "portfolio.boot"
+	},
 	"sections": {
 		"about": "about.md",
 		"contact": "contact.sh",

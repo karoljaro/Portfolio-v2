@@ -50,6 +50,22 @@
 	}
 }
 
+html[data-splash-state='pending'],
+html[data-splash-state='active'],
+html[data-splash-state='pending'] body,
+html[data-splash-state='active'] body {
+	overflow: hidden;
+}
+
+html[data-splash-state='seen'] .splash-screen {
+	display: none;
+}
+
+html[data-splash-state='pending'] :is(.motion-enter, .motion-line),
+html[data-splash-state='active'] :is(.motion-enter, .motion-line) {
+	animation-play-state: paused;
+}
+
 @layer components {
 	.site-shell {
 		isolation: isolate;
@@ -179,6 +195,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.motion-enter,
+	.motion-line {
+		animation: none !important;
+		opacity: 1;
+		scale: 1;
+		translate: 0 0;
+	}
+
 	.scroll-reveal-self,
 	.scroll-reveal-item,
 	.scroll-reveal > * {

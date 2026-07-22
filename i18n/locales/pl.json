@@ -36,6 +36,25 @@
 		"runtime": "portfolio.runtime",
 		"status": "dostępny"
 	},
+	"splash": {
+		"ariaLabel": "Wprowadzenie do portfolio",
+		"command": "$ init portfolio --public",
+		"description": "Łączę interfejs, usługi i wdrożenie w jedno spójne doświadczenie.",
+		"eyebrow": "inicjalizacja systemu / portfolio runtime",
+		"output": "output: portfolio_ready=true",
+		"progress": "sekwencja startowa",
+		"ready": "gotowe",
+		"session": "sesja: nowa",
+		"skip": "Pomiń intro",
+		"stages": {
+			"delivery": "ścieżka wdrożenia",
+			"interface": "warstwa interfejsu",
+			"services": "API i przepływ danych"
+		},
+		"status": "Przygotowywanie wprowadzenia do portfolio.",
+		"title": "Składanie systemu",
+		"windowTitle": "portfolio.boot"
+	},
 	"sections": {
 		"about": "about.md",
 		"contact": "contact.sh",
