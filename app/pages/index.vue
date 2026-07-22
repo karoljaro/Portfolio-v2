@@ -63,7 +63,7 @@
 			v-for="section in sections"
 			:id="section.id"
 			:key="section.titleId"
-			class="space-y-4 scroll-mt-28"
+			class="scroll-reveal space-y-4 scroll-mt-28"
 			:aria-labelledby="section.titleId"
 		>
 			<SectionLabel

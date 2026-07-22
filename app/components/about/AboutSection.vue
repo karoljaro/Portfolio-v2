@@ -70,7 +70,7 @@
 						<div
 							v-for="fact in profileFacts"
 							:key="fact.label"
-							class="rounded-lg border border-border bg-background-secondary px-3 py-2.5"
+							class="motion-surface motion-surface--subtle rounded-lg border border-border bg-background-secondary px-3 py-2.5"
 						>
 							<p class="font-mono text-xs text-primary">{{ fact.label }}</p>
 							<p class="mt-1 text-sm font-medium leading-5 text-foreground">
@@ -82,12 +82,12 @@
 			</div>
 		</div>
 
-		<aside class="rounded-xl border border-border-strong bg-surface p-4 sm:p-5">
+		<aside class="motion-surface rounded-xl border border-border-strong bg-surface p-4 sm:p-5">
 			<div class="flex h-full flex-col justify-between gap-6">
 				<div class="space-y-4">
 					<div class="flex items-center justify-between gap-4">
 						<div
-							class="grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
+							class="motion-icon grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 						>
 							<LucideBlocks
 								aria-hidden="true"

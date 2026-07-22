@@ -49,7 +49,11 @@
 		<article
 			v-for="(item, index) in expertiseItems"
 			:key="item.key"
-			class="group relative overflow-hidden rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
+			class="scroll-reveal-item motion-surface group relative overflow-hidden rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
+			:style="{
+				'--reveal-start': `${index * 3}%`,
+				'--reveal-end': `${24 + index * 3}%`,
+			}"
 		>
 			<div
 				aria-hidden="true"
@@ -59,7 +63,7 @@
 			<div class="relative space-y-5">
 				<div class="flex items-start justify-between gap-4">
 					<div
-						class="grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
+						class="motion-icon grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 					>
 						<DynamicIcon
 							:name="item.icon"

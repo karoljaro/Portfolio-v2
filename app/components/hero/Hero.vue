@@ -13,7 +13,10 @@
 
 <template>
 	<section class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_460px] lg:items-stretch">
-		<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
+		<div
+			class="motion-enter overflow-hidden rounded-xl border border-border-strong bg-surface"
+			style="--motion-delay: 0ms"
+		>
 			<PanelHeader
 				:title="t('hero.windowTitle')"
 				:meta="t('hero.runtime')"
@@ -21,29 +24,42 @@
 
 			<div class="space-y-8 p-4 sm:p-6 lg:p-7">
 				<div class="space-y-5">
-					<p class="font-mono text-xs text-primary">{{ t('hero.command') }}</p>
+					<p
+						class="motion-line font-mono text-xs text-primary"
+						style="--motion-delay: 120ms"
+					>
+						{{ t('hero.command') }}
+					</p>
 
 					<div class="space-y-4">
 						<h1
-							class="max-w-4xl text-5xl font-semibold leading-none tracking-normal text-foreground sm:text-6xl lg:text-7xl"
+							class="motion-line max-w-4xl text-5xl font-semibold leading-none tracking-normal text-foreground sm:text-6xl lg:text-7xl"
+							style="--motion-delay: 170ms"
 						>
 							{{ t('hero.name') }}
 						</h1>
 						<p
-							class="max-w-2xl text-xl font-medium leading-8 text-foreground sm:text-2xl"
+							class="motion-line max-w-2xl text-xl font-medium leading-8 text-foreground sm:text-2xl"
+							style="--motion-delay: 220ms"
 						>
 							{{ t('hero.headline') }}
 						</p>
-						<p class="max-w-2xl text-sm leading-7 text-muted sm:text-base">
+						<p
+							class="motion-line max-w-2xl text-sm leading-7 text-muted sm:text-base"
+							style="--motion-delay: 270ms"
+						>
 							{{ t('hero.lead') }}
 						</p>
 					</div>
 				</div>
 
-				<div class="flex flex-wrap gap-3">
+				<div
+					class="motion-line flex flex-wrap gap-3"
+					style="--motion-delay: 320ms"
+				>
 					<a
 						href="#projects"
-						class="inline-flex min-h-12 items-center gap-2 rounded-full border border-primary bg-primary px-5 text-sm font-semibold text-background transition-colors hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-6"
+						class="motion-button inline-flex min-h-12 items-center gap-2 rounded-full border border-primary bg-primary px-5 text-sm font-semibold text-background hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-6"
 					>
 						{{ t('hero.viewProjects') }}
 						<LucideArrowRight
@@ -54,7 +70,7 @@
 					</a>
 					<a
 						href="#contact"
-						class="inline-flex min-h-12 items-center gap-2 rounded-full border border-border-strong bg-background-secondary px-5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-6"
+						class="motion-button inline-flex min-h-12 items-center gap-2 rounded-full border border-border-strong bg-background-secondary px-5 text-sm font-semibold text-foreground hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-6"
 					>
 						<LucideSend
 							aria-hidden="true"
@@ -65,11 +81,14 @@
 					</a>
 				</div>
 
-				<div class="grid gap-2 sm:grid-cols-3">
+				<div
+					class="motion-line grid gap-2 sm:grid-cols-3"
+					style="--motion-delay: 370ms"
+				>
 					<div
 						v-for="(item, index) in signalItems"
 						:key="item"
-						class="rounded-lg border border-border bg-background-secondary px-3 py-2.5"
+						class="motion-surface motion-surface--subtle rounded-lg border border-border bg-background-secondary px-3 py-2.5"
 					>
 						<p class="font-mono text-xs text-primary">
 							{{ formatIndex(index) }}
@@ -83,7 +102,10 @@
 		</div>
 
 		<aside class="grid gap-4">
-			<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
+			<div
+				class="motion-enter overflow-hidden rounded-xl border border-border-strong bg-surface"
+				style="--motion-delay: 90ms"
+			>
 				<PanelHeader :title="t('hero.logTitle')" />
 
 				<div class="space-y-4 p-4 font-mono text-sm leading-7 sm:p-5">
@@ -94,9 +116,10 @@
 
 					<div class="space-y-2">
 						<p
-							v-for="step in buildSteps"
+							v-for="(step, index) in buildSteps"
 							:key="step"
-							class="grid grid-cols-[22px_minmax(0,1fr)] gap-2"
+							class="motion-line grid grid-cols-[22px_minmax(0,1fr)] gap-2"
+							:style="{ '--motion-delay': `${220 + index * 55}ms` }"
 						>
 							<LucideCheck
 								aria-hidden="true"
@@ -120,13 +143,14 @@
 
 			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
 				<div
-					v-for="card in heroCards"
+					v-for="(card, index) in heroCards"
 					:key="card.key"
-					class="rounded-xl border border-border-strong bg-surface p-4"
+					class="motion-enter motion-surface rounded-xl border border-border-strong bg-surface p-4"
+					:style="{ '--motion-delay': `${180 + index * 70}ms` }"
 				>
 					<div class="flex items-center gap-3">
 						<div
-							class="grid size-10 shrink-0 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
+							class="motion-icon grid size-10 shrink-0 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 						>
 							<DynamicIcon
 								:name="card.icon"

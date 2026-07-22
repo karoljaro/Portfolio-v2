@@ -41,11 +41,11 @@
 			</div>
 		</div>
 
-		<aside class="rounded-xl border border-border-strong bg-surface p-4 sm:p-5">
+		<aside class="motion-surface rounded-xl border border-border-strong bg-surface p-4 sm:p-5">
 			<div class="flex h-full flex-col justify-between gap-6">
 				<div class="space-y-3">
 					<div
-						class="grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
+						class="motion-icon grid size-12 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 					>
 						<LucideTerminal
 							aria-hidden="true"
@@ -66,7 +66,7 @@
 				<div class="flex flex-wrap gap-2">
 					<a
 						:href="`mailto:${contactEmail}`"
-						class="inline-flex min-h-10 items-center gap-2 rounded-md border border-primary bg-primary px-3.5 text-sm font-semibold text-background transition-colors hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+						class="motion-button inline-flex min-h-10 items-center gap-2 rounded-md border border-primary bg-primary px-3.5 text-sm font-semibold text-background hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 					>
 						<LucideMail
 							aria-hidden="true"
@@ -80,7 +80,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						:aria-label="t('common.externalLinkLabel', { label: t('common.github') })"
-						class="inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+						class="motion-button inline-flex min-h-10 items-center gap-2 rounded-md border border-border bg-background-secondary px-3.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 					>
 						<LucideFolderGit2
 							aria-hidden="true"

@@ -13,7 +13,7 @@
 		<div class="flex min-w-0 items-center gap-2">
 			<span
 				aria-hidden="true"
-				class="flex shrink-0 items-center gap-2"
+				class="window-controls flex shrink-0 items-center gap-2"
 			>
 				<span class="size-2.5 rounded-full bg-primary"></span>
 				<span class="size-2.5 rounded-full bg-muted-foreground"></span>

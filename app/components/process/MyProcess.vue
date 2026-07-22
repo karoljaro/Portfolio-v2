@@ -44,12 +44,16 @@
 			<article
 				v-for="(step, index) in steps"
 				:key="step.key"
-				class="rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
+				class="scroll-reveal-item motion-surface rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
+				:style="{
+					'--reveal-start': `${index * 2}%`,
+					'--reveal-end': `${24 + index * 2}%`,
+				}"
 			>
 				<div class="space-y-5">
 					<div class="flex items-center justify-between gap-4">
 						<div
-							class="grid size-11 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
+							class="motion-icon grid size-11 place-items-center rounded-lg border border-border bg-background-secondary text-primary"
 						>
 							<DynamicIcon
 								:name="step.icon"

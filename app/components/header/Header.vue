@@ -42,7 +42,7 @@
 
 <template>
 	<header
-		class="sticky top-4 z-50 overflow-hidden rounded-xl border border-border-strong bg-surface/95 backdrop-blur"
+		class="motion-enter sticky top-4 z-50 overflow-hidden rounded-xl border border-border-strong bg-surface/95 backdrop-blur"
 	>
 		<div class="flex min-h-14 items-center justify-between gap-3 px-3 sm:px-4 lg:px-5">
 			<a
@@ -139,7 +139,7 @@
 
 				<a
 					href="#contact"
-					class="hidden min-h-10 items-center gap-2 rounded-full border border-primary bg-primary px-4 text-sm font-semibold text-background transition-colors hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:inline-flex"
+					class="motion-button hidden min-h-10 items-center gap-2 rounded-full border border-primary bg-primary px-4 text-sm font-semibold text-background hover:bg-transparent hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:inline-flex"
 				>
 					{{ t('header.contact') }}
 					<LucideArrowUpRight

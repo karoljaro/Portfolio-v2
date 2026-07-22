@@ -54,11 +54,13 @@
 <template>
 	<main
 		id="top"
-		class="bg-background px-4 py-6 sm:px-6 lg:px-8"
+		class="site-shell px-4 py-6 sm:px-6 lg:px-8"
 	>
 		<NuxtRouteAnnouncer />
-		<NuxtLayout>
-			<NuxtPage />
-		</NuxtLayout>
+		<div class="site-content">
+			<NuxtLayout>
+				<NuxtPage />
+			</NuxtLayout>
+		</div>
 	</main>
 </template>

@@ -24,6 +24,8 @@
 
 	body {
 		@apply bg-background text-foreground antialiased;
+		min-height: 100vh;
+		overflow-x: clip;
 	}
 
 	/* ::selection {
@@ -38,12 +40,235 @@
 		*,
 		*::before,
 		*::after {
+			animation-delay: 0s !important;
 			animation-duration: 0.01ms !important;
 			animation-iteration-count: 1 !important;
 			scroll-behavior: auto !important;
 			transition-delay: 0s !important;
 			transition-duration: 0.01ms !important;
 		}
+	}
+}
+
+@layer components {
+	.site-shell {
+		isolation: isolate;
+		min-height: 100svh;
+		position: relative;
+		background-image:
+			radial-gradient(circle at 12% 8%, rgb(34 211 238 / 0.08), transparent 26rem),
+			radial-gradient(circle at 88% 24%, rgb(45 212 191 / 0.05), transparent 30rem);
+	}
+
+	.site-shell::before {
+		background-image:
+			linear-gradient(rgb(46 70 101 / 0.12) 1px, transparent 1px),
+			linear-gradient(90deg, rgb(46 70 101 / 0.12) 1px, transparent 1px);
+		background-size: 48px 48px;
+		content: '';
+		inset: 0;
+		mask-image: linear-gradient(to bottom, black, transparent 72%);
+		opacity: 0.32;
+		pointer-events: none;
+		position: fixed;
+		z-index: 0;
+	}
+
+	.site-shell::after {
+		animation: ambient-drift 16s ease-in-out infinite alternate;
+		background: radial-gradient(circle, rgb(34 211 238 / 0.12), transparent 68%);
+		border-radius: 9999px;
+		content: '';
+		height: 32rem;
+		opacity: 0.65;
+		pointer-events: none;
+		position: fixed;
+		right: -12rem;
+		top: 18vh;
+		width: 32rem;
+		z-index: 0;
+	}
+
+	.site-content {
+		opacity: 1;
+		position: relative;
+		transition: opacity 300ms ease-out;
+		z-index: 1;
+	}
+
+	.motion-enter,
+	.motion-line {
+		animation-delay: var(--motion-delay, 0ms);
+		animation-fill-mode: both;
+		animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.motion-enter {
+		animation-duration: 720ms;
+		animation-name: surface-enter;
+	}
+
+	.motion-line {
+		animation-duration: 620ms;
+		animation-name: line-enter;
+	}
+
+	.motion-surface {
+		transition-duration: 260ms;
+		transition-property: border-color, box-shadow, transform;
+		transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.motion-icon {
+		transition-duration: 260ms;
+		transition-property: background-color, border-color, transform;
+		transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.motion-button {
+		transition-duration: 200ms;
+		transition-property: background-color, border-color, color, transform;
+		transition-timing-function: ease-out;
+	}
+
+	.window-controls > :first-child {
+		animation: status-glow 3s ease-in-out infinite;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	@starting-style {
+		.site-content {
+			opacity: 0.78;
+		}
+	}
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.motion-surface:hover {
+		border-color: rgb(34 211 238 / 0.55);
+		box-shadow: 0 20px 54px -38px rgb(34 211 238 / 0.5);
+		transform: translate3d(0, -4px, 0);
+	}
+
+	.motion-surface--subtle:hover {
+		box-shadow: 0 14px 36px -30px rgb(34 211 238 / 0.45);
+		transform: translate3d(0, -2px, 0);
+	}
+
+	.motion-surface:hover .motion-icon {
+		border-color: rgb(34 211 238 / 0.55);
+		transform: translate3d(0, -2px, 0) scale(1.04);
+	}
+
+	.motion-button:hover {
+		transform: translate3d(0, -2px, 0);
+	}
+}
+
+.motion-button:active {
+	transform: scale(0.98);
+}
+
+/* Safe baseline: reveal content stays visible without both scroll-driven features. */
+.scroll-reveal-self,
+.scroll-reveal-item,
+.scroll-reveal > * {
+	opacity: 1;
+	translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.scroll-reveal-self,
+	.scroll-reveal-item,
+	.scroll-reveal > * {
+		animation: none;
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	@supports (animation-timeline: view()) and (animation-range: entry 0% cover 24%) {
+		.scroll-reveal-self,
+		.scroll-reveal-item,
+		.scroll-reveal > * {
+			animation-duration: 1ms;
+			animation-fill-mode: both;
+			animation-name: section-reveal;
+			animation-range: entry 0% cover 24%;
+			animation-timeline: view();
+			animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+		}
+
+		.scroll-reveal > :last-child {
+			animation-range: entry 4% cover 30%;
+		}
+
+		.scroll-reveal-item {
+			animation-range: entry var(--reveal-start, 0%) cover var(--reveal-end, 24%);
+		}
+	}
+}
+
+@keyframes surface-enter {
+	from {
+		opacity: 0;
+		scale: 0.985;
+		translate: 0 20px;
+	}
+
+	to {
+		opacity: 1;
+		scale: 1;
+		translate: 0 0;
+	}
+}
+
+@keyframes line-enter {
+	from {
+		opacity: 0;
+		translate: 0 10px;
+	}
+
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+@keyframes section-reveal {
+	from {
+		opacity: 0;
+		translate: 0 30px;
+	}
+
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+@keyframes ambient-drift {
+	from {
+		opacity: 0.5;
+		transform: translate3d(0, -8%, 0) scale(0.92);
+	}
+
+	to {
+		opacity: 0.85;
+		transform: translate3d(-18%, 12%, 0) scale(1.08);
+	}
+}
+
+@keyframes status-glow {
+	0%,
+	100% {
+		box-shadow: 0 0 0 0 rgb(34 211 238 / 0);
+	}
+
+	50% {
+		box-shadow: 0 0 14px 2px rgb(34 211 238 / 0.4);
 	}
 }
 
