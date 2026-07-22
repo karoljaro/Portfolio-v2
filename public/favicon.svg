@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+	<title>Karol Jaroń — terminal prompt</title>
+	<rect width="64" height="64" rx="15" fill="#061222" />
+	<rect
+		x="2"
+		y="2"
+		width="60"
+		height="60"
+		rx="13"
+		fill="none"
+		stroke="#2e4665"
+		stroke-width="3"
+	/>
+	<path
+		d="m17 19.5 12.5 12.5L17 44.5"
+		fill="none"
+		stroke="#22d3ee"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		stroke-width="6"
+	/>
+	<path
+		d="M35 44.5h13"
+		fill="none"
+		stroke="#2dd4bf"
+		stroke-linecap="round"
+		stroke-width="6"
+	/>
+</svg>

@@ -42,6 +42,7 @@
 			titleTemplate: '%s',
 			meta: [
 				{ name: 'description', content: seoDescription.value },
+				{ name: 'theme-color', content: '#020a14' },
 				{ property: 'og:type', content: 'website' },
 				{ property: 'og:title', content: seoTitle.value },
 				{ property: 'og:description', content: seoDescription.value },
@@ -51,7 +52,18 @@
 				{ name: 'twitter:description', content: seoDescription.value },
 				...(i18nHead.value.meta || []),
 			],
-			link: [...(i18nHead.value.link || [])],
+			link: [
+				{
+					rel: 'icon',
+					type: 'image/x-icon',
+					href: '/favicon.ico',
+					sizes: '16x16 32x32 48x48',
+				},
+				{ rel: 'icon', type: 'image/png', href: '/favicon-32x32.png', sizes: '32x32' },
+				{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg', sizes: 'any' },
+				{ rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+				...(i18nHead.value.link || []),
+			],
 			script: [
 				{
 					id: 'portfolio-splash-session',
