@@ -333,7 +333,8 @@
 		inset: 0;
 		isolation: isolate;
 		justify-content: center;
-		overflow: auto;
+		overflow-x: hidden;
+		overflow-y: auto;
 		padding: clamp(1rem, 4vw, 3.5rem);
 		position: fixed;
 		z-index: 100;

@@ -57,6 +57,11 @@ html[data-splash-state='active'] body {
 	overflow: hidden;
 }
 
+html[data-splash-state='pending'] .site-content,
+html[data-splash-state='active'] .site-content {
+	opacity: 0;
+}
+
 html[data-splash-state='seen'] .splash-screen {
 	display: none;
 }
