@@ -3,37 +3,48 @@
 		defineProps<{
 			id?: string;
 			index?: string;
+			loadOnPage?: boolean;
 		}>(),
 		{
 			id: undefined,
 			index: undefined,
+			loadOnPage: false,
 		},
 	);
 </script>
 
 <template>
-	<div class="flex items-center gap-3">
+	<div
+		class="section-label flex items-center gap-3"
+		:class="{ 'section-label--load': loadOnPage }"
+	>
 		<span
 			v-if="index"
 			aria-hidden="true"
-			class="font-mono text-xs text-subtle-foreground"
+			class="section-label__index font-mono text-xs text-subtle-foreground"
 		>
 			{{ index }}
 		</span>
 		<h2
 			:id="id"
-			class="font-mono text-sm font-semibold tracking-normal text-primary sm:text-base"
+			class="inline-flex items-center font-mono text-sm font-semibold tracking-normal text-primary sm:text-base"
 		>
 			<span
 				aria-hidden="true"
-				class="text-subtle-foreground"
+				class="section-label__prompt text-subtle-foreground"
 				>&gt;</span
 			>
-			<span class="ml-2"><slot /></span>
+			<span class="section-label__typing ml-2">
+				<span class="section-label__text"><slot /></span>
+				<span
+					aria-hidden="true"
+					class="section-label__cursor"
+				></span>
+			</span>
 		</h2>
 		<div
 			aria-hidden="true"
-			class="h-px min-w-6 flex-1 bg-border"
+			class="section-label__rule h-px min-w-6 flex-1 bg-border"
 		></div>
 	</div>
 </template>

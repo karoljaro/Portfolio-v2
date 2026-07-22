@@ -62,7 +62,27 @@ html[data-splash-state='seen'] .splash-screen {
 }
 
 html[data-splash-state='pending'] :is(.motion-enter, .motion-line),
-html[data-splash-state='active'] :is(.motion-enter, .motion-line) {
+html[data-splash-state='active'] :is(.motion-enter, .motion-line),
+html[data-splash-state='pending'] .about-load-reveal,
+html[data-splash-state='active'] .about-load-reveal,
+html[data-splash-state='pending']
+	.section-label--load
+	:is(
+		.section-label__index,
+		.section-label__prompt,
+		.section-label__text,
+		.section-label__cursor,
+		.section-label__rule
+	),
+html[data-splash-state='active']
+	.section-label--load
+	:is(
+		.section-label__index,
+		.section-label__prompt,
+		.section-label__text,
+		.section-label__cursor,
+		.section-label__rule
+	) {
 	animation-play-state: paused;
 }
 
@@ -186,12 +206,61 @@ html[data-splash-state='active'] :is(.motion-enter, .motion-line) {
 	transform: scale(0.98);
 }
 
-/* Safe baseline: reveal content stays visible without both scroll-driven features. */
+/* Safe baseline: all enhanced motion targets remain fully visible everywhere. */
+.reveal-from-left {
+	--reveal-scale: 1;
+	--reveal-x: -24px;
+	--reveal-y: 0px;
+}
+
+.reveal-from-right {
+	--reveal-scale: 1;
+	--reveal-x: 24px;
+	--reveal-y: 0px;
+}
+
 .scroll-reveal-self,
 .scroll-reveal-item,
 .scroll-reveal > * {
 	opacity: 1;
+	scale: 1;
 	translate: 0 0;
+}
+
+.section-label__typing {
+	display: inline-grid;
+	position: relative;
+	white-space: nowrap;
+}
+
+.section-label__text {
+	clip-path: inset(0 0 0 0);
+	grid-area: 1 / 1;
+	opacity: 1;
+}
+
+.section-label__cursor {
+	background: var(--color-primary);
+	height: 1em;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 50%;
+	translate: 0 -50%;
+	width: 0.42em;
+}
+
+.section-label__index,
+.section-label__prompt {
+	opacity: 1;
+	translate: 0 0;
+}
+
+.section-label__rule {
+	opacity: 1;
+	scale: 1 1;
+	transform-origin: left center;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -206,9 +275,25 @@ html[data-splash-state='active'] :is(.motion-enter, .motion-line) {
 	.scroll-reveal-self,
 	.scroll-reveal-item,
 	.scroll-reveal > * {
-		animation: none;
+		animation: none !important;
 		opacity: 1;
+		scale: 1;
 		translate: 0 0;
+	}
+
+	.section-label__index,
+	.section-label__prompt,
+	.section-label__text,
+	.section-label__rule {
+		animation: none !important;
+		clip-path: none;
+		opacity: 1;
+		scale: 1;
+		translate: 0 0;
+	}
+
+	.section-label__cursor {
+		display: none;
 	}
 }
 
@@ -226,12 +311,106 @@ html[data-splash-state='active'] :is(.motion-enter, .motion-line) {
 		}
 
 		.scroll-reveal > :last-child {
-			animation-range: entry 4% cover 30%;
+			animation-range: cover 14% cover 40%;
 		}
 
 		.scroll-reveal-item {
-			animation-range: entry var(--reveal-start, 0%) cover var(--reveal-end, 24%);
+			animation-range: cover var(--reveal-start, 10%) cover var(--reveal-end, 34%);
 		}
+
+		.section-label__index,
+		.section-label__prompt,
+		.section-label__text,
+		.section-label__cursor,
+		.section-label__rule {
+			animation-duration: 1ms;
+			animation-fill-mode: both;
+			animation-timeline: view();
+		}
+
+		.section-label__index,
+		.section-label__prompt {
+			animation-name: section-label-meta;
+			animation-range: cover 10% cover 24%;
+			animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+		}
+
+		.section-label__text {
+			animation-name: section-label-type;
+			animation-range: cover 10% cover 32%;
+			animation-timing-function: steps(16, end);
+		}
+
+		.section-label__cursor {
+			animation-name: section-label-cursor;
+			animation-range: cover 10% cover 32%;
+			animation-timing-function: steps(16, end);
+		}
+
+		.section-label__rule {
+			animation-name: section-label-rule;
+			animation-range: cover 14% cover 42%;
+			animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+		}
+	}
+}
+
+@media (min-width: 64rem) and (min-height: 48rem) and (prefers-reduced-motion: no-preference) {
+	.section-label--load .section-label__index,
+	.section-label--load .section-label__prompt {
+		animation-delay: 80ms;
+		animation-duration: 420ms;
+		animation-fill-mode: both;
+		animation-name: section-label-meta;
+		animation-range: normal;
+		animation-timeline: auto;
+		animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.section-label--load .section-label__text,
+	.section-label--load .section-label__cursor {
+		animation-delay: 140ms;
+		animation-duration: 680ms;
+		animation-fill-mode: both;
+		animation-range: normal;
+		animation-timeline: auto;
+		animation-timing-function: steps(16, end);
+	}
+
+	.section-label--load .section-label__text {
+		animation-name: section-label-type;
+	}
+
+	.section-label--load .section-label__cursor {
+		animation-name: section-label-cursor;
+	}
+
+	.section-label--load .section-label__rule {
+		animation-delay: 220ms;
+		animation-duration: 720ms;
+		animation-fill-mode: both;
+		animation-name: section-label-rule;
+		animation-range: normal;
+		animation-timeline: auto;
+		animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.about-load-reveal {
+		animation-delay: var(--about-enter-delay, 420ms);
+		animation-duration: 780ms;
+		animation-fill-mode: both;
+		animation-name: section-reveal;
+		animation-range: normal;
+		animation-timeline: auto;
+		animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.about-load-reveal--primary {
+		--about-enter-delay: 420ms;
+	}
+
+	.about-load-reveal--secondary {
+		--about-enter-delay: 540ms;
 	}
 }
 
@@ -264,12 +443,67 @@ html[data-splash-state='active'] :is(.motion-enter, .motion-line) {
 @keyframes section-reveal {
 	from {
 		opacity: 0;
-		translate: 0 30px;
+		scale: var(--reveal-scale, 0.985);
+		translate: var(--reveal-x, 0px) var(--reveal-y, 30px);
+	}
+
+	to {
+		opacity: 1;
+		scale: 1;
+		translate: 0 0;
+	}
+}
+
+@keyframes section-label-meta {
+	from {
+		opacity: 0;
+		translate: -8px 0;
 	}
 
 	to {
 		opacity: 1;
 		translate: 0 0;
+	}
+}
+
+@keyframes section-label-type {
+	from {
+		clip-path: inset(0 100% 0 0);
+		opacity: 0.45;
+	}
+
+	to {
+		clip-path: inset(0 0 0 0);
+		opacity: 1;
+	}
+}
+
+@keyframes section-label-cursor {
+	0% {
+		left: 0;
+		opacity: 0;
+	}
+
+	8%,
+	88% {
+		opacity: 1;
+	}
+
+	100% {
+		left: calc(100% + 0.3em);
+		opacity: 0;
+	}
+}
+
+@keyframes section-label-rule {
+	from {
+		opacity: 0.2;
+		scale: 0.04 1;
+	}
+
+	to {
+		opacity: 1;
+		scale: 1 1;
 	}
 }
 

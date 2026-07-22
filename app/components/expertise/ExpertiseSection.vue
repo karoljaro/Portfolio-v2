@@ -51,8 +51,8 @@
 			:key="item.key"
 			class="scroll-reveal-item motion-surface group relative overflow-hidden rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
 			:style="{
-				'--reveal-start': `${index * 3}%`,
-				'--reveal-end': `${24 + index * 3}%`,
+				'--reveal-start': `${10 + index * 3}%`,
+				'--reveal-end': `${34 + index * 3}%`,
 			}"
 		>
 			<div

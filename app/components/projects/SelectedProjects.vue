@@ -151,7 +151,9 @@
 <template>
 	<div class="space-y-5">
 		<div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
-			<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
+			<div
+				class="scroll-reveal-item reveal-from-left overflow-hidden rounded-xl border border-border-strong bg-surface"
+			>
 				<PanelHeader :title="t('projects.file')" />
 
 				<div class="space-y-2 p-4 sm:p-5">
@@ -165,7 +167,10 @@
 				</div>
 			</div>
 
-			<aside class="rounded-xl border border-border-strong bg-surface p-4 sm:p-5">
+			<aside
+				class="scroll-reveal-item reveal-from-right rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
+				style="--reveal-start: 14%; --reveal-end: 39%"
+			>
 				<div class="flex h-full flex-col justify-between gap-5">
 					<div class="space-y-3">
 						<div
@@ -210,6 +215,10 @@
 				v-for="(project, index) in projects"
 				:key="project.id"
 				class="scroll-reveal-item motion-surface group grid gap-4 overflow-hidden rounded-xl border border-border-strong bg-surface p-4 sm:p-5 lg:grid-cols-[92px_minmax(0,1fr)_190px] lg:items-center"
+				:style="{
+					'--reveal-start': `${10 + Math.min(index * 2, 6)}%`,
+					'--reveal-end': `${34 + Math.min(index * 2, 6)}%`,
+				}"
 			>
 				<div
 					class="motion-icon relative grid min-h-20 place-items-center overflow-hidden rounded-xl border border-border bg-background-secondary text-primary lg:min-h-23 lg:place-items-start lg:p-3"

@@ -14,7 +14,9 @@
 
 <template>
 	<div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
-		<div class="overflow-hidden rounded-xl border border-border-strong bg-surface">
+		<div
+			class="scroll-reveal-item reveal-from-left overflow-hidden rounded-xl border border-border-strong bg-surface"
+		>
 			<PanelHeader :title="t('contact.file')" />
 
 			<div class="space-y-4 p-4 font-mono text-sm leading-7 sm:p-5">
@@ -41,7 +43,10 @@
 			</div>
 		</div>
 
-		<aside class="motion-surface rounded-xl border border-border-strong bg-surface p-4 sm:p-5">
+		<aside
+			class="scroll-reveal-item reveal-from-right motion-surface rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
+			style="--reveal-start: 14%; --reveal-end: 39%"
+		>
 			<div class="flex h-full flex-col justify-between gap-6">
 				<div class="space-y-3">
 					<div

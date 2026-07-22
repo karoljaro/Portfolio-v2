@@ -13,6 +13,7 @@
 		id?: string;
 		index: string;
 		labelKey: string;
+		loadOnPage?: boolean;
 		titleId: string;
 		component: Component;
 	};
@@ -21,6 +22,7 @@
 		{
 			index: '01',
 			labelKey: 'sections.about',
+			loadOnPage: true,
 			titleId: 'about-title',
 			component: AboutSection,
 		},
@@ -63,12 +65,13 @@
 			v-for="section in sections"
 			:id="section.id"
 			:key="section.titleId"
-			class="scroll-reveal space-y-4 scroll-mt-28"
+			class="home-section space-y-4 scroll-mt-28"
 			:aria-labelledby="section.titleId"
 		>
 			<SectionLabel
 				:id="section.titleId"
 				:index="section.index"
+				:load-on-page="section.loadOnPage"
 				>{{ t(section.labelKey) }}</SectionLabel
 			>
 			<component :is="section.component" />

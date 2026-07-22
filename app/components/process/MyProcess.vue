@@ -34,7 +34,8 @@
 <template>
 	<div class="space-y-4">
 		<div
-			class="rounded-xl border border-border bg-background-secondary px-4 py-3 font-mono text-xs leading-6 sm:px-5 sm:text-sm"
+			class="scroll-reveal-item rounded-xl border border-border bg-background-secondary px-4 py-3 font-mono text-xs leading-6 sm:px-5 sm:text-sm"
+			style="--reveal-start: 10%; --reveal-end: 30%; --reveal-y: 18px"
 		>
 			<span class="text-muted">{{ t('process.terminalUser') }}</span>
 			<span class="text-foreground">{{ t('process.terminal') }}</span>
@@ -46,8 +47,8 @@
 				:key="step.key"
 				class="scroll-reveal-item motion-surface rounded-xl border border-border-strong bg-surface p-4 sm:p-5"
 				:style="{
-					'--reveal-start': `${index * 2}%`,
-					'--reveal-end': `${24 + index * 2}%`,
+					'--reveal-start': `${10 + index * 2}%`,
+					'--reveal-end': `${34 + index * 2}%`,
 				}"
 			>
 				<div class="space-y-5">
