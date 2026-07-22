@@ -9,6 +9,24 @@
 	const seoDescription = computed(() => t('seo.description'));
 	const seoSiteName = computed(() => t('seo.siteName'));
 
+	defineOgImage(
+		'Portfolio.takumi',
+		{
+			name: computed(() => t('hero.name')),
+			role: computed(() => t('about.facts.role.value')),
+			headline: computed(() => t('hero.headline')),
+			availability: computed(() => t('header.status')),
+			product: computed(() => t('hero.signals.product')),
+			api: computed(() => t('hero.signals.api')),
+			release: computed(() => t('hero.signals.release')),
+		},
+		{
+			width: 1200,
+			height: 630,
+			alt: seoTitle,
+		},
+	);
+
 	useHead(
 		() => ({
 			htmlAttrs: {
@@ -22,7 +40,7 @@
 				{ property: 'og:title', content: seoTitle.value },
 				{ property: 'og:description', content: seoDescription.value },
 				{ property: 'og:site_name', content: seoSiteName.value },
-				{ name: 'twitter:card', content: 'summary' },
+				{ name: 'twitter:card', content: 'summary_large_image' },
 				{ name: 'twitter:title', content: seoTitle.value },
 				{ name: 'twitter:description', content: seoDescription.value },
 				...(i18nHead.value.meta || []),

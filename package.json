@@ -20,8 +20,10 @@
 		"vue-router": "^5.2.0"
 	},
 	"devDependencies": {
+		"@nuxt/fonts": "^0.14.0",
 		"@nuxtjs/i18n": "^10.5.0",
 		"@nuxtjs/seo": "^5.3.3",
+		"@takumi-rs/core": "^2.4.0",
 		"@vueuse/nuxt": "^14.3.0",
 		"nuxt-lucide-icons": "^2.1.0",
 		"prettier": "3.9.6"

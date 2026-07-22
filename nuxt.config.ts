@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 		compatibilityVersion: 5,
 	},
 
-	modules: ['nuxt-lucide-icons', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxtjs/seo'],
+	modules: ['nuxt-lucide-icons', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxt/fonts', '@nuxtjs/seo'],
 
 	css: ['~/assets/css/main.css'],
 
@@ -62,6 +62,18 @@ export default defineNuxtConfig({
 		],
 	},
 
+	fonts: {
+		families: [
+			{
+				name: 'Noto Sans',
+				weights: [400, 700],
+				styles: ['normal'],
+				subsets: ['latin', 'latin-ext'],
+				global: true,
+			},
+		],
+	},
+
 	schemaOrg: {
 		identity: definePerson({
 			name: 'Karol Jaroń',
@@ -76,7 +88,15 @@ export default defineNuxtConfig({
 	},
 
 	ogImage: {
-		enabled: false,
+		enabled: true,
+		zeroRuntime: true,
+	},
+
+	nitro: {
+		prerender: {
+			crawlLinks: true,
+			routes: ['/', '/pl'],
+		},
 	},
 
 	seo: {
