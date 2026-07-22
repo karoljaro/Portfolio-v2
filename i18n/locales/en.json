@@ -37,23 +37,45 @@
 		"status": "available"
 	},
 	"splash": {
-		"ariaLabel": "Portfolio introduction",
-		"command": "$ init portfolio --public",
-		"description": "Connecting interface, services and delivery into one coherent experience.",
-		"eyebrow": "system boot / portfolio runtime",
-		"output": "output: portfolio_ready=true",
-		"progress": "boot sequence",
-		"ready": "ready",
-		"session": "session: new",
-		"skip": "Skip intro",
-		"stages": {
-			"delivery": "deployment path",
-			"interface": "interface layer",
-			"services": "API and data flow"
+		"ariaLabel": "Booting the portfolio",
+		"boot": {
+			"api": "Established typed API routes",
+			"automation": "Started automation worker",
+			"deployment": "Reached automated deployment target",
+			"filesystem": "Mounted public project index",
+			"interface": "Started web interface service",
+			"kernel": "Loaded portfolio runtime modules",
+			"private": "Private source repositories remain sealed",
+			"socket": "Listening on contact.socket"
 		},
-		"status": "Preparing the portfolio introduction.",
-		"title": "Assembling the system",
-		"windowTitle": "portfolio.boot"
+		"command": "./portfolio --public",
+		"handoff": "System ready. Handing control to visitor",
+		"kernel": "Linux portfolio 6.8.0-lts #1 SMP PREEMPT_DYNAMIC x86_64",
+		"labels": {
+			"errors": "errors",
+			"host": "host",
+			"kernel": "kernel",
+			"modules": "modules",
+			"role": "role",
+			"services": "services",
+			"targets": "targets",
+			"user": "user"
+		},
+		"operational": "system operational",
+		"output": "portfolio_ready=true",
+		"progress": "booting portfolio.target",
+		"reached": "Reached target Portfolio Runtime.",
+		"runtime": "runtime control plane",
+		"session": "tty1 / x86_64",
+		"skip": "Skip intro",
+		"states": {
+			"info": "INFO",
+			"ok": "OK",
+			"skip": "SKIP"
+		},
+		"status": "Starting portfolio services.",
+		"system": "system status",
+		"windowTitle": "portfolio.boot — bash"
 	},
 	"sections": {
 		"about": "about.md",

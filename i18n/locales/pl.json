@@ -37,23 +37,45 @@
 		"status": "dostępny"
 	},
 	"splash": {
-		"ariaLabel": "Wprowadzenie do portfolio",
-		"command": "$ init portfolio --public",
-		"description": "Łączę interfejs, usługi i wdrożenie w jedno spójne doświadczenie.",
-		"eyebrow": "inicjalizacja systemu / portfolio runtime",
-		"output": "output: portfolio_ready=true",
-		"progress": "sekwencja startowa",
-		"ready": "gotowe",
-		"session": "sesja: nowa",
-		"skip": "Pomiń intro",
-		"stages": {
-			"delivery": "ścieżka wdrożenia",
-			"interface": "warstwa interfejsu",
-			"services": "API i przepływ danych"
+		"ariaLabel": "Uruchamianie portfolio",
+		"boot": {
+			"api": "Ustanowiono typowane trasy API",
+			"automation": "Uruchomiono proces automatyzacji",
+			"deployment": "Osiągnięto cel automatycznego wdrożenia",
+			"filesystem": "Zamontowano publiczny indeks projektów",
+			"interface": "Uruchomiono usługę interfejsu webowego",
+			"kernel": "Załadowano moduły środowiska portfolio",
+			"private": "Prywatne repozytoria źródłowe pozostają zamknięte",
+			"socket": "Nasłuchiwanie na contact.socket"
 		},
-		"status": "Przygotowywanie wprowadzenia do portfolio.",
-		"title": "Składanie systemu",
-		"windowTitle": "portfolio.boot"
+		"command": "./portfolio --public",
+		"handoff": "System gotowy. Przekazuję sterowanie odwiedzającemu",
+		"kernel": "Linux portfolio 6.8.0-lts #1 SMP PREEMPT_DYNAMIC x86_64",
+		"labels": {
+			"errors": "błędy",
+			"host": "host",
+			"kernel": "kernel",
+			"modules": "moduły",
+			"role": "rola",
+			"services": "usługi",
+			"targets": "cele",
+			"user": "użytkownik"
+		},
+		"operational": "system działa",
+		"output": "portfolio_ready=true",
+		"progress": "uruchamianie portfolio.target",
+		"reached": "Osiągnięto cel Portfolio Runtime.",
+		"runtime": "warstwa sterowania runtime",
+		"session": "tty1 / x86_64",
+		"skip": "Pomiń intro",
+		"states": {
+			"info": "INFO",
+			"ok": "OK",
+			"skip": "SKIP"
+		},
+		"status": "Uruchamianie usług portfolio.",
+		"system": "stan systemu",
+		"windowTitle": "portfolio.boot — bash"
 	},
 	"sections": {
 		"about": "about.md",

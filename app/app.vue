@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	const { t } = useI18n();
-	const splashSessionKey = 'portfolio:splash-seen:v1';
+	const splashSessionKey = 'portfolio:splash-seen:v2';
 	const splashSessionStateScript = `(()=>{const root=document.documentElement;try{const reduce=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce){sessionStorage.setItem('${splashSessionKey}','1');root.dataset.splashState='seen';return}root.dataset.splashState=sessionStorage.getItem('${splashSessionKey}')==='1'?'seen':'pending'}catch{root.dataset.splashState='pending'}})();`;
 	const showSplash = ref(true);
 	const i18nHead = useLocaleHead({
