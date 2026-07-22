@@ -22,7 +22,7 @@
 <template>
 	<div
 		class="relative flex h-full w-full items-center justify-center overflow-hidden"
-		style="font-family: 'Inter', 'Noto Sans'; background-color: #020a14; color: #eff6ff"
+		style="font-family: 'IBM Plex Sans', sans-serif; background-color: #020a14; color: #eff6ff"
 	>
 		<div
 			class="absolute inset-0"
@@ -61,6 +61,7 @@
 					padding: 0 34px;
 					background-color: #030d19;
 					border-bottom: 1px solid #2e4665;
+					font-family: 'IBM Plex Mono', monospace;
 				"
 			>
 				<div
@@ -131,7 +132,14 @@
 			>
 				<div class="flex flex-1 flex-col justify-between">
 					<div class="flex flex-col">
-						<span style="font-size: 20px; letter-spacing: 0.035em; color: #22d3ee">
+						<span
+							style="
+								font-family: 'IBM Plex Mono', monospace;
+								font-size: 20px;
+								letter-spacing: 0.035em;
+								color: #22d3ee;
+							"
+						>
 							$ whoami --public
 						</span>
 						<h1
@@ -181,6 +189,7 @@
 								background-color: #030d19;
 								border: 1px solid #1f3149;
 								border-radius: 9px;
+								font-family: 'IBM Plex Mono', monospace;
 							"
 						>
 							<span style="font-size: 11px; color: #22d3ee">
@@ -200,6 +209,7 @@
 						background-color: #030d19;
 						border: 1px solid #1f3149;
 						border-radius: 14px;
+						font-family: 'IBM Plex Mono', monospace;
 					"
 				>
 					<div

@@ -321,7 +321,6 @@
 <style scoped>
 	.splash-screen {
 		--splash-ease: cubic-bezier(0.16, 1, 0.3, 1);
-		--splash-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 		align-items: center;
 		animation: splash-life 6s var(--splash-ease) both;
 		background:
@@ -329,7 +328,7 @@
 			radial-gradient(circle at 14% 82%, rgb(45 212 191 / 0.06), transparent 24rem), #020a14;
 		color: #eff6ff;
 		display: flex;
-		font-family: var(--splash-mono);
+		font-family: var(--font-mono);
 		inset: 0;
 		isolation: isolate;
 		justify-content: center;
